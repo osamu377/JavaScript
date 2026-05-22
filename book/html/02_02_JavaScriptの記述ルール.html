@@ -1,0 +1,367 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>JavaScriptの記述ルール - 留学生のためのJavaScript学習ガイド</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-1bf24a4c.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-a10e83d1.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">留学生のためのJavaScript学習ガイド</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="-javascriptの記述きじゅつルール初心者しょしんしゃ向けむけまとめ"><a class="header" href="#-javascriptの記述きじゅつルール初心者しょしんしゃ向けむけまとめ">🧠 JavaScriptの<ruby>記述<rt>きじゅつ</rt></ruby>ルール（<ruby>初心者<rt>しょしんしゃ</rt></ruby><ruby>向け<rt>むけ</rt></ruby>まとめ）</a></h1>
+<h2 id="i-文ぶんの終わりおわりにはセミコロンをつける"><a class="header" href="#i-文ぶんの終わりおわりにはセミコロンをつける">I. <ruby>文<rt>ぶん</rt></ruby>の<ruby>終わり<rt>おわり</rt></ruby>にはセミコロン（<code>;</code>）をつける</a></h2>
+<ul>
+<li><ruby>命令<rt>めいれい</rt></ruby>の<ruby>終わり<rt>おわり</rt></ruby>にセミコロンをつけることで、コードの<ruby>区切り<rt>くぎり</rt></ruby>が<ruby>明確<rt>めいかく</rt></ruby>になります。</li>
+</ul>
+<pre><code class="language-javascript">let name = "Taro";
+</code></pre>
+<hr>
+<h2 id="ii-変数へんすうの宣言せんげんには-let-や-const-を使うつかう"><a class="header" href="#ii-変数へんすうの宣言せんげんには-let-や-const-を使うつかう">II. <ruby>変数<rt>へんすう</rt></ruby>の<ruby>宣言<rt>せんげん</rt></ruby>には <code>let</code> や <code>const</code> を<ruby>使う<rt>つかう</rt></ruby></a></h2>
+<ul>
+<li><code>let</code>：<ruby>変更<rt>へんこう</rt></ruby><ruby>可能<rt>かのう</rt></ruby>な<ruby>変数<rt>へんすう</rt></ruby></li>
+<li><code>const</code>：<ruby>変更<rt>へんこう</rt></ruby><ruby>不可<rt>ふか</rt></ruby>の<ruby>定数<rt>ていすう</rt></ruby></li>
+</ul>
+<pre><code class="language-javascript">let age = 20;
+const birthYear = 2005;
+</code></pre>
+<hr>
+<h2 id="iii-文字列もじれつは---または---で囲むかこむ"><a class="header" href="#iii-文字列もじれつは---または---で囲むかこむ">III. <ruby>文字列<rt>もじれつ</rt></ruby>は <code>" "</code> または <code>' '</code> で<ruby>囲む<rt>かこむ</rt></ruby></a></h2>
+<ul>
+<li>どちらでもOKですが、<ruby>統一<rt>とういつ</rt></ruby>して<ruby>使う<rt>つかう</rt></ruby>のが<ruby>良い<rt>よい</rt></ruby><ruby>習慣<rt>しゅうかん</rt></ruby>です。</li>
+</ul>
+<pre><code class="language-javascript">let greeting = "こんにちは";
+</code></pre>
+<hr>
+<h2 id="iv-インデント字下げじさげでコードを見やすくみやすくする"><a class="header" href="#iv-インデント字下げじさげでコードを見やすくみやすくする">IV. インデント（<ruby>字下げ<rt>じさげ</rt></ruby>）でコードを<ruby>見やすく<rt>みやすく</rt></ruby>する</a></h2>
+<ul>
+<li><ruby>通常<rt>つうじょう</rt></ruby>はスペース2つまたは4つで<ruby>揃えます<rt>そろえます</rt></ruby>。</li>
+</ul>
+<pre><code class="language-javascript">function sayHello() {
+  console.log("こんにちは！");
+}
+</code></pre>
+<hr>
+<h2 id="v-コメントを使ってつかって説明せつめいを書くかく"><a class="header" href="#v-コメントを使ってつかって説明せつめいを書くかく">V. コメントを<ruby>使って<rt>つかって</rt></ruby><ruby>説明<rt>せつめい</rt></ruby>を<ruby>書く<rt>かく</rt></ruby></a></h2>
+<ul>
+<li><code>//</code> を<ruby>使って<rt>つかって</rt></ruby>コードの<ruby>説明<rt>せつめい</rt></ruby>を<ruby>記述<rt>きじゅつ</rt></ruby>できます。</li>
+</ul>
+<pre><code class="language-javascript">// これは挨拶を表示する関数です
+function sayHello() {
+  console.log("こんにちは！");
+}
+</code></pre>
+<hr>
+<h2 id="vi-命名めいめいはわかりやすく英語えいごで書くかく"><a class="header" href="#vi-命名めいめいはわかりやすく英語えいごで書くかく">VI. <ruby>命名<rt>めいめい</rt></ruby>はわかりやすく、<ruby>英語<rt>えいご</rt></ruby>で<ruby>書く<rt>かく</rt></ruby></a></h2>
+<ul>
+<li><ruby>変数<rt>へんすう</rt></ruby>や<ruby>関数名<rt>かんすうめい</rt></ruby>は<ruby>意味<rt>いみ</rt></ruby>のある<ruby>英語<rt>えいご</rt></ruby>で<ruby>書く<rt>かく</rt></ruby>のが<ruby>一般的<rt>いっぱんてき</rt></ruby>です。</li>
+</ul>
+<pre><code class="language-javascript">let userName = "Taro";
+function showMessage() {
+  console.log("ようこそ！");
+}
+</code></pre>
+<hr>
+<h2 id="vii-大文字おおもじと小文字こもじは区別くべつされる"><a class="header" href="#vii-大文字おおもじと小文字こもじは区別くべつされる">VII. <ruby>大文字<rt>おおもじ</rt></ruby>と<ruby>小文字<rt>こもじ</rt></ruby>は<ruby>区別<rt>くべつ</rt></ruby>される</a></h2>
+<ul>
+<li><code>Name</code> と <code>name</code> は<ruby>別<rt>べつ</rt></ruby>の<ruby>変数<rt>へんすう</rt></ruby>として<ruby>扱われます<rt>あつかわれます</rt></ruby>。</li>
+</ul>
+<pre><code class="language-javascript">let name = "Taro";
+let Name = "Hanako";  // ← 別の変数
+</code></pre>
+<hr>
+<hr>
+<h2 id="viii--留学生への重要アドバイス文字列もじれつやコメント以外いがいは半角文字はんかくもじで記述きじゅつする"><a class="header" href="#viii--留学生への重要アドバイス文字列もじれつやコメント以外いがいは半角文字はんかくもじで記述きじゅつする">VIII. ⚠️ 留学生への重要アドバイス：<ruby>文字列<rt>もじれつ</rt></ruby>やコメント<ruby>以外<rt>いがい</rt></ruby>は<ruby>半角文字<rt>はんかくもじ</rt></ruby>で<ruby>記述<rt>きじゅつ</rt></ruby>する</a></h2>
+<p>日本のパソコンやスマホを使うとき、最初にびっくりするのが <strong>「文字の大きさ（幅）」</strong> の違いだと思います。</p>
+<p>簡単に言うと、<strong>「スリムな文字」</strong> と <strong>「<ruby>太<rt>ふと</rt></ruby>っちょな文字」</strong> の2種類があります。</p>
+<p>これは日本だけではなく、漢字やハングルを使う東アジアの国々（CJK：China, Japan, Korea）に共通する特徴です。</p>
+<h3 id="1-全角ぜんかくと-半角はんかくの違い"><a class="header" href="#1-全角ぜんかくと-半角はんかくの違い">1. <ruby>全角<rt>ぜんかく</rt></ruby>と <ruby>半角<rt>はんかく</rt></ruby>の違い</a></h3>
+<p>イメージは「箱」のサイズです。</p>
+<ul>
+<li><strong><ruby>全角<rt>ぜんかく</rt></ruby> (Full-width):</strong> 正方形の箱。漢字やひらがなと同じ大きさ。</li>
+<li><strong><ruby>半角<rt>はんかく</rt></ruby> (Half-width):</strong> <ruby>全角<rt>ぜんかく</rt></ruby>の半分の細い箱。アルファベットや数字に使われます。</li>
+</ul>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>種類</th><th><ruby>見<rt>み</rt></ruby>た<ruby>目<rt>め</rt></ruby></th><th>特徴</th></tr>
+</thead>
+<tbody>
+<tr><td><strong><ruby>半角<rt>はんかく</rt></ruby> (Half)</strong></td><td><code>A B C 1 2 3 ! ?</code></td><td>スリム。世界中で使われる標準サイズ。</td></tr>
+<tr><td><strong><ruby>全角<rt>ぜんかく</rt></ruby> (Full)</strong></td><td><code>Ａ Ｂ Ｃ １ ２ ３ ！ ？</code></td><td>横に広い。日本の漢字やひらがなと仲良しサイズ。</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="2-なぜこれが大事なの"><a class="header" href="#2-なぜこれが大事なの">2. なぜこれが大事なの？</a></h3>
+<p>日本のウェブサイト（銀行、学校の<ruby>登録<rt>とうろく</rt></ruby>、ネットショッピングなど）では、<strong>「ここは<ruby>半角<rt>はんかく</rt></ruby>で書いてください」「ここは<ruby>全角<rt>ぜんかく</rt></ruby>で！」</strong> というルールがとても厳しいです。</p>
+<ul>
+<li><strong>メールアドレス・パスワード:</strong> ほとんどが <strong>「<ruby>半角<rt>はんかく</rt></ruby>」</strong> です。<ruby>全角<rt>ぜんかく</rt></ruby>で打つとエラーになります。</li>
+<li><strong>名前（フリガナ）:</strong> 銀行などでは <strong>「<ruby>全角<rt>ぜんかく</rt></ruby>」</strong> を求められることが多いです。</li>
+</ul>
+<blockquote class="blockquote-tag blockquote-tag-important">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p>
+<p><strong>よくあるミス：</strong>
+スペース（空白）にも「<ruby>全角<rt>ぜんかく</rt></ruby>」と「<ruby>半角<rt>はんかく</rt></ruby>」があります。
+パスワードの間に「<ruby>全角<rt>ぜんかく</rt></ruby>スペース」が入ってしまうと、<ruby>見<rt>み</rt></ruby>た<ruby>目<rt>め</rt></ruby>では気づけないのでログインできなくて困ることがあります。注意しましょう！</p>
+</blockquote>
+<p><strong>コードはすべて「<ruby>半角<rt>はんかく</rt></ruby>（half-width）」で書きます</strong></p>
+<p>JavaScriptなどのプログラムを書くときは、<ruby>画面<rt>がめん</rt></ruby>に日本語で<ruby>表示<rt>ひょうじ</rt></ruby>する言葉や、コメントなどを除いて、<ruby>半角<rt>はんかく</rt></ruby>文字で書きます。</p>
+<p>特に「<ruby>全角<rt>ぜんかく</rt></ruby>スペース」や「<ruby>全角<rt>ぜんかく</rt></ruby>のセミコロン <strong>；</strong> 」、「<ruby>全角<rt>ぜんかく</rt></ruby>のカッコ <strong>（ ）</strong> 」が混じると、プログラムは<ruby>動<rt>うご</rt></ruby>きません。日本語<ruby>入力<rt>にゅうりょく</rt></ruby>（IME）を使っているときは、常に<ruby>半角<rt>はんかく</rt></ruby>になっているか確認しましょう。</p>
+<p>また、ほとんどのプログラミング言語（Python, JavaScript, Java, C++ など）は、英語をベースに作られています。そのため、コンピュータは「<ruby>全角<rt>ぜんかく</rt></ruby>スペース」をスペースとして認識できず、「ナゾの記号」だと思ってしまいます。</p>
+<h3 id="3-どうやって使つかい分わけるの"><a class="header" href="#3-どうやって使つかい分わけるの">3. どうやって<ruby>使<rt>つか</rt></ruby>い<ruby>分<rt>わ</rt></ruby>けるの？</a></h3>
+<p>キーボードの「<ruby>半角<rt>はんかく</rt></ruby>/<ruby>全角<rt>ぜんかく</rt></ruby>」キー以外にも、便利なショートカットがあります（Windowsの場合）。</p>
+<ol>
+<li>文字を<ruby>入力<rt>にゅうりょく</rt></ruby>して、確定する（Enterを押す）前に…</li>
+<li><strong>F8キー</strong> を押すと、一瞬で <strong><ruby>半角<rt>はんかく</rt></ruby></strong> になります。</li>
+<li><strong>F9キー</strong> を押すと、一瞬で <strong><ruby>全角<rt>ぜんかく</rt></ruby>アルファベット</strong> になります。</li>
+</ol>
+<p>最初は少し面倒に感じるかもしれませんが、「日本の文字（漢字）は大きいから、<ruby>専用<rt>せんよう</rt></ruby>の広い席が必要なんだな」と思えばOKです！</p>
+<hr>
+<h2 id="ix-まとめjavascript学習のルールと習慣"><a class="header" href="#ix-まとめjavascript学習のルールと習慣">IX. まとめ：JavaScript学習のルールと習慣</a></h2>
+<p><strong>JavaScriptの<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>：これだけは守りたい8つのルール</strong></p>
+<p>最後に、ミスを防ぐための大切なルールをまとめました。</p>
+<p>たとえば<ruby>飲食<rt>いんしょく</rt></ruby>店でアルバイトをする場合も、わかりやすく書かれたマニュアルを見れば、ミスをすることなく作業することができます。マニュアルは、誰が読んでも同じ意味にとれるように、あいまいさのない、はっきり書かれたものでなければなりません。</p>
+<p>プログラミングは世界共通のルールです。なぜ英語（えいご）で名前を付けるのか？ それは世界中のプログラマーが共通して使う「<ruby>公用<rt>こうよう</rt>&gt;</ruby>の言葉」だからです。</p>
+<p>以下のルールを「チェックリスト」として使いましょう。</p>
+<ol>
+<li>文の終わりにはセミコロン（;）： 命令の<ruby>区切<rt>くぎ</rt></ruby>りをはっきりさせます。</li>
+<li><ruby>変数<rt>へんすう</rt></ruby>の<ruby>宣言<rt>せんげん</rt></ruby>（せんげん）は let と const： 値を入れる「箱（はこ）」を作ります。
+<ul>
+<li>const：一度決めたら変えられない 「箱に貼った固定ラベル」 です。基本はこちらを使います。</li>
+<li>let：あとで中身を<ruby>入<rt>い</rt></ruby>れ<ruby>替<rt>かえ</rt></ruby>られる箱です。</li>
+</ul>
+</li>
+<li>文字列は “ “ または ’ ’ で囲む： 「こんにちは」などの言葉は<ruby>引用符<rt>いんようふ</rt></ruby>（いんようふ）で囲みます。</li>
+<li>インデント（字下げ）： コードの行の最初をスペースで<ruby>揃<rt>そろ</rt></ruby>えて、見やすくします。</li>
+<li>コメント（//）： 自分のためのメモです。コンピュータは無視します。</li>
+<li>名前は英語（えいご）で付ける： let namae ではなく let userName と書くのがプロのルールです。</li>
+<li>命名にキャメルケース (camelCase)： 2つ目の単語を大文字にします（<ruby>例<rt>れい</rt></ruby>：userName）。</li>
+<li>大文字と小文字を分ける： MyName と myname は、コンピュータには違う箱に見えます。</li>
+<li>コメントを書きましょう： <code>//</code> のあとにメモを書きます。自分の母国語でメモを残すと学習がはかどります。</li>
+<li>コードはすべて「<ruby>半角<rt>はんかく</rt></ruby>（half-width）」で書きます： これが一番大切です。文字列の中とコメント以外で 「<ruby>全角<rt>ぜんかく</rt></ruby>」を使うと、コードは絶対に<ruby>動<rt>うご</rt></ruby>きません。</li>
+</ol>
+<hr>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="02_01_書いてみよう.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="02_03_イベントハンドラ.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="02_01_書いてみよう.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="02_03_イベントハンドラ.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="src/assets/fzf-17e59c4c.umd.js"></script>
+        <script src="src/assets/elasticlunr-04fe11a0.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>変数 - 留学生のためのJavaScript学習ガイド</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-1bf24a4c.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-a10e83d1.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">留学生のためのJavaScript学習ガイド</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="変数へんすう"><a class="header" href="#変数へんすう"><ruby>変数<rt>へんすう</rt></ruby></a></h1>
+<p><strong>JavaScriptの基礎：データの入れ物「<ruby>変数<rt>へんすう</rt></ruby>」をマスターしよう</strong></p>
+<p>JavaScriptを学ぶ上で、最初の重要なステップが「<ruby>変数<rt>へんすう</rt></ruby>」の理解です。</p>
+<p>留学生の皆さんが日本語を学ぶとき、単語を覚えて整理するように、プログラミングでもデータを整理して名前をつける作業が必要です。<ruby>変数<rt>へんすう</rt></ruby>を使いこなせるようになると、プログラムの中でデータを自由に再利用（さいりよう）し、複雑な処理を<ruby>組<rt>く</rt></ruby>み<ruby>立<rt>た</rt></ruby>てることができるようになります。</p>
+<p>では、まず、「<ruby>変数<rt>へんすう</rt></ruby>とは何か」から、はじめましょう。</p>
+<hr>
+<h2 id="i-変数へんすうとは何かデータを保存する名前付きの箱"><a class="header" href="#i-変数へんすうとは何かデータを保存する名前付きの箱">I. <ruby>変数<rt>へんすう</rt></ruby>とは何か：データを保存する「名前付きの箱」</a></h2>
+<p>プログラミングにおける「<ruby>変数<rt>へんすう</rt></ruby>」とは、プログラムの中で扱う<ruby>数値<rt>すうち</rt></ruby>や文字列などのデータを保存しておくための「<strong>名前のついた箱</strong>」のようなものです。</p>
+<p>空港で荷物を預けるシーンを想像してみてください。たくさんのスーツケースがあるとき、『どれが誰のものか？』『中身が何か？』を<ruby>見分<rt>みわ</rt></ruby>けるために「名前のラベル」を貼りますよね。これが<ruby>変数<rt>へんすう</rt></ruby>です。ラベル（<ruby>変数<rt>へんすう</rt></ruby>名）があるからこそ、<ruby>後<rt>あと</rt></ruby>で必要なときに迷わずそのデータを取り出すことができます。</p>
+<h3 id="1代入だいにゅう"><a class="header" href="#1代入だいにゅう">1.「<ruby>代入<rt>だいにゅう</rt></ruby>」</a></h3>
+<p>「名前のついた箱」である <strong>「<ruby>変数<rt>へんすう</rt></ruby>」の中にデータを入れる</strong> ことを、プログラミングでは <strong>「<ruby>代入<rt>だいにゅう</rt></ruby>」</strong> と言います。</p>
+<ul>
+<li><strong>名前（ラベル）</strong>: <ruby>変数<rt>へんすう</rt></ruby>名（<ruby>例<rt>れい</rt></ruby>: <code>score</code>, <code>myName</code>）</li>
+<li><strong>箱の中身</strong>: データ（<ruby>例<rt>れい</rt></ruby>: 数字の <code>100</code>, 文字の <code>"山田"</code>）</li>
+</ul>
+<p><ruby>代入<rt>だいにゅう</rt></ruby>するときは、<strong><code>=</code>（イコール）</strong> という記号を使います。ここで一番大切なルールがあります。</p>
+<p><strong>「右側（みぎがわ）にあるデータを、左側（ひだりがわ）の<ruby>変数<rt>へんすう</rt></ruby>に入れる」</strong>,</p>
+<p>数学（すうがく）の <strong>「<code>=</code>」</strong> は「左と右が同じ」という意味ですが、プログラミングの <strong>「<code>=</code>」</strong> は <strong>「入れる」</strong> という<ruby>動<rt>うご</rt></ruby>きを表します。</p>
+<p>たとえば、テストの点数を<code>score</code>という<ruby>変数<rt>へんすう</rt></ruby>に保存したいときは次のように書きます。</p>
+<pre><code class="language-javascript">score = 100;
+</code></pre>
+<ul>
+<li>これは、<strong>「100」という数字を、「score」という名前の箱に入れた</strong> という意味になります。</li>
+</ul>
+<p>また、<strong>「再<ruby>代入<rt>だいにゅう</rt></ruby>（さいだいにゅう）」</strong> とは、「一度、<ruby>変数<rt>へんすう</rt></ruby>に値を<ruby>代入<rt>だいにゅう</rt></ruby>したあとで、別の値を入れなおす」ことです。</p>
+<p>一度、100という点数を入れた<code>score</code>を、あとで80点に変更する場合、下のように書きます。</p>
+<pre><code class="language-javascript">score = 100; // 最初に100を代入（だいにゅう）します
+// プログラムの途中は省略します
+score = 80; // 一度、100を入れた変数（へんすう）scoreに、80を再代入（さいだいにゅう）します
+</code></pre>
+<h3 id="2-変数へんすう宣言せんげんとキーワードの種類"><a class="header" href="#2-変数へんすう宣言せんげんとキーワードの種類">2. <ruby>変数<rt>へんすう</rt></ruby><ruby>宣言<rt>せんげん</rt></ruby>とキーワードの種類</a></h3>
+<p><ruby>変数<rt>へんすう</rt></ruby>を利用するには、まずシステムにその<ruby>変数<rt>へんすう</rt></ruby>名を使うことを知らせる「<strong><ruby>変数<rt>へんすう</rt></ruby><ruby>宣言<rt>せんげん</rt></ruby></strong>」が必要です。現代のJavaScriptでは、主に <strong><code>const</code></strong> と <strong><code>let</code></strong> という2つのキーワードを使用して<ruby>宣言<rt>せんげん</rt></ruby>を行います。</p>
+<p>なぜ<ruby>変数<rt>へんすう</rt></ruby>を<ruby>宣言<rt>せんげん</rt></ruby>するキーワードが2つあるのでしょうか？ 実は、JavaScriptには2種類の箱があります。プログラムを<ruby>効率<rt>こうりつ</rt></ruby>的に、そしてミスなく作るためには、これらを<ruby>使<rt>つか</rt></ruby>い<ruby>分<rt>わ</rt></ruby>けることが重要です。</p>
+<p>キーワードは、プログラムが動いている途中で「値を変更するかどうか」で<ruby>使<rt>つか</rt></ruby>い<ruby>分<rt>わ</rt></ruby>けます。</p>
+<p><code>let</code>で<ruby>宣言<rt>せんげん</rt></ruby>した<ruby>変数<rt>へんすう</rt></ruby>は、あとで値を変えることができます。つまり <strong>「再<ruby>代入<rt>だいにゅう</rt></ruby>が可能」</strong> です。反対に、<code>const</code>で<ruby>宣言<rt>せんげん</rt></ruby>した<ruby>変数<rt>へんすう</rt></ruby>は、あとで値を変えることができません。</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>種類</th><th>特徴</th><th>使いどき</th><th><ruby>例<rt>れい</rt></ruby></th></tr>
+</thead>
+<tbody>
+<tr><td>let</td><td>中身を<ruby>入<rt>い</rt></ruby>れ<ruby>替<rt>かえ</rt></ruby>られる箱</td><td>ゲームのスコアやクリックされた回数など、<ruby>後<rt>あと</rt></ruby>で値が変わるもの</td><td><code>const MAX_LEVEL = 99;</code></td></tr>
+<tr><td>const</td><td>一度入れたら変えられない箱</td><td>名前、誕生日、<ruby>設定<rt>せってい</rt></ruby>値など、ずっと同じもの</td><td><code>let score = 0;</code> （あとで <code>score = 10;</code> と変えられる）</td></tr>
+</tbody>
+</table>
+</div>
+<p>💡 プロの<ruby>視点<rt>してん</rt></ruby>：なぜ <code>const</code> を<ruby>優先<rt>ゆうせん</rt></ruby>するのか？</p>
+<p><code>const</code> で<ruby>宣言<rt>せんげん</rt></ruby>された<ruby>変数<rt>へんすう</rt></ruby>は、後から値を変更できません。一度決めた値が「変わらない」ことが約束されいてると、後からコードを<ruby>読<rt>よ</rt></ruby>み<ruby>返<rt>かえ</rt></ruby>したときに迷わず、バグ（ミス）を減らすことができるからです。</p>
+<p>ですから、みなさんは、<strong>できるだけ <code>const</code> を使いましょう</strong>。そして、<strong>後から値を変更しなければならないときだけ <code>let</code> を使いましょう</strong>。</p>
+<p>※ むかしは <code>let</code>の代わりに <code>var</code> が使われていましたが、知らないうちに<ruby>変数<rt>へんすう</rt></ruby>の中身が書きかえられてしまうかもしれないので、現在は、「使わないのがよい」とされています。</p>
+<h3 id="3-変数へんすうの初期化しょきか"><a class="header" href="#3-変数へんすうの初期化しょきか">3. <ruby>変数<rt>へんすう</rt></ruby>の<ruby>初期化<rt>しょきか</rt></ruby></a></h3>
+<p><ruby>変数<rt>へんすう</rt></ruby>を<ruby>宣言<rt>せんげん</rt></ruby>する際、同時に値を<ruby>代入<rt>だいにゅう</rt></ruby>することを「<strong><ruby>初期化<rt>しょきか</rt></ruby>（しょきか）</strong>」と呼びます。</p>
+<ul>
+<li><strong><ruby>宣言<rt>せんげん</rt></ruby>と<ruby>初期化<rt>しょきか</rt></ruby>を同時に行う<ruby>例<rt>れい</rt></ruby></strong>:
+<pre><code class="language-javascript">let myDog = "Rover"; // 宣言（せんげん）と同時に "Rover" という文字列を入れる
+const pi = 3.14;     // constは宣言（せんげん）時に必ず初期化（しょきか）が必要
+</code></pre>
+</li>
+<li><strong><ruby>宣言<rt>せんげん</rt></ruby>だけ先に行う例（<code>let</code>のみ可能）</strong>:
+<pre><code class="language-javascript">let myName; // 箱だけ用意する。この時の中身は undefined（未定義（みていぎ））となる
+myName = "Chris"; // 後から値を代入（だいにゅう）する
+</code></pre>
+</li>
+</ul>
+<h3 id="4-変数へんすうの名前の付け方"><a class="header" href="#4-変数へんすうの名前の付け方">4. <ruby>変数<rt>へんすう</rt></ruby>の名前の付け方</a></h3>
+<p><ruby>変数<rt>へんすう</rt></ruby>に名前を付けるときには、いくつかの守るべきルールと<ruby>慣習<rt>かんしゅう</rt></ruby>があります。</p>
+<ul>
+<li><strong>大文字と小文字は区別される</strong>: <code>Name</code> と <code>name</code> は別の<ruby>変数<rt>へんすう</rt></ruby>として扱われます。</li>
+<li><strong>使用できる文字</strong>: <ruby>半角<rt>はんかく</rt></ruby><ruby>英数字<rt>えいすうじ</rt></ruby>、アンダースコア（<code>_</code>）、ドル記号（<code>$</code>）が使えますが、<strong>数字から始めることはできません</strong>。</li>
+<li><strong>キャメルケース (camelCase)</strong>: 複数の単語を<ruby>繋<rt>つな</rt></ruby>げる場合、2つ目以降の単語の先頭を大文字にする<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>が一般的です。
+<ul>
+<li><strong><ruby>例<rt>れい</rt></ruby></strong>: <code>finalOutputValue</code>、<code>userName</code></li>
+</ul>
+</li>
+<li><strong>意味のある名前</strong>: <code>a</code> や <code>b</code> といった一文字ではなく、<code>count</code> や <code>isRaining</code> など、<strong>中身が何であるか伝わる英語の名前</strong>を付けるのがよい、とされています。</li>
+</ul>
+<p>⚠️ 留学生への重要アドバイス：<ruby>半角<rt>はんかく</rt></ruby>と<ruby>全角<rt>ぜんかく</rt></ruby></p>
+<p>JavaScriptのコードを書く際、最も多いエラーの原因は<ruby>全角<rt>ぜんかく</rt></ruby>文字の使用です。<strong><ruby>変数<rt>へんすう</rt></ruby>の名前にも、<ruby>全角<rt>ぜんかく</rt></ruby>文字は使えません。</strong> すべて<ruby>半角<rt>はんかく</rt></ruby>文字にしてください。</p>
+<p>箱の使い方がわかったところで、次は、その箱に入れる「データの種類」について詳しく見ていきましょう。</p>
+<p>以下のようなものがあります。</p>
+<ul>
+<li><strong>文字列型</strong>: <code>let name = "山田";</code> （シングル <code>' '</code> または ダブル <code>" "</code> の<ruby>引用符<rt>いんようふ</rt></ruby>で囲む）</li>
+<li><strong><ruby>数値<rt>すうち</rt></ruby>型</strong>: <code>let age = 17;</code> （<ruby>引用符<rt>いんようふ</rt></ruby>は付けない）</li>
+<li><strong><ruby>論理<rt>ろんり</rt></ruby>型</strong>: <code>let iAmAlive = true;</code> （<code>true</code> または <code>false</code> の<ruby>真偽<rt>しんぎ</rt></ruby>値）</li>
+<li><strong><ruby>配列<rt>はいれつ</rt></ruby></strong>: <code>let myNameArray = ["Chris", "Bob", "Jim"];</code> （複数の値をまとめて管理するリスト）</li>
+<li><strong>オブジェクト</strong>: <code>let dog = { name: "ポチ", breed: "ダルメシアン" };</code> （関連するデータと機能をひとつにまとめたもの）</li>
+</ul>
+<p>ここでは「文字列型」「<ruby>数値<rt>すうち</rt></ruby>型」「<ruby>論理<rt>ろんり</rt></ruby>型」について説明します。「<ruby>配列<rt>はいれつ</rt></ruby>」と「オブジェクト」については、あとの章で説明します。</p>
+<hr>
+<h2 id="ii-文字列型-stringテキストデータを扱う"><a class="header" href="#ii-文字列型-stringテキストデータを扱う">II. 文字列型 (String)：テキストデータを扱う</a></h2>
+<p>ウェブページで「こんにちは」というメッセージを<ruby>表示<rt>ひょうじ</rt></ruby>したり、ユーザーの名前を扱ったりする際に使われるのが「文字列（もじれつ）」です。</p>
+<h3 id="1-文字列を作る"><a class="header" href="#1-文字列を作る">1. 文字列を作る</a></h3>
+<p>文字列を作るには、テキストを <strong><ruby>引用符<rt>いんようふ</rt></ruby>（クォーテーション）</strong> で囲みます。</p>
+<ul>
+<li>シングルクォーテーション： <strong>‘こんにちは’</strong></li>
+<li>ダブルクォーテーション： <strong>“こんにちは”</strong></li>
+</ul>
+<p>どちらを使っても構いませんが、ひとつのプログラムの中で統一するのが良い習慣です。</p>
+<h3 id="2-テンプレートリテラル最新さいしんのスマートな書かき方かた"><a class="header" href="#2-テンプレートリテラル最新さいしんのスマートな書かき方かた">2. テンプレートリテラル：<ruby>最新<rt>さいしん</rt></ruby>のスマートな<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby></a></h3>
+<p>バッククォート（ ` ）と ${ } を使った「テンプレートリテラル」を使うと、<ruby>変数<rt>へんすう</rt></ruby>の<ruby>埋<rt>う</rt></ruby>め<ruby>込<rt>こ</rt></ruby>みや<ruby>改行<rt>かいぎょう</rt></ruby>が非常に簡単になります。</p>
+<pre><code class="language-javascript">const name = "佐藤";
+// 変数(へんすう）を文章の中に埋（う）め込（こ）む
+const greeting = `こんにちは、${name}さん！`; 
+console.log(greeting);
+</code></pre>
+<p>実際、どんなふうになるか見てみましょう。F12 キー（ノートPCは Fn + F12）を使ってコンソールを開いてから、下の <strong>「実行」</strong> ボタンを押してみてください。</p>
+<p><button onclick="const name = &#39;佐藤&#39;; const greeting = `こんにちは、${name}さん！`; console.log(greeting);">実行</button></p>
+<pre><code class="language-javascript">// テンプレートリテラルなら、そのまま改行（かいぎょう）もできます
+const multiLine = `一行目です
+二行目です
+三行目です`;
+console.log(multiLine);
+</code></pre>
+<p>下の <strong>「実行」</strong> ボタンを押すと、上のコードの実行結果がコンソールに<ruby>表示<rt>ひょうじ</rt></ruby>されます。</p>
+<p><button onclick="const multiLine = `一行目です
+二行目です
+三行目です`;
+console.log(multiLine);">実行</button></p>
+<!--a href="./html/03_01_templit.html">ここをクリックして<ruby>例<rt>れい</rt></ruby>をみてみましょう。</a-->
+<p>文字の次は、計算に欠かせない「<ruby>数値<rt>すうち</rt></ruby>」の扱いに進みます。</p>
+<hr>
+<h2 id="iii-数値すうち型-number-と特別な値-nan--infinity"><a class="header" href="#iii-数値すうち型-number-と特別な値-nan--infinity">III. <ruby>数値<rt>すうち</rt></ruby>型 (Number) と特別な値 (NaN / Infinity)</a></h2>
+<p>JavaScriptでは、整数（100）も小数（3.14）も、すべて同じ「<ruby>数値<rt>すうち</rt></ruby>」型として扱います。</p>
+<h3 id="1-算術さんじゅつ演算えんざん子計算の記号"><a class="header" href="#1-算術さんじゅつ演算えんざん子計算の記号">1. <ruby>算術<rt>さんじゅつ</rt></ruby><ruby>演算<rt>えんざん</rt></ruby>子（計算の記号）</a></h3>
+<p><ruby>数値<rt>すうち</rt></ruby>を使って、算数と同じように計算ができます。</p>
+<ul>
+<li><code>+</code>（<ruby>足<rt>た</rt></ruby>し<ruby>算<rt>ざん</rt></ruby>） <code>-</code>（<ruby>引<rt>ひ</rt></ruby>き<ruby>算<rt>ざん</rt></ruby>） <code>*</code>（<ruby>掛<rt>か</rt></ruby>け<ruby>算<rt>ざん</rt></ruby>） <code>/</code>（<ruby>割<rt>わ</rt></ruby>り<ruby>算<rt>ざん</rt></ruby>） <code>%</code>（余り）</li>
+</ul>
+<p>※ <ruby>算術<rt>さんじゅつ</rt></ruby><ruby>演算<rt>えんざん</rt></ruby>子については、あとで、もっと詳（くわ）しく説明します。</p>
+<h3 id="2-特別な数値すうちnanとinfinity"><a class="header" href="#2-特別な数値すうちnanとinfinity">2. 特別な<ruby>数値<rt>すうち</rt></ruby>：NaNとInfinity</a></h3>
+<p><ruby>数値<rt>すうち</rt></ruby>型には、注意が必要な特殊な値があります。</p>
+<ul>
+<li><strong>NaN (Not a Number)</strong> ：「<ruby>数値<rt>すうち</rt></ruby>ではない」状態です。<ruby>例<rt>たと</rt></ruby>えば、文字列を無理やり計算しようとした時に発生します。</li>
+<li><strong>Infinity</strong> ：無限に大きな<ruby>数値<rt>すうち</rt></ruby>です。</li>
+</ul>
+<p>計算の次は、プログラムが「正しいか間違いか」を判断するためのデータを見てみましょう。</p>
+<hr>
+<h2 id="iv-論理ろんり型-booleanyesかnoかの判断基準"><a class="header" href="#iv-論理ろんり型-booleanyesかnoかの判断基準">IV. <ruby>論理<rt>ろんり</rt></ruby>型 (Boolean)：YesかNoかの判断基準</a></h2>
+<p>プログラムが「もし〜なら、これをする」という<ruby>制御<rt>せいぎょ</rt></ruby>（せいぎょ）を行う際、その<ruby>土台<rt>どだい</rt></ruby>となるのが「<ruby>論理<rt>ろんり</rt></ruby>（ろんり）」型です。</p>
+<h3 id="1-2つの値だけ"><a class="header" href="#1-2つの値だけ">1. 2つの値だけ</a></h3>
+<p><ruby>論理<rt>ろんり</rt></ruby>型には、true（<ruby>真<rt>しん</rt></ruby>／正しい） と false（<ruby>偽<rt>ぎ</rt></ruby>／間違い） の2つの値しか存在しません。</p>
+<h3 id="2-比較と組くみ合あわせ"><a class="header" href="#2-比較と組くみ合あわせ">2. 比較と<ruby>組<rt>く</rt></ruby>み<ruby>合<rt>あ</rt></ruby>わせ</a></h3>
+<p>比較<ruby>演算<rt>えんざん</rt></ruby>子を使うと、結果として<ruby>論理<rt>ろんり</rt></ruby>型の値が得られます。</p>
+<ul>
+<li>score === 100 （スコアは100と<ruby>厳密<rt>げんみつ</rt></ruby>に等しいか？）</li>
+<li>age &gt;= 20 （年齢は20以上か？）</li>
+</ul>
+<p>また、<ruby>論理<rt>ろんり</rt></ruby><ruby>演算<rt>えんざん</rt></ruby>子を使って複数の条件を<ruby>組<rt>く</rt></ruby>み<ruby>合<rt>あ</rt></ruby>わせることもできます。</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th><ruby>演算<rt>えんざん</rt></ruby>子</th><th>意味</th><th>覚えるポイント</th></tr>
+</thead>
+<tbody>
+<tr><td>&amp;&amp;</td><td>〜かつ〜 (AND)</td><td>すべて true のときだけ true</td></tr>
+<tr><td>||</td><td>〜または〜 (OR)</td><td>どちらかが true であれば true</td></tr>
+<tr><td>!</td><td>〜ではない (NOT)</td><td>true と false を逆転させる</td></tr>
+</tbody>
+</table>
+</div>
+<p>※ 比較<ruby>演算<rt>えんざん</rt></ruby>子と<ruby>論理<rt>ろんり</rt></ruby><ruby>演算<rt>えんざん</rt></ruby>子については、次の章で、もっと詳（くわ）しく説明します</p>
+<p><ruby>論理<rt>ろんり</rt></ruby>型を正しく理解すると、複雑なシステムの判断ロジックを整理して、ユーザーの<ruby>入力<rt>にゅうりょく</rt></ruby>に対して「正しく<ruby>反応<rt>はんのう</rt></ruby>する」プログラムを書くことができるようになります。</p>
+<hr>
+<h2 id="v-未定義ていぎみていぎ型-undefined値が決まっていない状態"><a class="header" href="#v-未定義ていぎみていぎ型-undefined値が決まっていない状態">V. <ruby>未<ruby>定義<rt>ていぎ</rt></ruby><rt>みていぎ</rt></ruby>型 (Undefined)：値が決まっていない状態</a></h2>
+<p><ruby>変数<rt>へんすう</rt></ruby>を作ったけれど、中身をまだ何も入れていないとき、JavaScriptはその状態を undefined と表現します。これは「<ruby>未<ruby>定義<rt>ていぎ</rt></ruby><rt>みていぎ</rt></ruby>（みていぎ）」型という特殊な型になります。「<ruby>未<ruby>定義<rt>ていぎ</rt></ruby><rt>みていぎ</rt></ruby>」とは「まだ<ruby>定義<rt>ていぎ</rt></ruby>されていない」「まだ、どういうものか決まっていない、わからない」という意味です。</p>
+<p><strong>「空の箱」と「存在しない箱」の違い</strong></p>
+<p><ruby>初心者<rt>しょしんしゃ</rt></ruby>の方が間違いやすいのが、以下の違いです。</p>
+<ul>
+<li>undefined：箱（<ruby>変数<rt>へんすう</rt></ruby>）はあるけれど、中身がまだ入っていない状態。</li>
+<li>ReferenceError：そもそも箱（<ruby>変数<rt>へんすう</rt></ruby>）<ruby>自体<rt>じたい</rt></ruby>が存在していない、または名前を間違えている状態。</li>
+</ul>
+<p>💡 デバッグのヒント 実行結果に undefined と<ruby>表示<rt>ひょうじ</rt></ruby>されたら、「データの<ruby>代入<rt>だいにゅう</rt></ruby>を忘れていないか？」「スペルミスをしていないか？」を疑ってみましょう。これはミスを特定するための重要な手がかりになります。</p>
+<hr>
+<h2 id="vi-型の変換へんかん-type-conversion"><a class="header" href="#vi-型の変換へんかん-type-conversion">VI. 型の<ruby>変換<rt>へんかん</rt></ruby> (Type Conversion)</a></h2>
+<p>Webサイトの<ruby>入力<rt>にゅうりょく</rt></ruby>フォームから受け取るデータは、数字に見えても実際には「文字列」です。これを使って計算するには「型の<ruby>変換<rt>へんかん</rt></ruby>」が必要です。</p>
+<h3 id="1-データの抽出parseint"><a class="header" href="#1-データの抽出parseint">1. データの抽出：parseInt()</a></h3>
+<p>文字列の中から数字だけを取り出す便利な機能があります。</p>
+<pre><code>console.log(parseInt("55kg"));    // 55 （数字の部分だけ取り出す）
+console.log(parseInt("12.99ドル")); // 12 （整数部分だけ取り出す）
+console.log(parseInt("A123"));    // NaN （先頭が文字だと失敗する）
+</code></pre>
+<h3 id="2-安全な数値すうち入力にゅうりょくの受け取りフロー"><a class="header" href="#2-安全な数値すうち入力にゅうりょくの受け取りフロー">2. 安全な<ruby>数値<rt>すうち</rt></ruby><ruby>入力<rt>にゅうりょく</rt></ruby>の受け取りフロー</a></h3>
+<p>プロの現場では、以下のように段階を踏んでデータを処理します。</p>
+<ol>
+<li>受け取る：prompt() などで文字列として<ruby>入力<rt>にゅうりょく</rt></ruby>を受け取る。</li>
+<li><ruby>変換<rt>へんかん</rt></ruby>する：Number() や parseInt() で<ruby>数値<rt>すうち</rt></ruby>に変える。</li>
+<li>チェックする：isNaN() で、正しく数字になったか確認する。</li>
+</ol>
+<h3 id="3--学習者の味方typeof-演算えんざん子"><a class="header" href="#3--学習者の味方typeof-演算えんざん子">3. 🔍 学習者の味方：typeof <ruby>演算<rt>えんざん</rt></ruby>子</a></h3>
+<p>「今のこの<ruby>変数<rt>へんすう</rt></ruby>は、何型なんだろう？」と迷ったときは、typeof を使いましょう。</p>
+<pre><code>const value = "123";
+console.log(typeof value); // "string" と表示（ひょうじ）される
+
+const numValue = Number(value);
+console.log(typeof numValue); // "number" と表示（ひょうじ）される
+</code></pre>
+<p>自分の書いたコードが思ったとおりに動いているか、コンソールで typeof を使って確認するクセをつけましょう。</p>
+<hr>
+<h2 id="vii-まとめプログラミングの基礎を固かためる"><a class="header" href="#vii-まとめプログラミングの基礎を固かためる">VII. まとめ：プログラミングの基礎を<ruby>固<rt>かた</rt></ruby>める</a></h2>
+<p><ruby>変数<rt>へんすう</rt></ruby>と型の知識(ちしき)は、これからの学習の<ruby>土台<rt>どだい</rt></ruby>(どだい)になります。</p>
+<p>💡 <strong>最重要ポイント</strong></p>
+<ul>
+<li><ruby>変数<rt>へんすう</rt></ruby>は「名前のついた箱」： データを<ruby>記憶<rt>きおく</rt></ruby>(きおく)し、何度でも使うために必要です。</li>
+<li>基本は const を使う： 安全のために const を使い、値を変えるときだけ let を使いましょう。</li>
+<li><ruby>数値<rt>すうち</rt></ruby><ruby>変換<rt>へんかん</rt></ruby>(すうちへんかん)を忘れずに： prompt() などで受け取ったデータは Number() や parseInt() で数字に変えてから計算しましょう。</li>
+</ul>
+<p>⚠️ <strong><ruby>初心者<rt>しょしんしゃ</rt></ruby>が間違えやすいポイント</strong></p>
+<ul>
+<li><ruby>引用符<rt>いんようふ</rt></ruby>（クォーテーション）の忘れ： 文字を書くときは必ず “ “ で囲んでください。囲まないと<ruby>変数<rt>へんすう</rt></ruby>だと勘違(かんちが)いされてエラーになります。</li>
+<li><ruby>全角<rt>ぜんかく</rt></ruby>(ぜんかく)文字の使用： プログラムのコード（let, const, ; など）は、必ず<ruby>半角<rt>はんかく</rt></ruby>(はんかく)の<ruby>英数字<rt>えいすうじ</rt></ruby>で書いてください。<ruby>全角<rt>ぜんかく</rt></ruby>のスペースがひとつあるだけでも、プログラムは動かなくなります。</li>
+</ul>
+<p>これで<ruby>変数<rt>へんすう</rt></ruby>の基本は<ruby>完璧<rt>かんぺき</rt></ruby>(かんぺき)です。さあ、次に進みましょう！</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="03_00_JavaScriptの基本文法.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="03_02_演算子.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="03_00_JavaScriptの基本文法.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="03_02_演算子.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="src/assets/fzf-17e59c4c.umd.js"></script>
+        <script src="src/assets/elasticlunr-04fe11a0.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

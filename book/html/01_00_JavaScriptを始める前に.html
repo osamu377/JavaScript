@@ -1,0 +1,385 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>JavaScriptを始める前に - 留学生のためのJavaScript学習ガイド</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-1bf24a4c.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-a10e83d1.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">留学生のためのJavaScript学習ガイド</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="javascriptを始める前に"><a class="header" href="#javascriptを始める前に">JavaScriptを始める前に</a></h1>
+<p><strong>留学生のためのJavaScript学習ガイド：Webを動かす<ruby>魔法<rt>まほう</rt></ruby>を学ぼう</strong></p>
+<p><ruby>留学生<rt>りゅうがくせい</rt></ruby>のみなさん、こんにちは！プログラミングの世界へようこそ。</p>
+<p>みなさんが毎日使っているスマートフォンやパソコンの<ruby>画面<rt>がめん</rt></ruby>。ボタンを押すとメニューが出てきたり、地図が動いたりしますね。これはすべて「JavaScript（ジャバスクリプト）」という言葉が<ruby>命令<rt>めいれい</rt></ruby>を出して動かしています。</p>
+<p>このガイドでは、自分でウェブページを動かせるようになるための基礎（きそ）をやさしく解説します。それがJavaScriptの基本だからです。</p>
+<blockquote>
+<p>(参考)
+現在のJavaScriptは、ウェブページの操作だけでなく、いろいろな用途に使えるプログラム言語になっています。しかし、今でも、ブラウザ上で活躍しています。</p>
+</blockquote>
+<hr>
+<h2 id="i-私たちの舞台wwwワールドワイドウェブ"><a class="header" href="#i-私たちの舞台wwwワールドワイドウェブ">I. 私たちの舞台：WWW（ワールド・ワイド・ウェブ）</a></h2>
+<p>まず、javaScriptの活躍の舞台、WWW（ワールド・ワイド・ウェブ）とは何かについて、説明しましょう。</p>
+<p><strong>WWW（ワールド・ワイド・ウェブ）</strong> は、世界中のコンピュータが「クモの巣（Web）」のようにつながって、情報を<ruby>共有<rt>きょうゆう</rt></ruby>する<ruby>仕組<rt>しく</rt></ruby>みのことです。</p>
+<p>これを、<strong>「図書館（としょかん）」</strong> に<ruby>例<rt>たと</rt></ruby>えて、やさしく説明しますね。</p>
+<h3 id="1-3つの大切な道具"><a class="header" href="#1-3つの大切な道具">1. 3つの大切な「道具」</a></h3>
+<p>WWWを動かすために、3つの<ruby>主役<rt>しゅやく</rt></ruby>がいます。</p>
+<ul>
+<li><strong>Webブラウザ（お客さん）</strong>
+ChromeやSafariなど、私たちがサイトを見るためのソフトです。「本を読みたい人」です。</li>
+<li><strong>Webサーバ（図書館のスタッフ）</strong>
+世界中のどこかにある、24時間動いているコンピュータです。「本を管理している人」です。</li>
+<li><strong>HTML（本の内容）</strong>
+ウェブサイトに書いてある文章や写真のデータです。これが「本」そのものです。</li>
+</ul>
+<h3 id="2-ウェブサイトが表示ひょうじされるまでの4つのステップ"><a class="header" href="#2-ウェブサイトが表示ひょうじされるまでの4つのステップ">2. ウェブサイトが<ruby>表示<rt>ひょうじ</rt></ruby>されるまでの「4つのステップ」</a></h3>
+<p>あなたがブラウザでURLを<ruby>入力<rt>にゅうりょく</rt></ruby>してから、<ruby>画面<rt>がめん</rt></ruby>が出るまでの流れを見てみましょう。</p>
+<ol>
+<li><strong>リクエスト（注文）：</strong>
+あなたが「このページを見たい！」とURLをクリックします。これは図書館のスタッフに「あの本を貸してください」と頼むのと同じです。</li>
+<li><strong>住所の確認（DNS）：</strong>
+インターネットの世界では、<code>google.com</code>のような名前ではなく、数字の住所（IPアドレス <ruby>例<rt>たと</rt></ruby>えば、“142.251.223.46” みたいな）で場所を探します。</li>
+<li><strong>レスポンス（返事）：</strong>
+サーバがあなたのリクエストを受けて、HTMLなどのデータをあなたのブラウザに送り返します。「はい、どうぞ！」と本を渡してくれるイメージです。</li>
+<li><strong>レンダリング（<ruby>組<rt>く</rt></ruby>み<ruby>立<rt>た</rt></ruby>て）：</strong>
+ブラウザが、届いたHTMLデータを読み取って、きれいなデザインに<ruby>組<rt>く</rt></ruby>み<ruby>立<rt>た</rt></ruby>てて<ruby>表示<rt>ひょうじ</rt></ruby>します。</li>
+</ol>
+<h3 id="3-wwwで使われる魔法まほうの言葉"><a class="header" href="#3-wwwで使われる魔法まほうの言葉">3. WWWで使われる「<ruby>魔法<rt>まほう</rt></ruby>の言葉」</a></h3>
+<p>ウェブの世界には、共通のルール（プロトコル）があります。</p>
+<ul>
+<li><strong>HTTP / HTTPS：</strong>
+情報をやり取りするときの「言葉のルール」です。</li>
+<li><strong>URL：</strong>
+ウェブサイトの「住所」です。世界に一つしかありません。</li>
+</ul>
+<h3 id="まとめテーブル"><a class="header" href="#まとめテーブル">まとめテーブル</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>ITの言葉</th><th>図書館での<ruby>例<rt>たと</rt></ruby>え</th><th>役割</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>クライアント</strong></td><td>本を読みたい人</td><td>ブラウザでリクエストを送る</td></tr>
+<tr><td><strong>サーバ</strong></td><td>図書館のスタッフ</td><td>データを<ruby>保管<rt>ほかん</rt></ruby>して、<ruby>送<rt>おく</rt></ruby>り<ruby>返<rt>かえ</rt></ruby>す</td></tr>
+<tr><td><strong>HTML</strong></td><td>本のページ</td><td>文字や写真のデータ</td></tr>
+<tr><td><strong>URL</strong></td><td>本の整理番号</td><td>サイトがどこにあるか教える</td></tr>
+</tbody>
+</table>
+</div>
+<p>いかがでしょうか？「注文して、送ってもらって、<ruby>組<rt>く</rt></ruby>み<ruby>立<rt>た</rt></ruby>てる」。このシンプルな流れがWWWの<ruby>正体<rt>しょうたい</rt></ruby>です。</p>
+<p>「WWWは、世界中の情報をだれでも、どこでも見られるようにしたすごい発明なんです。</p>
+<hr>
+<h2 id="ii-ウェブページを作る3つの力htmlcssjavascriptの役割"><a class="header" href="#ii-ウェブページを作る3つの力htmlcssjavascriptの役割">II. ウェブページを作る「3つの力」：HTML・CSS・JavaScriptの役割</a></h2>
+<p>ウェブページは、3つの技術がチームワークを発揮してできています。これを「家づくり」に<ruby>例<rt>たと</rt></ruby>えてみましょう。</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>技術名</th><th>役割（やくわり）</th><th>家づくりに<ruby>例<rt>たと</rt></ruby>えると？</th></tr>
+</thead>
+<tbody>
+<tr><td>HTML</td><td><ruby>骨組<rt>ほねぐ</rt></ruby>み・構造</td><td>柱、壁、床（ゆか）</td></tr>
+<tr><td>CSS</td><td><ruby>見<rt>み</rt></ruby>た<ruby>目<rt>め</rt></ruby>・デザイン</td><td>ペンキの色、インテリア、壁に貼る紙</td></tr>
+<tr><td>JavaScript</td><td><ruby>動<rt>うご</rt></ruby>き・機能（きのう）</td><td>電気（でんき）、機械装置（きかいそうち）</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="javascriptの役割電気を通すこと"><a class="header" href="#javascriptの役割電気を通すこと">JavaScriptの役割：電気を通すこと</a></h3>
+<p>HTMLとCSSだけでは、家は完成しても「電気が通っていない」状態です。HTMLとCSSだけのウェブページは、ただ情報を<ruby>表示<rt>ひょうじ</rt></ruby>するだけの、<ruby>動<rt>うご</rt></ruby>きのない「紙のポスター」のようなものです。</p>
+<p>JavaScriptという電気が通ることで、スイッチを押せばライトがつき、ドアの前に立てば自動ドアが開き、ボタンを押せばエレベーターが動くようになります。ウェブページはユーザーと「<ruby>対話<rt>たいわ</rt></ruby>（たいわ）」ができる便利な道具に変わるのです。</p>
+<hr>
+<h2 id="iii-イベントとは"><a class="header" href="#iii-イベントとは">III. イベントとは</a></h2>
+<h3 id="1-きっかけを待っているコンピューター"><a class="header" href="#1-きっかけを待っているコンピューター">1. 「きっかけ」を待っているコンピューター</a></h3>
+<p><ruby>普段<rt>ふだん</rt></ruby>、ウェブページはただじっとしているだけに見えますが、実はあなたの操作を <strong>「今か今かと待っている」</strong> 状態です。</p>
+<p><ruby>例<rt>たと</rt></ruby>えば、あなたがこんな<ruby>動<rt>うご</rt></ruby>きをしたとき、それがすべて「イベント」になります。</p>
+<ul>
+<li>ボタンを <strong>カチッ（クリック）</strong> としたとき。</li>
+<li>キーボードで <strong>文字を<ruby>入力<rt>にゅうりょく</rt></ruby></strong> したとき。</li>
+<li><ruby>画面<rt>がめん</rt></ruby>を <strong>上下に動かした（スクロール）</strong> とき。</li>
+</ul>
+<p>このように、<strong>「ユーザーが何かをした！」</strong> という出来事のことを、JavaScriptでは「イベント」と呼びます。</p>
+<hr>
+<h3 id="2-もししたらするという約束"><a class="header" href="#2-もししたらするという約束">2. 「もし〜したら、〜する」という約束</a></h3>
+<p>イベントの考え方は、皆さんの日常（にちじょう）にある <strong>「センサー」</strong> と同じです。</p>
+<ul>
+<li><strong>自動ドア：</strong> 「人が前に来たら（イベント）、ドアを開ける」</li>
+<li><strong>目覚まし時計：</strong> 「朝の7時になったら（イベント）、音を鳴らす」</li>
+<li><strong>ウェブサイト：</strong> 「ボタンが押されたら（イベント）、メッセージを出す」</li>
+</ul>
+<p>JavaScriptを学ぶと、この <strong>「もし〜が起きたら、この仕事をやってね！」</strong> というマニュアルを書けるようになります。</p>
+<hr>
+<h3 id="3-留学生への導入どうにゅうメッセージ"><a class="header" href="#3-留学生への導入どうにゅうメッセージ">3. 留学生への<ruby>導入<rt>どうにゅう</rt></ruby>メッセージ</a></h3>
+<blockquote>
+<p>「今はまだ、<ruby>難<rt>むずか</rt></ruby>しい<ruby>魔法<rt>まほう</rt></ruby>の言葉を覚える必要はありません。
+<ruby>画面<rt>がめん</rt></ruby>の中で起きる <strong>『クリック』や『<ruby>入力<rt>にゅうりょく</rt></ruby>』などの変化の一つひとつに、名前（イベント）がついているんだな</strong> 、ということだけ覚えておいてください。
+皆さんが『何か』をしたときに、サイトが『<ruby>反応<rt>はんのう</rt></ruby>』するのは、このイベントのおかげなんですよ！」</p>
+</blockquote>
+<hr>
+<h3 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>言葉</th><th>イメージ</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>イベント</strong></td><td>「何かが起きた！」という合図</td></tr>
+<tr><td><strong>きっかけ</strong></td><td>ユーザーがマウスやキーボードを動かすこと</td></tr>
+<tr><td><strong><ruby>反応<rt>はんのう</rt></ruby></strong></td><td><ruby>画面<rt>がめん</rt></ruby>の色が変わったり、窓が開いたりすること</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<p>「ウェブページを生きているように動かすための『スイッチ』」。それがイベントです。</p>
+<h2 id="iv-オブジェクトとは"><a class="header" href="#iv-オブジェクトとは">IV. オブジェクトとは</a></h2>
+<p>皆さんがこれから学ぶのは、<strong>ウェブページを動かす方法</strong> です。ウェブページを動かすためには、<strong>ウェブページを<ruby>表示<rt>ひょうじ</rt></ruby>しているブラウザに「これこれこういうことをしなさい」と命令する</strong> ことが必要です。</p>
+<h3 id="1-オブジェクトとはどんなもの"><a class="header" href="#1-オブジェクトとはどんなもの">1. オブジェクトとはどんなもの？</a></h3>
+<p>HTMLやCSSという設計図に従って、ブラウザはそれをウェブページとして作り上げてくれます。JavaScriptは出来上がったウェブページの部品を <strong>「オブジェクト」</strong> としてとらえ、それに対して『これこれこういうことをしなさい』と命令します。</p>
+<p>さまざまな人が集まって会社ができているのと同じように、ウェブページももさまざまなオブジェクトから構成されています。そして、「会社に何かをしてもらう」というのは、実際には「その会社の人に何かをしてもらう」ことです。同じように、<strong>「ウェブページを動かす」というのは「ウェブページのオブジェクトに何かをしてもらう」</strong> ということです。</p>
+<p><img src="img/object_waiting2.JPG" alt="働くオブジェクト"></p>
+<h3 id="2-あいまいさのない命令誰が何をする"><a class="header" href="#2-あいまいさのない命令誰が何をする">2. あいまいさのない命令：「誰が」「何をする」</a></h3>
+<p>JavaScripはマニュアルですから、「みんなで協力して、こういうことをやりなさい」とぼんやりした命令をするのではなく、「Aさんはこれをして」「Bさんはあれをして」と一人ひとりの作業を正確に伝えなければなりません。 <strong>「誰が」「何をする」のかを、だれが読んでもわかるように書く</strong> ことが大事です。</p>
+<p>この「Aさん」「Bさん」がJavaScriptでは <strong>「オブジェクト」</strong> にあたります。</p>
+<p>「オブジェクト」という言葉は、皆さんには聞きなれないものかもしれませんが、とりあえず、次のようなイメージを頭に思い描いてください。</p>
+<ul>
+<li><strong>ウェブページの中には、たくさんのオブジェクトと呼ばれるものがいて、JavaScriptを使って、彼らに命令すれば、仕事をしてくれるらしい</strong></li>
+</ul>
+<p><img src="img/objects_waiting2.JPG" alt="命令を待つオブジェクトたち"></p>
+<p>今は、それだけで十分です。「オブジェクトの中身がどうなっているのか？」や「それに仕事をしてもらうためのマニュアルをどう書けばよいのか？」については、これから少しずつ、何度かに分けて説明します。</p>
+<h3 id="3-htmlとcss"><a class="header" href="#3-htmlとcss">3. HTMLとCSS</a></h3>
+<p>では、JavaScriptで扱うオブジェクトとは具体的には、どんなものでしょうか？</p>
+<p>ブラウザはサーバーからのレスポンスを受け取ります。そのレスポンスのうち「HTML」と「CSS」がウェブページという「家」の柱、壁、床（ゆか）、あるいはペンキ、インテリア、<ruby>壁紙<rt>かべがみ</rt></ruby>、といった部品になるのは、前に説明した通りです。</p>
+<p>実は、この「ウェブページの部品」こそが、JavaScriptの <strong>オブジェクト</strong> です。</p>
+<p>したがって、JavaScriptでウェブページを<ruby>操<rt>あやつ</rt></ruby>るためには、まずウェブページの部品そのものについて、理解しなければなりません。</p>
+<p>次のステップでは、ウェブページの設計図である <strong>HTML</strong> と <strong>CSS</strong> について説明します。</p>
+<hr>
+<h2 id="このセクションのまとめ"><a class="header" href="#このセクションのまとめ">このセクションのまとめ</a></h2>
+<p>JavaScriptが動く順番をイラストで描くとこんな風になります。</p>
+<p><img src="img/obj_working2.JPG" alt="JavaScriptが動く順番"></p>
+<p>つまり、JavaScriptでウェブページを動かすために</p>
+<ul>
+<li>「何が起きたら」（どのイベントに反応させるか？）</li>
+<li>「誰に」（どのオブジェクトに仕事をさせるか？）</li>
+<li>「どういう仕事をさせるか？」（プログラムの内容）</li>
+</ul>
+<p>を考えておく必要があります。「プログラムの内容」そのものだけではなく、その <strong>プログラムをを動かすきっかけ（イベント）</strong> と、<strong>実際に動くもの（オブジェクト）</strong> の関係が大事なのです。</p>
+<hr>
+<p>それでは、まずウェブページの<ruby>骨組<rt>ほねぐ</rt></ruby>みである、「HTML」について、詳しく見てみましょう！</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next prefetch" href="01_01_HTML.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next prefetch" href="01_01_HTML.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="src/assets/fzf-17e59c4c.umd.js"></script>
+        <script src="src/assets/elasticlunr-04fe11a0.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,626 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>DOMツリー - 留学生のためのJavaScript学習ガイド</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-1bf24a4c.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-a10e83d1.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">留学生のためのJavaScript学習ガイド</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="domツリー"><a class="header" href="#domツリー">DOMツリー</a></h1>
+<p>前のセクションで <strong>DOM（ドム）ツリー</strong> について、少しだけ触れました。しかし、その中には、「ブラウザに<ruby>表示<rt>ひょうじ</rt></ruby>されている<strong>HTML（ウェブページの中身）</strong> すべて」が含まれています。とてもたくさんの種類のオブジェクトが含まれます。</p>
+<p>そのため、ここで新たなセクションを作って、もっと詳しく解説します。</p>
+<hr>
+<h2 id="i-domとは"><a class="header" href="#i-domとは">I. DOMとは？</a></h2>
+<h3 id="1-domツリーってなに"><a class="header" href="#1-domツリーってなに">1. DOMツリーってなに？</a></h3>
+<p>DOMは <strong>D</strong>ocument <strong>O</strong>bject <strong>M</strong>odel の<ruby>略<rt>りゃく</rt></ruby>です。
+ブラウザはHTMLファイルを<ruby>読<rt>よ</rt></ruby>み<ruby>込<rt>こ</rt></ruby>むと、それをそのまま<ruby>表示<rt>ひょうじ</rt></ruby>するのではなく、まず扱いやすいように <strong>「<ruby>枝分<rt>えだわ</rt></ruby>かれした木（Tree）」</strong> の形に並べかえます。これがDOMツリーです。</p>
+<p><img src="./img/Nodetree.png" alt="DOMノードツリー"></p>
+<p>DOM node tree“ by Yuho.K is licensed under CC BY-SA 4.0.
+This file is licensed under the Creative Commons <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Attribution-Share Alike 4.0 International license</a>.</p>
+<h3 id="2-ツリーの呼よび名なと関係"><a class="header" href="#2-ツリーの呼よび名なと関係">2. ツリーの「<ruby>呼<rt>よ</rt></ruby>び<ruby>名<rt>な</rt></ruby>」と「関係」</a></h3>
+<p>DOMツリーを理解するコツは、**「家族（かぞく）」**の名前に<ruby>例<rt>たと</rt></ruby>えて覚えることです。</p>
+<ul>
+<li><strong>Document（ルート）：</strong> 木の「<ruby>根<rt>ね</rt></ruby>っこ」です。一番上にあります。</li>
+<li><strong>Parent（親）：</strong> ある要素の、すぐ上にある要素。</li>
+<li><strong>Child（子）：</strong> ある要素の、すぐ中（下）にある要素。</li>
+<li><strong>Sibling（兄弟）：</strong> 同じ親から生まれた、横に並んでいる要素。</li>
+</ul>
+<blockquote>
+<p><strong><ruby>例<rt>れい</rt></ruby>：</strong> <code>&lt;ul&gt;</code>（親）の中に、3つの <code>&lt;li&gt;</code>（子）があるとき、3つの <code>&lt;li&gt;</code> <ruby>同士<rt>どうし</rt></ruby>は「兄弟」になります。</p>
+</blockquote>
+<h3 id="3-なぜツリーにするの"><a class="header" href="#3-なぜツリーにするの">3. なぜ「ツリー」にするの？</a></h3>
+<p>なぜわざわざ「木」の形にするのでしょうか？
+それは、JavaScriptという「<ruby>魔法<rt>まほう</rt></ruby><ruby>使<rt>つか</rt></ruby>い」が、<strong>特定のパーツをすぐに見つけやすくするため</strong>です。</p>
+<ul>
+<li>「一番上の親を赤くして！」</li>
+<li>「2番目の兄弟を消して！」</li>
+<li>「この子の隣（となり）に、新しい子を追加して！」</li>
+</ul>
+<p>このように、ツリーの枝をたどるように命令ができるので、非常に便利なのです。</p>
+<h3 id="4-dom操作そうさのイメージ"><a class="header" href="#4-dom操作そうさのイメージ">4. DOM操作（そうさ）のイメージ</a></h3>
+<p>留学生には、DOM操作を <strong>「木になっているリンゴ（要素）を、もぎ取ったり、別の場所に植え替えたりする作業」</strong> だと伝えてください。</p>
+<ol>
+<li><strong>見つける（Select）：</strong> <code>querySelector</code> などを使って、目的の枝まで行く。</li>
+<li><strong>変える（Change）：</strong> <code>style</code> や <code>textContent</code> で色や文字を変える。</li>
+<li><strong>追加・削除（Update）：</strong> <code>appendChild</code> で新しい枝を付けたり、<code>remove</code> で枝を切ったりする。</li>
+</ol>
+<h3 id="5-留学生へのアドバイス"><a class="header" href="#5-留学生へのアドバイス">5. 留学生へのアドバイス</a></h3>
+<blockquote>
+<p>「HTMLファイルはただの『文字の集まり（テキスト）』だけど、ブラウザがそれを <strong>DOMツリーという『生きている木』</strong> に変えてくれるんだ。
+JavaScriptはこの木を自由に育てるための道具だよ。木の関係（親・子・兄弟）が分かれば、どんな複雑なページも自由に操（あやつ）れるようになるよ！」</p>
+</blockquote>
+<h3 id="まとめテーブル"><a class="header" href="#まとめテーブル">まとめテーブル</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>専門用語</th><th>意味</th><th>家族で<ruby>例<rt>たと</rt></ruby>えると？</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Document</strong></td><td>ツリー全体の入り口</td><td>ご先祖（せんぞ）様</td></tr>
+<tr><td><strong>Element</strong></td><td><code>&lt;div&gt;</code> や <code>&lt;p&gt;</code> などの要素</td><td>家族の一人ひとり</td></tr>
+<tr><td><strong>Parent Node</strong></td><td>すぐ上の要素</td><td>お父さん・お母さん</td></tr>
+<tr><td><strong>Child Node</strong></td><td>すぐ下の要素</td><td>息子・娘</td></tr>
+<tr><td><strong>Sibling</strong></td><td>同じ<ruby>階層<rt>かいそう</rt></ruby>にある要素</td><td>兄・妹</td></tr>
+</tbody>
+</table>
+</div>
+<p>いかがでしょうか？「木の関係図」というイメージが持てれば、DOM操作はぐっと簡単になります。</p>
+<h2 id="ii-formオブジェクト"><a class="header" href="#ii-formオブジェクト">II. Formオブジェクト</a></h2>
+<p>ウェブサイトで自分の名前を<ruby>入力<rt>にゅうりょく</rt></ruby>したり、アンケートに答えたりするときに使うのが「フォーム（お問い合わせ、ログイン<ruby>画面<rt>がめん</rt></ruby>など）」です。</p>
+<p>JavaScriptでは、これらを <strong>Formオブジェクト</strong> として扱います。留学生の方には、Formオブジェクトは**「役所の窓口（まどぐち）」**だと教えてあげてください。</p>
+<hr>
+<h3 id="1-formオブジェクトとは"><a class="header" href="#1-formオブジェクトとは">1. Formオブジェクトとは？</a></h3>
+<p>HTMLの <code>&lt;form&gt;</code> タグで囲まれた部分のことです。ユーザーが<ruby>入力<rt>にゅうりょく</rt></ruby>したデータをまとめて管理し、サーバー（<ruby>裏側<rt>うらがわ</rt></ruby>のコンピュータ）へ送る準備をする役割（やくわり）を持っています。</p>
+<p>JavaScriptでは、主に以下の2つの方法でフォームを捕まえ（アクセスし）ます。</p>
+<ol>
+<li><strong><code>document.forms[0]</code></strong> （ページにある1番目のフォーム）</li>
+<li><strong><code>document.getElementById("myForm")</code></strong> （ID名で指定）</li>
+</ol>
+<hr>
+<h3 id="2-よく使うプロパティフォームの情報"><a class="header" href="#2-よく使うプロパティフォームの情報">2. よく使うプロパティ（フォームの情報）</a></h3>
+<p>窓口（フォーム）が持っている<ruby>設定<rt>せってい</rt></ruby>情報です。</p>
+<ul>
+<li><strong><code>name</code></strong>
+フォームの名前です。複数のフォームがあるときに区別するために<ruby>使<rt>つか</rt></ruby>います。</li>
+<li><strong><code>action</code></strong>
+データをどこ（どのURL）に送るかという「<ruby>宛先<rt>あてさき</rt></ruby>（あてさき）」です。</li>
+<li><strong><code>method</code></strong>
+データの送り方です。主に <code>GET</code>（URLにのせる）か <code>POST</code>（封筒に入れる）のどちらかです。</li>
+<li><strong><code>elements</code></strong>
+フォームの中にあるボタンや<ruby>入力<rt>にゅうりょく</rt></ruby>欄（<ruby>入力<rt>にゅうりょく</rt></ruby>パーツ）を、<ruby>配列<rt>はいれつ</rt></ruby>のような形でまとめて持っています。</li>
+</ul>
+<hr>
+<h3 id="3-よく使うメソッドフォームを動かす"><a class="header" href="#3-よく使うメソッドフォームを動かす">3. よく使うメソッド（フォームを動かす）</a></h3>
+<ul>
+<li><strong><code>submit()</code></strong>
+「<ruby>送信<rt>そうしん</rt></ruby>（そうしん）ボタン」を押さなくても、JavaScriptから<ruby>強制<rt>きょうせい</rt></ruby>的にデータを送ります。</li>
+<li><strong><code>reset()</code></strong>
+<ruby>入力<rt>にゅうりょく</rt></ruby>した内容をすべて消して、最初の状態（空っぽ）に戻します。</li>
+</ul>
+<hr>
+<h3 id="4-フォームの中の入力にゅうりょくパーツの操作"><a class="header" href="#4-フォームの中の入力にゅうりょくパーツの操作">4. フォームの中の「<ruby>入力<rt>にゅうりょく</rt></ruby>パーツ」の操作</a></h3>
+<p>留学生が一番やりたいのは、**「ユーザーが書いた文字を読み取ること」**です。これは、各パーツの <strong><code>value</code>（バリュー）</strong> プロパティを<ruby>使<rt>つか</rt></ruby>います。</p>
+<pre><code class="language-javascript">// 1. フォーム全体を取得（しゅとく）
+const myForm = document.forms["loginForm"];
+
+// 2. ユーザーが書いた「ユーザー名」を取り出す
+const userName = myForm.elements["uName"].value;
+
+// 3. 送信（そうしん）する前にチェックする
+if (userName === "") {
+  alert("名前を書いてください！");
+} else {
+  myForm.submit(); // 問題なければ送信（そうしん）！
+}
+
+</code></pre>
+<hr>
+<h3 id="5-留学生への説明ポイントonsubmit-イベント"><a class="header" href="#5-留学生への説明ポイントonsubmit-イベント">5. 留学生への説明ポイント：<code>onsubmit</code> イベント</a></h3>
+<p>データを送る瞬間に「ちょっと待って！今の<ruby>入力<rt>にゅうりょく</rt></ruby>、間違っていない？」とチェックする機能がよく使われます。</p>
+<blockquote>
+<p><strong>「<code>onsubmit</code> は、窓口で書類（しょるい）を渡す前の『最終チェック』だよ。もし書き忘れがあったら <code>return false</code> と言って、<ruby>送信<rt>そうしん</rt></ruby>をストップさせるんだよ」</strong></p>
+</blockquote>
+<pre><code class="language-javascript">myForm.onsubmit = function() {
+  if (this.elements["email"].value === "") {
+    alert("メールアドレスが必要です！");
+    return false; // 送信（そうしん）を中止（キャンセル）する
+  }
+  return true; // 送信（そうしん）する
+};
+
+</code></pre>
+<hr>
+<h3 id="まとめテーブル-1"><a class="header" href="#まとめテーブル-1">まとめテーブル</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>プロパティ・メソッド</th><th>役割</th><th><ruby>例<rt>たと</rt></ruby>え話</th></tr>
+</thead>
+<tbody>
+<tr><td><strong><code>elements</code></strong></td><td>全パーツのリスト</td><td>窓口にある書類の束（たば）</td></tr>
+<tr><td><strong><code>value</code></strong></td><td><ruby>入力<rt>にゅうりょく</rt></ruby>された文字</td><td>書類に書かれた内容</td></tr>
+<tr><td><strong><code>submit()</code></strong></td><td><ruby>送信<rt>そうしん</rt></ruby>する</td><td>書類を受け付けて送る</td></tr>
+<tr><td><strong><code>reset()</code></strong></td><td>リセットする</td><td>書類をゴミ箱に捨てて新しくする</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p><strong>「id」と「name」の<ruby>使<rt>つか</rt></ruby>い<ruby>分<rt>わ</rt></ruby>け</strong>
+留学生には、<strong>「JavaScriptでデザインを変えるときは <code>id</code>、サーバーにデータを送るときは <code>name</code> を使うのが一般的だよ」</strong> と教えてあげると、混乱が少なくなります。</p>
+</blockquote>
+<p>いかがでしょうか？「窓口」と「書類」のイメージで、フォームの操作もバッチリですね。</p>
+<p><strong>次は、チェックボックスやラジオボタンなど、文字<ruby>入力<rt>にゅうりょく</rt></ruby>以外のパーツを操作する方法についても練習してみますか？</strong></p>
+<h2 id="iii-elementオブジェクト"><a class="header" href="#iii-elementオブジェクト">III. Elementオブジェクト</a></h2>
+<p><ruby>前回<rt>ぜんかい</rt></ruby>の <strong><code>document</code></strong> が「現場監督（げんばかんとく）」なら、今回の <strong><code>Element</code> オブジェクト</strong>は、現場にある**「レンガや窓、ドアといったひとつひとつの『部品（パーツ）』」**のことです。</p>
+<p>HTMLタグ（<code>&lt;div&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;a&gt;</code> など）が、JavaScriptの世界で「Elementオブジェクト」と呼ばれます。</p>
+<hr>
+<h3 id="1-elementオブジェクトとは"><a class="header" href="#1-elementオブジェクトとは">1. Elementオブジェクトとは？</a></h3>
+<p>ウェブページを構成する「ひとつひとつの要素」です。
+<code>document.getElementById()</code> などで見つけてきたものは、すべてこのElementオブジェクトになります。これを使うことで、特定のパーツだけの色を変えたり、文字を<ruby>書<rt>か</rt></ruby>き<ruby>換<rt>かえ</rt></ruby>えたりできます。</p>
+<hr>
+<h3 id="2-よく使うプロパティパーツの状態"><a class="header" href="#2-よく使うプロパティパーツの状態">2. よく使うプロパティ（パーツの状態）</a></h3>
+<p>そのパーツがどんな状態（じょうたい）かを知るためのプロパティです。</p>
+<h4 id="id--classname"><a class="header" href="#id--classname">**<code>id</code> / <code>className**</code></a></h4>
+<p>HTMLの <code>id</code> や <code>class</code> の名前です。</p>
+<ul>
+<li><strong>注意：</strong> JavaScriptでは <code>class</code> は予約語（特別な言葉）なので、プロパティ名は <strong><code>className</code></strong> と書きます。</li>
+</ul>
+<h4 id="innerhtml--textcontent"><a class="header" href="#innerhtml--textcontent">**<code>innerHTML</code> / <code>textContent**</code></a></h4>
+<p>パーツの中身（文字やタグ）です。</p>
+<ul>
+<li><strong><code>textContent</code></strong>：中の「文字」だけを扱います。（安全でおすすめ！）</li>
+<li><strong><code>innerHTML</code></strong>：中の「HTMLタグ」も含めて扱います。</li>
+</ul>
+<h4 id="style"><a class="header" href="#style"><strong><code>style</code></strong></a></h4>
+<p><ruby>見<rt>み</rt></ruby>た<ruby>目<rt>め</rt></ruby>（CSS）を直接いじります。</p>
+<ul>
+<li><strong><ruby>例<rt>れい</rt></ruby>：</strong> <code>element.style.color = "blue";</code></li>
+</ul>
+<h4 id="attributes"><a class="header" href="#attributes"><strong><code>attributes</code></strong></a></h4>
+<p>そのタグについている「<ruby>属性<rt>ぞくせい</rt></ruby>お<ruby>話<rt>はなし</rt></ruby>」のリストです。</p>
+<hr>
+<h3 id="3-よく使うメソッドパーツへの操作"><a class="header" href="#3-よく使うメソッドパーツへの操作">3. よく使うメソッド（パーツへの操作）</a></h3>
+<p>パーツに対して「何かをする」ための命令です。</p>
+<h4 id="属性ぞくせいじょうほうを操作する"><a class="header" href="#属性ぞくせいじょうほうを操作する"><strong><ruby>属性<rt>ぞくせい</rt></ruby>（じょうほう）を操作する</strong></a></h4>
+<ul>
+<li><strong><code>getAttribute("&lt;ruby&gt;属性&lt;rt&gt;ぞくせい&lt;/rt&gt;&lt;/ruby&gt;名")</code></strong>：<ruby>設定<rt>せってい</rt></ruby>されている値（<code>src</code> や <code>href</code> など）を読み取ります。</li>
+<li><strong><code>setAttribute("&lt;ruby&gt;属性&lt;rt&gt;ぞくせい&lt;/rt&gt;&lt;/ruby&gt;名", "値")</code></strong>：新しく値をセットします。</li>
+<li><strong><code>removeAttribute("&lt;ruby&gt;属性&lt;rt&gt;ぞくせい&lt;/rt&gt;&lt;/ruby&gt;名")</code></strong>：<ruby>設定<rt>せってい</rt></ruby>を消します。</li>
+</ul>
+<h4 id="クラスを操作するとても便利"><a class="header" href="#クラスを操作するとても便利"><strong>クラスを操作する（とても便利！）</strong></a></h4>
+<ul>
+<li><strong><code>classList.add("クラス名")</code></strong>：クラスを追加する。</li>
+<li><strong><code>classList.remove("クラス名")</code></strong>：クラスを消す。</li>
+<li><strong><code>classList.toggle("クラス名")</code></strong>：あれば消す、なければ追加する。</li>
+</ul>
+<h4 id="パーツを動かす"><a class="header" href="#パーツを動かす"><strong>パーツを動かす</strong></a></h4>
+<ul>
+<li><strong><code>remove()</code></strong>：そのパーツを<ruby>画面<rt>がめん</rt></ruby>から消します。</li>
+</ul>
+<hr>
+<h3 id="4-実際に動かしてみよう"><a class="header" href="#4-実際に動かしてみよう">4. 実際に動かしてみよう！</a></h3>
+<p>留学生に「<ruby>画像<rt>がぞう</rt></ruby>を<ruby>切<rt>きり</rt></ruby>り<ruby>替<rt>か</rt></ruby>えるボタン」の<ruby>仕組<rt>しく</rt></ruby>みを説明するコード<ruby>例<rt>れい</rt></ruby>です。</p>
+<pre><code class="language-javascript">// 1. &lt;img&gt;タグ（Elementオブジェクト）を見つける
+const myImage = document.querySelector("#profile-pic");
+
+// 2. setAttribute で画像（がぞう）のURLを変える
+myImage.setAttribute("src", "new-image.jpg");
+
+// 3. classList でデザインを切（きり）り替（か）える
+myImage.classList.add("rounded-frame");
+
+</code></pre>
+<hr>
+<h3 id="5-留学生へのアドバイスinnerhtml-の注意点"><a class="header" href="#5-留学生へのアドバイスinnerhtml-の注意点">5. 留学生へのアドバイス：<code>innerHTML</code> の注意点</a></h3>
+<p>留学生がよくやってしまう「危ない<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>」について、一言教えてあげてください。</p>
+<blockquote>
+<p>「<code>innerHTML</code> は便利だけど、ユーザーが<ruby>入力<rt>にゅうりょく</rt></ruby>した文字をそのまま入れると、悪いプログラム（ウイルスなど）が動かされる危険があるんだ。
+<strong>ただの文字を<ruby>表示<rt>ひょうじ</rt></ruby>したいときは、必ず <code>textContent</code> を使おうね！</strong>」</p>
+</blockquote>
+<hr>
+<h3 id="まとめテーブル-2"><a class="header" href="#まとめテーブル-2">まとめテーブル</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>プロパティ・メソッド</th><th>役割</th><th><ruby>例<rt>たと</rt></ruby>え話</th></tr>
+</thead>
+<tbody>
+<tr><td><strong><code>id</code></strong></td><td>ID名</td><td>パーツの「名前ラベル」</td></tr>
+<tr><td><strong><code>style</code></strong></td><td>CSSデザイン</td><td>パーツの「服の色やサイズ」</td></tr>
+<tr><td><strong><code>textContent</code></strong></td><td>中のテキスト</td><td>パーツに書いてある「看板の文字」</td></tr>
+<tr><td><strong><code>setAttribute()</code></strong></td><td><ruby>設定<rt>せってい</rt></ruby>を変える</td><td>窓を「開ける」か「閉める」か<ruby>設定<rt>せってい</rt></ruby>する</td></tr>
+<tr><td><strong><code>classList</code></strong></td><td>クラスの管理</td><td>パーツに「タグ（目印）」を貼ったり剥がしたりする</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<p>いかがでしょうか？Elementオブジェクトを<ruby>使<rt>つか</rt></ruby>いこなせれば、ユーザーの<ruby>動<rt>うご</rt></ruby>きに合わせて<ruby>画面<rt>がめん</rt></ruby>を<ruby>動的<rt>どうてき</rt></ruby>に変える「動くサイト」が作れるようになります！</p>
+<h2 id="iv-domツリーを使ったエレメントの取得しゅとく"><a class="header" href="#iv-domツリーを使ったエレメントの取得しゅとく">IV. DOMツリーを使ったエレメントの<ruby>取得<rt>しゅとく</rt></ruby></a></h2>
+<p>DOMツリーの「家族（<ruby>親子<rt>おやこ</rt></ruby>・兄弟）」の関係がわかったら、次は実際に**「その枝（え要素）をたどって、操作する方法」**を学びましょう！</p>
+<p>留学生の方には、**「住所を知らなくても、<ruby>家系図<rt>かけいず</rt></ruby>をたどれば目的の人に会える」**というイメージで説明するとわかりやすくなります。</p>
+<hr>
+<h3 id="1-要素の関係プロパティを使ってたどる"><a class="header" href="#1-要素の関係プロパティを使ってたどる">1. 要素の関係（プロパティ）を使ってたどる</a></h3>
+<p>IDやクラス名を使わなくても、今いる場所から「隣の人」や「親」を指名できます。</p>
+<ul>
+<li><strong><code>parentNode</code></strong>（親）：
+自分のすぐ上の要素。</li>
+<li><strong><code>children</code></strong>（子）：
+自分のなかにいる要素たちのリスト。</li>
+<li><strong><code>previousElementSibling</code></strong>（前の兄弟）：
+自分のすぐ上（前）にある同じレベルの要素。</li>
+<li><strong><code>nextElementSibling</code></strong>（次の兄弟）：
+自分のすぐ下（後）にある同じレベルの要素。</li>
+</ul>
+<hr>
+<h3 id="2-実際にたどって操作するコード"><a class="header" href="#2-実際にたどって操作するコード">2. 実際にたどって操作するコード</a></h3>
+<p><ruby>例<rt>たと</rt></ruby>えば、リスト（<code>&lt;ul&gt;</code>）の中の「2番目の項目」からスタートして、周りを操作してみましょう。</p>
+<pre><code class="language-javascript">// 1. まず、真ん中（まんなか）の「2番目」を捕まえる
+const centerItem = document.getElementById("item2");
+
+// 2. 「親」の背景（はいけい）色を変える（リスト全体がオレンジに！）
+centerItem.parentNode.style.backgroundColor = "orange";
+
+// 3. 「前の兄弟（1番目）」の文字を大きくする
+centerItem.previousElementSibling.style.fontSize = "25px";
+
+// 4. 「次の兄弟（3番目）」を消してしまう
+centerItem.nextElementSibling.remove();
+
+</code></pre>
+<hr>
+<h3 id="3-要素を追加する新しい枝を増やす"><a class="header" href="#3-要素を追加する新しい枝を増やす">3. 要素を「追加」する（新しい枝を増やす）</a></h3>
+<p>DOMツリーに新しい要素を加えるときは、**「部品を作って、親に渡す」**という2ステップが必要です。</p>
+<ol>
+<li><strong><code>document.createElement("タグ名")</code></strong>：
+新しい要素をメモリの中に作ります（まだ<ruby>画面<rt>がめん</rt></ruby>には出ません）。</li>
+<li><strong><code>親要素.appendChild(新しい要素)</code></strong>：
+親の「最後の子」としてツリーに追加します。</li>
+</ol>
+<pre><code class="language-javascript">// ① 新しい &lt;li&gt; を作る
+const newLi = document.createElement("li");
+newLi.textContent = "新しい家族です！";
+
+// ② &lt;ul&gt; を見つけて、その中に入れる
+const list = document.querySelector("ul");
+list.appendChild(newLi);
+
+</code></pre>
+<hr>
+<h3 id="4-留学生へのアドバイスelementを忘れないで"><a class="header" href="#4-留学生へのアドバイスelementを忘れないで">4. 留学生へのアドバイス：Elementを忘れないで！</a></h3>
+<p>ここでよくある間違いを教えてあげてください。</p>
+<blockquote>
+<p>「<code>nextSibling</code>（兄弟）」と「<code>nextElementSibling</code>（<strong>要素の</strong>兄弟）」は似ているけど違うんだ。
+<code>nextSibling</code> は、目に見えない『<ruby>改行<rt>かいぎょう</rt></ruby>（かいぎょう）』や『スペース』も1つの枝として数えてしまうことがある。
+<strong>「HTMLタグだけをたどりたいときは、名前に『Element』が入っている方を使おうね！」</strong></p>
+</blockquote>
+<hr>
+<h3 id="まとめテーブルたどるための魔法まほう"><a class="header" href="#まとめテーブルたどるための魔法まほう">まとめテーブル：たどるための<ruby>魔法<rt>まほう</rt></ruby></a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th><ruby>魔法<rt>まほう</rt></ruby>の言葉</th><th>行き先</th></tr>
+</thead>
+<tbody>
+<tr><td><strong><code>parentElement</code></strong></td><td>お父さん・お母さんのところへ</td></tr>
+<tr><td><strong><code>firstElementChild</code></strong></td><td>長男・長女のところへ</td></tr>
+<tr><td><strong><code>lastElementChild</code></strong></td><td>末っ子のところへ</td></tr>
+<tr><td><strong><code>nextElementSibling</code></strong></td><td>弟・妹のところへ</td></tr>
+<tr><td><strong><code>previousElementSibling</code></strong></td><td>兄・姉のところへ</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<p>いかがでしょうか？「今いる場所」を基準にツリーを移動できるようになると、まるで迷路を攻略するように自由にHTMLを操作できるようになります。</p>
+<h2 id="v-要素の生成追加削除"><a class="header" href="#v-要素の生成追加削除">V. 要素の生成・追加・削除</a></h2>
+<p>DOMツリーの操作の中でも、**「新しく作る（生成）」「仲間に入れる（追加）」「さよならする（削除）」**の3つは、もっともワクワクする部分です。</p>
+<p>留学生の方には、**「レゴブロックで新しいパーツを作って、<ruby>組<rt>く</rt></ruby>み<ruby>立<rt>た</rt></ruby>てたり外したりする遊び」**と同じだと教えてあげてください。</p>
+<hr>
+<h3 id="1-要素を作る生成"><a class="header" href="#1-要素を作る生成">1. 要素を「作る（生成）」</a></h3>
+<p>まずは、<ruby>魔法<rt>まほう</rt></ruby>を使って何もないところにパーツを誕生させます。</p>
+<ul>
+<li><strong><code>document.createElement("タグ名")</code></strong>
+指定したタグ（<code>div</code>, <code>li</code>, <code>p</code> など）を新しく作ります。</li>
+</ul>
+<blockquote>
+<p><strong>注意：</strong> この時点では、まだ「メモリの中」にあるだけで、<strong><ruby>画面<rt>がめん</rt></ruby>には見えません。</strong></p>
+</blockquote>
+<pre><code class="language-javascript">// 「たこ焼き（li）」というパーツを1つ作る
+const takoyaki = document.createElement("li");
+
+// 中身の文字を入れる
+takoyaki.textContent = "たこ焼き 🐙";
+
+</code></pre>
+<hr>
+<h3 id="2-要素を入れる追加"><a class="header" href="#2-要素を入れる追加">2. 要素を「入れる（追加）」</a></h3>
+<p>作ったパーツを、DOMツリーのどこに置くかを決めます。</p>
+<h4 id="appendchild新しい要素"><a class="header" href="#appendchild新しい要素"><strong><code>appendChild(新しい要素)</code></strong></a></h4>
+<p>親要素の**「一番最後の子」**として追加します。一番よく<ruby>使<rt>つか</rt></ruby>います。</p>
+<pre><code class="language-javascript">const list = document.getElementById("food-list");
+list.appendChild(takoyaki); // リストの最後にたこ焼きが登場！
+
+</code></pre>
+<h4 id="insertbefore新しい要素-目印にする要素"><a class="header" href="#insertbefore新しい要素-目印にする要素"><strong><code>insertBefore(新しい要素, 目印にする要素)</code></strong></a></h4>
+<p>「一番最後じゃなくて、この要素の<strong>前</strong>に入れたい！」というときに<ruby>使<rt>つか</rt></ruby>います。</p>
+<hr>
+<h3 id="3-要素を消す削除"><a class="header" href="#3-要素を消す削除">3. 要素を「消す（削除）」</a></h3>
+<p>いらなくなったパーツをツリーから<ruby>取<rt>と</rt></ruby>り<ruby>除<rt>のぞ</rt></ruby>きます。</p>
+<h4 id="要素remove"><a class="header" href="#要素remove"><strong><code>要素.remove()</code></strong></a></h4>
+<p>その要素を自分自身で<ruby>消去<rt>しょうきょ</rt></ruby>します。とても簡単です！</p>
+<pre><code class="language-javascript">const badApple = document.getElementById("rotten");
+badApple.remove(); // 画面（がめん）から消える
+
+</code></pre>
+<h4 id="親要素removechild子要素"><a class="header" href="#親要素removechild子要素"><strong><code>親要素.removeChild(子要素)</code></strong></a></h4>
+<p>昔からある方法で、「親が子を<ruby>取<rt>と</rt></ruby>り<ruby>除<rt>のぞ</rt></ruby>く」という<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>です。</p>
+<hr>
+<h3 id="4-実際に動かしてみよう-1"><a class="header" href="#4-実際に動かしてみよう-1">4. 実際に動かしてみよう！</a></h3>
+<p>留学生に「ToDoリストに項目を追加して、クリックしたら消える」という<ruby>魔法<rt>まほう</rt></ruby>のような<ruby>体験<rt>たいけん</rt></ruby>をさせてあげましょう。</p>
+<pre><code class="language-javascript">function addNote() {
+  // 1. 生成：新しい &lt;li&gt; を作る
+  const item = document.createElement("li");
+  item.textContent = "勉強する 📖";
+
+  // 2. 追加：リストの中に入れる
+  const todoList = document.querySelector("#todo");
+  todoList.appendChild(item);
+
+  // 3. 削除の準備：クリックされたら消えるようにする
+  item.onclick = function() {
+    this.remove(); 
+  };
+}
+
+</code></pre>
+<hr>
+<h3 id="5-留学生へのアドバイス-1"><a class="header" href="#5-留学生へのアドバイス-1">5. 留学生へのアドバイス</a></h3>
+<blockquote>
+<p>「要素を作ったら、**『テキスト（textContent）』<strong>や</strong>『色（style）』<strong>をセットして、最後に</strong>『親（appendChild）』**に渡す。この <strong>『作る → 飾る → 貼る』</strong> の3ステップが基本だよ！」</p>
+</blockquote>
+<hr>
+<h3 id="まとめテーブル-3"><a class="header" href="#まとめテーブル-3">まとめテーブル</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>操作</th><th>使う<ruby>魔法<rt>まほう</rt></ruby>（メソッド）</th><th>イメージ</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>生成（作る）</strong></td><td><code>createElement()</code></td><td>レゴの新しいピースを用意する</td></tr>
+<tr><td><strong>追加（最後へ）</strong></td><td><code>appendChild()</code></td><td>列の最後尾に並ばせる</td></tr>
+<tr><td><strong>追加（割り込み）</strong></td><td><code>insertBefore()</code></td><td>「お先に失礼！」と間に入る</td></tr>
+<tr><td><strong>削除（消す）</strong></td><td><code>remove()</code></td><td>舞台（ぶたい）から退場する</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<p>いかがでしょうか？「生成・追加・削除」ができるようになると、ユーザーがボタンを押すたびに<ruby>画面<rt>がめん</rt></ruby>がどんどん変わる、本格的なアプリが作れるようになります。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="04_02_Windowオブジェクト.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="04_04_イベント処理.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="04_02_Windowオブジェクト.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="04_04_イベント処理.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="src/assets/fzf-17e59c4c.umd.js"></script>
+        <script src="src/assets/elasticlunr-04fe11a0.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

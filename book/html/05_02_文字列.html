@@ -1,0 +1,492 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>文字列 - 留学生のためのJavaScript学習ガイド</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-1bf24a4c.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-a10e83d1.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">留学生のためのJavaScript学習ガイド</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="文字列"><a class="header" href="#文字列">文字列</a></h1>
+<h2 id="i-string型-プリミティブ-とstringオブジェクト"><a class="header" href="#i-string型-プリミティブ-とstringオブジェクト">I. String型 (プリミティブ) とStringオブジェクト</a></h2>
+<p>プログラミングを学んでいると、同じ「文字列」を扱うのに、<strong>String型（プリミティブ）とStringオブジェクト</strong> という2つの言葉が出てきて混乱することがあります。</p>
+<p>留学生の方には、<strong>「中身だけのリンゴ」</strong> と <strong>「箱に入ったリンゴ」</strong> の違いに<ruby>例<rt>たと</rt></ruby>えて説明すると、スッキリ理解してもらえます！</p>
+<h3 id="1-二つの違いのイメージ"><a class="header" href="#1-二つの違いのイメージ">1. 二つの違いのイメージ</a></h3>
+<ul>
+<li>
+<p><strong>String型（プリミティブ）：</strong></p>
+</li>
+<li>
+<p>ただの「値」そのものです。</p>
+</li>
+<li>
+<p><strong><ruby>例<rt>たと</rt></ruby>え：</strong> お店で売っている「リンゴ」そのもの。軽くて、すぐ食べられます。</p>
+</li>
+<li>
+<p><strong>Stringオブジェクト：</strong></p>
+</li>
+<li>
+<p><code>new String()</code> を使って作られる「特別な箱」です。</p>
+</li>
+<li>
+<p><strong><ruby>例<rt>たと</rt></ruby>え：</strong> 「豪華な箱に入ったリンゴ」です。箱の中にはリンゴだけでなく、説明書や道具も一緒に入っています。</p>
+</li>
+</ul>
+<h3 id="2-コードで見てみよう"><a class="header" href="#2-コードで見てみよう">2. コードで見てみよう</a></h3>
+<p>実際にどう違うのか、JavaScriptで書いてみます。</p>
+<pre><code class="language-javascript">// 1. String型（プリミティブ）★ふだん使うのはこっち！
+let str1 = "こんにちは";
+console.log(typeof str1); // "string"
+
+// 2. Stringオブジェクト（new を使う）
+let str2 = new String("こんにちは");
+console.log(typeof str2); // "object"
+
+</code></pre>
+<h4 id="ここが注意見みた目めは同じでも中身が違う"><a class="header" href="#ここが注意見みた目めは同じでも中身が違う">ここが注意！「<ruby>見<rt>み</rt></ruby>た<ruby>目<rt>め</rt></ruby>は同じでも中身が違う」</a></h4>
+<pre><code class="language-javascript">let s1 = "hello";
+let s2 = new String("hello");
+
+console.log(s1 == s2);  // true （文字の中身は同じ）
+console.log(s1 === s2); // false （型が違うのでダメ！）
+
+</code></pre>
+<h3 id="3-不思議なルールなぜプリミティブでメソッドが使えるの"><a class="header" href="#3-不思議なルールなぜプリミティブでメソッドが使えるの">3. 不思議なルール：なぜプリミティブでメソッドが使えるの？</a></h3>
+<p>ここで学生からよく「先生、不思議です！」と質問が出ます。</p>
+<blockquote>
+<p>「プリミティブは『ただの値』なのに、なぜ <code>.length</code> や <code>.toUpperCase()</code> などの <strong>『道具（メソッド）』</strong> が使えるんですか？」</p>
+</blockquote>
+<p>実は、JavaScriptが<ruby>裏側<rt>うらがわ</rt></ruby>で <strong>一時的な<ruby>魔法<rt>まほう</rt></ruby></strong> をかけているんです。これを <strong>「ラッパーオブジェクト」</strong> と呼びます。</p>
+<ol>
+<li>あなたが <code>str1.toUpperCase()</code> と書く。</li>
+<li>JavaScriptが「あ、道具を使いたいんだな？」と判断する。</li>
+<li><strong>一瞬だけ</strong>、プリミティブを「オブジェクトの箱」に入れる。</li>
+<li>道具（メソッド）を使い終わったら、すぐに箱を捨てて「プリミティブ」に戻す。</li>
+</ol>
+<p>この<ruby>魔法<rt>まほう</rt></ruby>のおかげで、私たちは重い「オブジェクト」をずっと持っていなくても、必要なときだけ便利な道具を使えるのです。</p>
+<h3 id="4-どっちを使えばいい"><a class="header" href="#4-どっちを使えばいい">4. どっちを使えばいい？</a></h3>
+<p>留学生へのアドバイスは、とてもシンプルです。</p>
+<ul>
+<li><strong>常に「String型（プリミティブ）」を使いましょう！</strong></li>
+<li><ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>が簡単（<code>""</code> で囲むだけ）。</li>
+<li>メモリを節約できて、<ruby>動<rt>うご</rt></ruby>きも速い。</li>
+<li><code>new String()</code> は、特別な理由がない限り、<strong>使わなくて大丈夫</strong>です。</li>
+</ul>
+<h3 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>特徴</th><th>String型 (Primitive)</th><th>Stringオブジェクト</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>作り方</strong></td><td><code>"hello"</code></td><td><code>new String("hello")</code></td></tr>
+<tr><td><strong>データ型</strong></td><td><code>string</code></td><td><code>object</code></td></tr>
+<tr><td><strong>スピード</strong></td><td>速い</td><td>少し遅い（重い）</td></tr>
+<tr><td><strong>おすすめ</strong></td><td><strong>◎ 毎日使う！</strong></td><td>❌ ほとんど使わない</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p><strong>「ラッパー（Wrapper）」の意味</strong>
+お菓子やプレゼントを包む「ラッピング（wrapping）」と同じ言葉です。
+「値を一時的に包んで守る箱」だと教えると、イメージが<ruby>定着<rt>ていちゃく</rt></ruby>（ていちゃく）しやすいですよ！</p>
+</blockquote>
+<p>いかがでしょうか？「<ruby>普段<rt>ふだん</rt></ruby>は<ruby>身軽<rt>みがる</rt></ruby>なプリミティブ、道具を使うときだけ<ruby>魔法<rt>まほう</rt></ruby>で<ruby>変身<rt>へんしん</rt></ruby>」という<ruby>仕組<rt>しく</rt></ruby>みは伝わりそうでしょうか。</p>
+<hr>
+<h2 id="ii-文字列の加工かこう"><a class="header" href="#ii-文字列の加工かこう">II. 文字列の<ruby>加工<rt>かこう</rt></ruby></a></h2>
+<p>Stringオブジェクト（文字列）には、文字を自由に<ruby>操<rt>あやつ</rt></ruby>るための便利な「道具（メソッド）」がたくさんあります。</p>
+<p>留学生の方には、<strong>「長い文章という『テープ』を、ハサミで切ったり、シールを貼ったりして<ruby>加工<rt>かこう</rt></ruby>する」</strong> イメージで説明すると伝わりやすいですよ。</p>
+<p>よく使われる5つのメソッドを紹介します。</p>
+<h3 id="1-sliceスライス好きなところを切きり取とる"><a class="header" href="#1-sliceスライス好きなところを切きり取とる">1. slice（スライス）：好きなところを<ruby>切<rt>き</rt></ruby>り<ruby>取<rt>と</rt></ruby>る</a></h3>
+<p><ruby>配列<rt>はいれつ</rt></ruby>のときと同じ名前ですね！文字列でも「○番目から○番目までを取り出す」ことができます。</p>
+<pre><code class="language-javascript">let text = "JavaScript";
+let sub = text.slice(0, 4); // 0番目から4番目の「手前」まで
+
+console.log(sub); // "Java"
+
+</code></pre>
+<ul>
+<li><strong>ポイント：</strong> 元の <code>text</code> は変わりません。新しい「<ruby>切<rt>き</rt></ruby>り<ruby>抜<rt>ぬ</rt></ruby>き」を作るだけです。</li>
+</ul>
+<h3 id="2-replaceリプレイス文字を置おき換かえる"><a class="header" href="#2-replaceリプレイス文字を置おき換かえる">2. replace（リプレイス）：文字を<ruby>置<rt>お</rt></ruby>き<ruby>換<rt>か</rt></ruby>える</a></h3>
+<p>間違った文字を直したり、別の言葉に変えたりします。</p>
+<pre><code class="language-javascript">let greeting = "こんにちは、田中さん";
+let newGreeting = greeting.replace("田中", "マリア");
+
+console.log(newGreeting); // "こんにちは、マリアさん"
+
+</code></pre>
+<ul>
+<li><strong>覚え方：</strong> 「リプレイス」は「<ruby>入<rt>い</rt></ruby>れ<ruby>替<rt>かえ</rt></ruby>る」という意味です。</li>
+</ul>
+<h3 id="3-splitスプリットバラバラにわける"><a class="header" href="#3-splitスプリットバラバラにわける">3. split（スプリット）：バラバラにわける</a></h3>
+<p>長い文字列を、カンマやスペースで区切って「<ruby>配列<rt>はいれつ</rt></ruby>（リスト）」に変えます。</p>
+<pre><code class="language-javascript">let tags = "日本,韓国,中国";
+let array = tags.split(","); // 「,」のところで切る
+
+console.log(array); // ["日本", "韓国", "中国"]
+
+</code></pre>
+<ul>
+<li><strong>覚え方：</strong> 「スプリット」は「<ruby>分裂<rt>ぶんれつ</rt></ruby>（ぶんれつ）する」という意味。<ruby>名簿<rt>めいぼ</rt></ruby>などを作るときにとても便利です！</li>
+</ul>
+<h3 id="4-touppercase--tolowercase大文字小文字にする"><a class="header" href="#4-touppercase--tolowercase大文字小文字にする">4. toUpperCase / toLowerCase：大文字・小文字にする</a></h3>
+<p>英語のアルファベットをすべて大文字、または小文字に変えます。</p>
+<pre><code class="language-javascript">let email = "Maria@Example.Com";
+
+console.log(email.toLowerCase()); // "maria@example.com"（すべて小文字）
+console.log(email.toUpperCase()); // "MARIA@EXAMPLE.COM"（すべて大文字）
+
+</code></pre>
+<ul>
+<li><strong>ポイント：</strong> ユーザーが<ruby>入力<rt>にゅうりょく</rt></ruby>したメールアドレスをきれいに整理するときによく使います。</li>
+</ul>
+<h3 id="5-trimトリムまわりの空白を消す"><a class="header" href="#5-trimトリムまわりの空白を消す">5. trim（トリム）：まわりの空白を消す</a></h3>
+<p>文字の前後に入ってしまった、いらない「スペース」を自動で消してくれます。</p>
+<pre><code class="language-javascript">let input = "   マリア   ";
+let cleanInput = input.trim();
+
+console.log(cleanInput); // "マリア"（きれいに消えた！）
+
+</code></pre>
+<ul>
+<li><strong><ruby>例<rt>たと</rt></ruby>え：</strong> 髪の毛を「トリミング（整える）」するのと同じです。</li>
+</ul>
+<h3 id="まとめテーブル留学生向け"><a class="header" href="#まとめテーブル留学生向け">まとめテーブル（留学生向け）</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>メソッド名</th><th>やっていること</th><th><ruby>例<rt>たと</rt></ruby>え話</th></tr>
+</thead>
+<tbody>
+<tr><td><strong><code>slice</code></strong></td><td>一部を取り出す</td><td>ハサミで<ruby>切<rt>き</rt></ruby>り<ruby>取<rt>と</rt></ruby>る</td></tr>
+<tr><td><strong><code>replace</code></strong></td><td>文字を<ruby>入<rt>い</rt></ruby>れ<ruby>替<rt>かえ</rt></ruby>る</td><td>修正テープで<ruby>書<rt>か</rt></ruby>き<ruby>直<rt>なお</rt></ruby>す</td></tr>
+<tr><td><strong><code>split</code></strong></td><td><ruby>配列<rt>はいれつ</rt></ruby>に分ける</td><td>チョコをパキパキ割る</td></tr>
+<tr><td><strong><code>toLowerCase</code></strong></td><td>小文字にする</td><td>全部小さく書く</td></tr>
+<tr><td><strong><code>trim</code></strong></td><td>前後の<ruby>隙間<rt>すきま</rt></ruby>を消す</td><td>ムダ毛をカットする</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p><strong>「元の文字は変わらない」というルール</strong>
+文字列（String）のメソッドは、すべて**「<ruby>加工<rt>かこう</rt></ruby>したあとの新しい文字」**を返します。元の<ruby>変数<rt>へんすう</rt></ruby>を変えたいときは、<code>text = text.trim();</code> のように、もう一度<ruby>代入<rt>だいにゅう</rt></ruby>する必要があるよ、と教えてあげてください。</p>
+</blockquote>
+<p>いかがでしょうか？ 「文字列の<ruby>加工<rt>かこう</rt></ruby>」ができるようになると、ユーザーが<ruby>入力<rt>にゅうりょく</rt></ruby>したデータをきれいに整理できるようになります。</p>
+<hr>
+<h2 id="iii-文字の検索けんさく"><a class="header" href="#iii-文字の検索けんさく">III. 文字の<ruby>検索<rt>けんさく</rt></ruby></a></h2>
+<p>文字列（String）の中から「特定の文字」を見つけたり、場所を調べたりするときに欠かせない <strong><code>charAt</code></strong> と <strong><code>indexOf</code></strong> について説明します。</p>
+<p>どちらも「何番目にあるか」という <strong>インデックス（番号）</strong> をキーワードにして<ruby>動<rt>うご</rt></ruby>きます。</p>
+<hr>
+<h3 id="1-charatキャラット番号から文字を知る"><a class="header" href="#1-charatキャラット番号から文字を知る">1. charAt（キャラット）：番号から「文字」を知る</a></h3>
+<p>指定した番号の場所に、どんな文字があるかを教えてくれます。</p>
+<ul>
+<li><strong>イメージ：</strong> 「3番の部屋に住んでいるのは誰（どの文字）？」と聞く感じです。</li>
+<li><strong>書きかた：</strong> <code>文字列.charAt(インデックス)</code></li>
+</ul>
+<pre><code class="language-javascript">let word = "JavaScript";
+
+console.log(word.charAt(0)); // "J"（一番最初）
+console.log(word.charAt(4)); // "S"（5番目）
+
+</code></pre>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>最近のJavaScriptでは、<ruby>配列<rt>はいれつ</rt></ruby>と同じように <code>word[0]</code> と書いても同じ結果が得られますが、<code>charAt</code> は古いコードでもよく使われる大切な基本です。</p>
+</blockquote>
+<hr>
+<h3 id="2-indexofインデックスオブ文字から番号を知る"><a class="header" href="#2-indexofインデックスオブ文字から番号を知る">2. indexOf（インデックスオブ）：文字から「番号」を知る</a></h3>
+<p>探したい文字が、最初から数えて<strong>何番目（インデックス）にあるか</strong>を教えてくれます。</p>
+<ul>
+<li><strong>イメージ：</strong> 「『S』さんは何番の部屋に住んでいますか？」と聞く感じです。</li>
+<li><strong>書きかた：</strong> <code>文字列.indexOf("探したい文字")</code></li>
+</ul>
+<pre><code class="language-javascript">let text = "Hello World";
+
+console.log(text.indexOf("W")); // 6 （Wは7番目、つまりインデックスは6）
+console.log(text.indexOf("o")); // 4 （最初に見つかった「o」の場所）
+
+</code></pre>
+<h4 id="見つからなかったらどうなる"><a class="header" href="#見つからなかったらどうなる">見つからなかったらどうなる？</a></h4>
+<p>ここがテストや実務（じつむ）で一番大切なポイントです。
+探している文字がどこにもなかった場合、<code>indexOf</code> は <strong><code>-1</code></strong> という数字を返します。</p>
+<pre><code class="language-javascript">let msg = "こんにちは";
+console.log(msg.indexOf("さようなら")); // -1
+
+</code></pre>
+<hr>
+<h3 id="3-二つのメソッドの違いまとめ"><a class="header" href="#3-二つのメソッドの違いまとめ">3. 二つのメソッドの違い（まとめ）</a></h3>
+<p>留学生の方には、この「逆（ぎゃく）」の関係を伝えてあげてください。</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>メソッド名</th><th>知りたいこと（答え）</th><th><ruby>入力<rt>にゅうりょく</rt></ruby>するもの</th><th><ruby>例<rt>たと</rt></ruby>え話</th></tr>
+</thead>
+<tbody>
+<tr><td><strong><code>charAt</code></strong></td><td><strong>文字</strong>はなに？</td><td>番号 (Index)</td><td>「0番の席に座っているのは誰？」</td></tr>
+<tr><td><strong><code>indexOf</code></strong></td><td><strong>番号</strong>はどこ？</td><td>文字 (String)</td><td>「マリアさんは何番の席？」</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="留学生へのアドバイスindexof-の便利な使い方"><a class="header" href="#留学生へのアドバイスindexof-の便利な使い方">留学生へのアドバイス：<code>indexOf</code> の便利な使い方</a></h3>
+<p>「あるかないか」を調べるために、<code>if</code> 文でよくこう書きます。</p>
+<pre><code class="language-javascript">let email = "test@example.com";
+
+// 「@」が入っているかチェックする
+if (email.indexOf("@") !== -1) {
+  console.log("正しいメールアドレスの形式（けいしき）です。");
+} else {
+  console.log("「@」がありません！");
+}
+
+</code></pre>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p><strong>「-1 じゃない（!== -1）」 ＝ 「どこかにある」</strong> という意味だよ！と教えると、コードの意味がスッと伝わります。</p>
+</blockquote>
+<hr>
+<p>いかがでしょうか？「番号から文字」か「文字から番号」か、このペアで覚えるととても使いやすくなります。</p>
+<h2 id="iv-文字列の応用"><a class="header" href="#iv-文字列の応用">IV. 文字列の応用</a></h2>
+<p>Webサイトで扱う情報の多くは「テキスト（文字列）」です。これをどう操作するかが、プログラミングの腕の見せ所です。</p>
+<h3 id="文字列の作成と結合けつごう"><a class="header" href="#文字列の作成と結合けつごう">文字列の作成と<ruby>結合<rt>けつごう</rt></ruby></a></h3>
+<p><ruby>最新<rt>さいしん</rt></ruby>のJavaScriptでは、テンプレートリテラル（<strong>「`」</strong> バッククォート）を使うのがとても便利です。</p>
+<ul>
+<li><ruby>変数<rt>へんすう</rt></ruby>の<ruby>埋<rt>う</rt></ruby>め<ruby>込<rt>こ</rt></ruby>み: `こんにちは、${name}さん！` のように、${} で<ruby>変数<rt>へんすう</rt></ruby>を入れられます。</li>
+<li><ruby>改行<rt>かいぎょう</rt></ruby>（かいぎょう）: テンプレートリテラルは、コードの中で<ruby>改行<rt>かいぎょう</rt></ruby>した場所をそのまま文字として扱ってくれます。HTMLのコードを文字として作りたいときに非常に役立ちます。</li>
+</ul>
+<h3 id="数値すうちへの変換へんかん"><a class="header" href="#数値すうちへの変換へんかん"><ruby>数値<rt>すうち</rt></ruby>への<ruby>変換<rt>へんかん</rt></ruby></a></h3>
+<p>prompt()（プロンプト：<ruby>入力<rt>にゅうりょく</rt></ruby><ruby>画面<rt>がめん</rt></ruby>）でユーザーが<ruby>入力<rt>にゅうりょく</rt></ruby>した数字は、<ruby>見<rt>み</rt></ruby>た<ruby>目<rt>め</rt></ruby>が数字でも、プログラム上は「文字列」です。計算するには<ruby>変換<rt>へんかん</rt></ruby>が必要です。</p>
+<ul>
+<li>parseInt(): 整数（1, 2, 3…）に<ruby>変換<rt>へんかん</rt></ruby>します。</li>
+<li>parseFloat(): 小数点を含む<ruby>数値<rt>すうち</rt></ruby>に<ruby>変換<rt>へんかん</rt></ruby>します。</li>
+</ul>
+<p>So What?（なぜ大切なの？） 数字ではない文字を無理に<ruby>数値<rt>すうち</rt></ruby>に変えようとすると NaN（Not a Number：<ruby>数値<rt>すうち</rt></ruby>ではないというエラー値）になります。Web<ruby>開発<rt>かいはつ</rt></ruby>ではユーザーが何を打つか分かりません。isNaN() <ruby>関数<rt>かんすう</rt></ruby>を使って「これは<ruby>本当<rt>ほんとう</rt></ruby>に数字かな？」とチェックすることは、プログラムが止まってしまう「クラッシュ」を防ぐためのプログラマーの責任です。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="05_01_配列.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="05_03_日付.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="05_01_配列.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="05_03_日付.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="src/assets/fzf-17e59c4c.umd.js"></script>
+        <script src="src/assets/elasticlunr-04fe11a0.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

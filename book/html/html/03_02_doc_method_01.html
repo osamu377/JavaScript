@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="greeting">こんにちは！</h1>
+    <br>
+    <p>コンソールを開いて、下のJavaScriptを入力してみましょう。</p>
+    <br>
+    <pre>
+        // 1. IDが "greeting" というパーツを探す
+        const message = document.getElementById("greeting");
+
+        // 2. その中身を書き換える
+        message.textContent = "こんにちは、日本へようこそ！";
+
+        // 3. スタイル（色）も変えちゃう
+        message.style.color = "red";
+    </pre>
+    <br>
+    <a href="javascript:history.back();">戻る</a>
+</body>
+</html>

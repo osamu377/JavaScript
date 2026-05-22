@@ -1,0 +1,12 @@
+[book]
+title = "留学生のためのJavaScript学習ガイド"
+authors = ["Osamu377"]
+language = "ja"
+
+[build]
+build-dir = "./book"
+
+[output.html]
+additional-js = ["src/assets/fzf.umd.js", "src/assets/elasticlunr.js"]
+
+[output.epub]

@@ -1,0 +1,649 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>関数 - 留学生のためのJavaScript学習ガイド</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-1bf24a4c.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-a10e83d1.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">留学生のためのJavaScript学習ガイド</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="関数かんすう"><a class="header" href="#関数かんすう"><ruby>関数<rt>かんすう</rt></ruby></a></h1>
+<p><strong>やさしい日本語で学ぶ JavaScript の「<ruby>関数<rt>かんすう</rt></ruby>」ガイド</strong></p>
+<p>皆さん、こんにちは。JavaScriptを勉強中の留学生の皆さんにとって、一番大切な道具（どうぐ）のひとつが <strong>「<ruby>関数<rt>かんすう</rt></ruby>」</strong> です。 <ruby>関数<rt>かんすう</rt></ruby>を使いこなせると、プログラムを整理（せいり）して、賢（かしこ）く書くことができます。</p>
+<p>実は、今までにも、<ruby>関数<rt>かんすう</rt></ruby>は使っていました。<code>alert()</code>, <code>Number()</code>などは、あらかじめJavaScriptが用意している<ruby>関数<rt>かんすう</rt></ruby>です。</p>
+<p>一緒に学んでいきましょう。</p>
+<hr>
+<h2 id="i-用語の整理"><a class="header" href="#i-用語の整理">I. 用語の整理</a></h2>
+<p><ruby>関数<rt>かんすう</rt></ruby>について説明する前に、整理しておきたい言葉があります。前に出てきた言葉ですが、ここで復習しておきましょう。</p>
+<p>プログラミングを勉強していると、漢字が並んでいて<ruby>難<rt>むずか</rt></ruby>しく感じますよね。<strong>「<ruby>演算<rt>えんざん</rt></ruby>子」</strong> と <strong>「式」</strong> と <strong>「文」</strong> です。これらは、プログラミングの <strong>「文法（ぶんぽう）」</strong> の名前です。そして、どれもプログラムの<ruby>動<rt>うご</rt></ruby>きを書くためのものです。</p>
+<p>日本語の「単語（たんご）」「句（く）」「文（ぶん）」の違いに似ています。</p>
+<p>わかりやすく「<ruby>料理<rt>りょうり</rt></ruby>」に<ruby>例<rt>たと</rt></ruby>えて説明しますね。</p>
+<h3 id="演算えんざん子えんざんし-operator"><a class="header" href="#演算えんざん子えんざんし-operator"><ruby>演算<rt>えんざん</rt></ruby>子（えんざんし）／ Operator</a></h3>
+<p><strong>→「道具（どうぐ）」のこと</strong></p>
+<p>数字を足したり、比べたりするための「記号（きごう）」です。そのときにも <strong>「料理の道具」のようなもの</strong> と説明したのは、覚えているでしょうか？</p>
+<ul>
+<li><strong><ruby>例<rt>れい</rt></ruby>：</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>=</code>, <code>&gt;</code>, <code>&amp;&amp;</code></li>
+<li><strong>料理でいうと：</strong> <ruby>包丁<rt>ほうちょう</rt></ruby>（ほうちょう）、お<ruby>鍋<rt>なべ</rt></ruby>（なべ）、フライパン</li>
+</ul>
+<p>しかし、道具を用意しただけでは何も起きません。道具を使って何かをする必要があります。</p>
+<h3 id="式しき-expression"><a class="header" href="#式しき-expression">式（しき）／ Expression</a></h3>
+<p><strong>→「<ruby>計算<rt>けいさん</rt></ruby>のフレーズ」のこと</strong></p>
+<p><ruby>演算<rt>えんざん</rt></ruby>子（道具）を使って、<strong>「答え（値）」を出すもの</strong>です。</p>
+<ul>
+<li><strong><ruby>例<rt>れい</rt></ruby>：</strong> <code>10 + 5</code> （答えは15）、<code>a == b</code> （答えは「はい」か「いいえ」）</li>
+<li><strong>料理でいうと：</strong> 「野菜（やさい）を切る」「お肉を焼く」</li>
+<li>何かのアクションをして、<strong>「切った野菜」という結果</strong>が生まれます。</li>
+</ul>
+<h3 id="文ぶん-statement"><a class="header" href="#文ぶん-statement">文（ぶん）／ Statement</a></h3>
+<p><strong>→「コンピューターへの <ruby>命令<rt>めいれい</rt></ruby>」のこと</strong></p>
+<p>「〜をしてください」という、<strong>ひとつの<ruby>完璧<rt>かんぺき</rt></ruby>な指示</strong> です。</p>
+<p>JavaScriptでは、最後にセミコロン <code>;</code> をつけます。</p>
+<ul>
+<li><strong><ruby>例<rt>れい</rt></ruby>：</strong> <code>let x = 10 + 5;</code> （xという箱に、15を入れてください！）</li>
+<li><strong>料理でいうと：</strong> 「カレーを作ってください！」</li>
+<li>道具（<ruby>演算<rt>えんざん</rt></ruby>子）を使い、ステップ（式）を<ruby>組<rt>く</rt></ruby>み<ruby>合<rt>あ</rt></ruby>わせて、**ひとつの仕事（文）**を終わらせます。</li>
+</ul>
+<h3 id="まとめの比較表"><a class="header" href="#まとめの比較表">まとめの比較表</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>名前</th><th>英語</th><th>イメージ</th><th>役割（やくわり）</th></tr>
+</thead>
+<tbody>
+<tr><td><strong><ruby>演算<rt>えんざん</rt></ruby>子</strong></td><td>Operator</td><td>道具</td><td><code>+</code> や <code>=</code> などの記号</td></tr>
+<tr><td><strong>式</strong></td><td>Expression</td><td>フレーズ</td><td>何かの* <em>「値（あたい）」</em>* になるもの</td></tr>
+<tr><td><strong>文</strong></td><td>Statement</td><td>命令（文）</td><td>コンピューターに**「動作」**をさせるもの</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p><strong><ruby>見分<rt>みわ</rt></ruby>けかたのコツ：</strong>
+最後に <code>;</code>（セミコロン）がついているものは、ほとんどの場合 <strong>「文」</strong> です。日本語の「。」（まる）と同じです。</p>
+</blockquote>
+<h2 id="ii-関数かんすうとは何か"><a class="header" href="#ii-関数かんすうとは何か">II. <ruby>関数<rt>かんすう</rt></ruby>とは何か？</a></h2>
+<p>「<ruby>関数<rt>かんすう</rt></ruby>」は、プログラミングの中でとても便利な <strong>「<ruby>魔法<rt>まほう</rt></ruby>の箱」</strong> や <strong>「<ruby>自動販売機<rt>じどうはんばいき</rt></ruby>」</strong> のようなものです。</p>
+<p>漢字で見ると<ruby>難<rt>むずか</rt></ruby>しそうですが、その中身は、いくつかの <strong>「文」</strong> をひとつ（ひとつ）にまとめた <strong>「セット」</strong> です。とてもシンプルですよ！</p>
+<p><strong><ruby>関数<rt>かんすう</rt></ruby>は「料理マシン」と同じ！</strong></p>
+<p><ruby>関数<rt>かんすう</rt></ruby>をイメージするときは、キッチンにある「ジューサー（ミキサー）」を思い出してください。</p>
+<ol>
+<li><strong>入れるもの（<ruby>引数<rt>ひきすう</rt></ruby>：ひきすう）：</strong> リンゴを入れる。</li>
+<li><strong>中での仕事（処理：しょり）：</strong> リンゴを細かくつぶす。</li>
+<li><strong>出てくるもの（<ruby>戻<rt>もど</rt></ruby>り<ruby>値<rt>ち</rt></ruby>：もどりち）：</strong> リンゴジュースが出てくる！</li>
+</ol>
+<p>一度この「マシン」を作っておけば、次からは「リンゴ」を入れるだけで、いつでもリンゴジュースを作れます。それだけでなく、「オレンジ」や「バナナ」を入れれば、オレンジジュースやバナナジュースを作ることもできるのです。</p>
+<p>こんどは、<strong>「自動販売機（じどうはんぱいき）」</strong> に<ruby>例<rt>たと</rt></ruby>えで見ます。</p>
+<ul>
+<li>お金を入れる・ボタンを押す： これが、<ruby>関数<rt>かんすう</rt></ruby>に<ruby>渡<rt>わた</rt></ruby>すデータ <strong>「<ruby>引数<rt>ひきすう</rt></ruby>（ひきすう）」</strong> です。</li>
+<li>飲み物が出る： これが、命令を実行した<ruby>結果<rt>けっか</rt></ruby>である <strong>「<ruby>戻<rt>もど</rt></ruby>り<ruby>値<rt>ち</rt></ruby>（もどりち）」</strong> です。</li>
+</ul>
+<p>自動販売機の中には、「お金を数える」「<ruby>在庫<rt>ざいこ</rt></ruby>（ざいこ）を確認する」といった複雑（ふくざつ）なプログラムが入っています。でも、私たちは「ボタンを押す」というひとつの命令だけで、欲しい結果を受け取ることができます。</p>
+<p><strong>なぜ「<ruby>関数<rt>かんすう</rt></ruby>」を使うの？</strong></p>
+<p>同じコードを何度も書くのは大変だし、間違いのもとです。<ruby>関数<rt>かんすう</rt></ruby>を使うメリットは2つあります。</p>
+<ul>
+<li><strong>楽ができます：</strong> 一度作れば、名前を呼ぶだけで何度でも使えます。同じことを何度も書かなくてよくなります。</li>
+<li><strong>直しやすくなります：</strong> 挨拶の言葉を変えたいとき、1ヶ所（<ruby>関数<rt>かんすう</rt></ruby>の中）を直すだけで全部変わる。</li>
+<li>**整理しやすくなります： 長いコードがスッキリします。</li>
+</ul>
+<p>次は、この便利な「<ruby>関数<rt>かんすう</rt></ruby>」をどうやって作るのか、ルールを見ていきましょう。</p>
+<hr>
+<h2 id="iii-関数かんすうの作り方定義ていぎていぎ"><a class="header" href="#iii-関数かんすうの作り方定義ていぎていぎ">III. <ruby>関数<rt>かんすう</rt></ruby>の作り方（<ruby>定義<rt>ていぎ</rt></ruby>：ていぎ）</a></h2>
+<p><ruby>関数<rt>かんすう</rt></ruby>を新しく作ることを「<ruby>定義<rt>ていぎ</rt></ruby>（ていぎ）」と言います。 JavaScriptでは、誰が見ても分かりやすいように、名前の付け方に世界共通のルールがあります。</p>
+<p><strong>基本の<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby></strong></p>
+<p>以下のキーワードと記号を<ruby>組<rt>く</rt></ruby>み<ruby>合<rt>あ</rt></ruby>わせて作ります。</p>
+<ul>
+<li>function： 「今から<ruby>関数<rt>かんすう</rt></ruby>を作ります」という合図（あいず）です。</li>
+<li><ruby>関数<rt>かんすう</rt></ruby>名： そのセットに付ける名前です。</li>
+<li>()： <ruby>引数<rt>ひきすう</rt></ruby>（データ）を受け取るための場所です。</li>
+<li>{}： この中に、実行したい命令をすべて書きます。これを「ブロック」と呼びます。</li>
+</ul>
+<p><strong>良い名前をつけるルール</strong></p>
+<p>プログラマーは、<ruby>関数<rt>かんすう</rt></ruby>が「何をするものか」すぐ分かるように、以下のルールを守ります。</p>
+<ol>
+<li>動詞（どうし）から始める： get（取る）、show（見せる）、calculate（計算する）、handle（処理する）などの動詞を使います。</li>
+<li>キャメルケース（camelCase）： 2つ目以降の単語の最初を大文字にします。<ruby>例<rt>れい</rt></ruby>：showMessage, calculateTotal</li>
+</ol>
+<p><strong>コードの<ruby>例<rt>れい</rt></ruby></strong></p>
+<p>「挨拶（あいさつ）をしてくれるマシン」を作ってみましょう。</p>
+<pre><code>// 準備: 関数（かんすう）を定義（ていぎ）する
+function sayHello() {
+  console.log("こんにちは！JavaScriptの世界へようこそ。");
+}
+</code></pre>
+<p>これで「準備」ができました。次は、これを目的に合わせて「動かす」方法を説明します。</p>
+<hr>
+<h2 id="iv-関数かんすうの呼び出し実行じっこう"><a class="header" href="#iv-関数かんすうの呼び出し実行じっこう">IV. <ruby>関数<rt>かんすう</rt></ruby>の呼び出し（実行：じっこう）</a></h2>
+<p><ruby>関数<rt>かんすう</rt></ruby>を作っただけでは、プログラムは<ruby>動<rt>うご</rt></ruby>きません。作った<ruby>関数<rt>かんすう</rt></ruby>を動かすことを <strong>「呼び出し」</strong> と言います。<ruby>初心者<rt>しょしんしゃ</rt></ruby>の方は「<ruby>定義<rt>ていぎ</rt></ruby>（準備）」と「呼び出し（実行）」を分けて考えることがとても大切です。</p>
+<p><strong>呼び出しの<ruby>仕組<rt>しく</rt></ruby>み</strong></p>
+<p><ruby>関数<rt>かんすう</rt></ruby>名のあとに () をつけると、中身が<ruby>動<rt>うご</rt></ruby>き出します。 sayHello(); と書くと、先ほど {} の中に書いたメッセージが<ruby>表示<rt>ひょうじ</rt></ruby>されます。</p>
+<p><strong>イベントとの連携（れんけい）</strong></p>
+<p>ウェブページでは、ボタンをクリックした時に<ruby>関数<rt>かんすう</rt></ruby>を呼び出すことが多いです。これを <strong>「イベントハンドラ」</strong> と言います。</p>
+<p><strong>HTMLとJavaScriptのつながり</strong></p>
+<p>[ HTML側 ]</p>
+<pre><code>&lt;button onclick="sayHello()"&gt;ボタンを押してね&lt;/button&gt;
+</code></pre>
+<p>↓</p>
+<pre><code>(クリックされると、関数（かんすう）を呼び出す)
+</code></pre>
+<p>↓<br>[ JavaScript側 ]</p>
+<pre><code>function sayHello() {
+    alert("こんにちは！");
+}
+</code></pre>
+<p>実際、どんなふうになるか見てみましょう。下のボタンを押してみてください。</p>
+<script>
+function sayHello() {
+    alert("こんにちは！");
+}
+</script>
+<p><button onclick="sayHello()">ボタンを押してね</button></p>
+<br>
+<h2 id="v-引数ひきすうひきすうの活用と注意点"><a class="header" href="#v-引数ひきすうひきすうの活用と注意点">V. <ruby>引数<rt>ひきすう</rt></ruby>（ひきすう）の活用と注意点</a></h2>
+<p>今度は<ruby>引数<rt>ひきすう</rt></ruby>をとる<ruby>関数<rt>かんすう</rt></ruby>を作ってみましょう。</p>
+<p>「名前を呼んで、挨拶（あいさつ）をしてくれるマシン」を作ってみましょう。</p>
+<pre><code class="language-javascript">// 1. 定義（ていぎ）：マシンを作る
+function sayHello(name) {
+  return "こんにちは、" + name + "さん！";
+}
+</code></pre>
+<ul>
+<li><strong><code>function</code></strong>： 「これからマシンを作るよ！」という合図。</li>
+<li><strong><code>name</code>（<ruby>引数<rt>ひきすう</rt></ruby>）</strong>： マシンに入れる材料（ここでは名前）。</li>
+<li><strong><code>return</code>（<ruby>戻<rt>もど</rt></ruby>り<ruby>値<rt>ち</rt></ruby>）</strong>： マシンが最後に出してくれる結果。</li>
+</ul>
+<p><ruby>関数<rt>かんすう</rt></ruby>に<code>name</code>という<ruby>変数<rt>へんすう</rt></ruby>に入ったデータを渡すことで、処理を<ruby>柔軟<rt>じゅうなん</rt></ruby>（じゅうなん）に変えることができます。</p>
+<p>では、<ruby>引数<rt>ひきすう</rt></ruby>をとる<ruby>関数<rt>かんすう</rt></ruby>を呼び出すときは、どのようにすればよいでしょうか？</p>
+<pre><code>// 2. 実行：ボタンを押して動かす
+let message = sayHello("田中");
+console.log(message); // 「こんにちは、田中さん！」と出る
+</code></pre>
+<p>このように、<code>()</code>の中に<ruby>関数<rt>かんすう</rt></ruby>に渡すデータを書きます。</p>
+<p>ここで、</p>
+<ul>
+<li>仮<ruby>引数<rt>ひきすう</rt></ruby>（かりひきすう）： <ruby>関数<rt>かんすう</rt></ruby>の中で使う「データの箱」の名前。ここでは<code>name</code></li>
+<li>実<ruby>引数<rt>ひきすう</rt></ruby>（じつひきすう）： 呼び出すときに実際に渡す「中身」のデータ。ここでは“田中“という文字列</li>
+</ul>
+<p>というふうに呼びます。この呼び方もよく使うので、覚えてください。</p>
+<p>では、実際、どんなふうに動くか見てみましょう。F12 キー（ノートPCは Fn + F12）を使ってコンソールを開いてから、下のボタンを押してみてください。</p>
+<script>
+function sayHelloName(name) {
+  return "こんにちは、" + name + "さん！";
+}
+</script>
+<p><button onclick="let message = sayHelloName(&#39;田中&#39;);console.log(message);">実行</button></p>
+<br>
+<p>次は、<ruby>変数<rt>へんすう</rt></ruby>の「使える範囲」について学びます。</p>
+<hr>
+<h2 id="vi-変数へんすうのスコープscope変数へんすうの見える範囲"><a class="header" href="#vi-変数へんすうのスコープscope変数へんすうの見える範囲">VI. <ruby>変数<rt>へんすう</rt></ruby>のスコープ（Scope）：<ruby>変数<rt>へんすう</rt></ruby>の見える範囲</a></h2>
+<p><ruby>変数<rt>へんすう</rt></ruby>は、どこからでも見えるわけではありません。この「見える範囲」をスコープと呼びます。スコープを正しく使うことで、プログラムのミス（バグ）を減らすことができます。</p>
+<p>プログラミングの「スコープ（Scope）」は、日本語でいうと <strong>「有効（ゆうこう）な範囲（はんい）」</strong>、つまり <strong>「その<ruby>変数<rt>へんすう</rt></ruby>がどこまで使えるか」というルールのこと</strong> です。</p>
+<h3 id="グローバルスコープ-global-scope"><a class="header" href="#グローバルスコープ-global-scope">グローバルスコープ (Global Scope)</a></h3>
+<p><strong>→「外の世界（公園やインターネット）」のようなもの</strong></p>
+<p>プログラムのどこからでも見える、一番広いスコープです。</p>
+<pre><code class="language-javascript">let world = "こんにちは世界！"; // グローバル変数（へんすう）
+
+function sayWorld() {
+  console.log(world); // 関数（かんすう）の中でも使える
+}
+
+sayWorld();
+console.log(world); // 関数（かんすう）の外でも使える
+
+</code></pre>
+<ul>
+<li><strong>イメージ：</strong> 空に浮かんでいる「お月様（つきさま）」です。どこにいても見えますよね。</li>
+</ul>
+<h3 id="ローカルスコープ--関数かんすうスコープ-local-scope"><a class="header" href="#ローカルスコープ--関数かんすうスコープ-local-scope">ローカルスコープ / <ruby>関数<rt>かんすう</rt></ruby>スコープ (Local Scope)</a></h3>
+<p><strong>→「家の中」のようなもの</strong></p>
+<p><code>function</code>（<ruby>関数<rt>かんすう</rt></ruby>）の中で作った<ruby>変数<rt>へんすう</rt></ruby>は、その<ruby>関数<rt>かんすう</rt></ruby>の<strong>外からは見えません。</strong></p>
+<pre><code class="language-javascript">function myHouse() {
+  let secret = "これは秘密（ひみつ）です"; // ローカル変数（へんすう）
+  console.log(secret); // 関数（かんすう）の中ならOK
+}
+
+myHouse();
+console.log(secret); // ❌ エラー！外からは見えません。
+
+</code></pre>
+<ul>
+<li><strong>イメージ：</strong> 家の中にある「テレビのりもこん」です。隣の家の人（<ruby>関数<rt>かんすう</rt></ruby>の外）は使えません。</li>
+</ul>
+<hr>
+<h3 id="ブロックスコープ-block-scope"><a class="header" href="#ブロックスコープ-block-scope">ブロックスコープ (Block Scope)</a></h3>
+<p><strong>→「小さな箱（はこ）」のようなもの</strong></p>
+<p><code>if</code> 文や <code>for</code> 文などの <code>{ }</code> （波（なみ）かっこ）の中で <code>let</code> や <code>const</code> を使って作った<ruby>変数<rt>へんすう</rt></ruby>は、その <strong><code>{ }</code> の中だけでしか使えません。</strong></p>
+<pre><code class="language-javascript">if (true) {
+  let fruit = "りんご"; // ブロック変数（へんすう）
+  console.log(fruit); // ブロックの中ならOK
+}
+
+console.log(fruit); // ❌ エラー！箱の外には出せません。
+
+</code></pre>
+<ul>
+<li><strong>イメージ：</strong> ロッカーの中の荷物です。ロッカー（<code>{ }</code>）を閉めたら、外からは触れません。</li>
+</ul>
+<h3 id="ポイントまとめ"><a class="header" href="#ポイントまとめ">ポイントまとめ</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>スコープの名前</th><th>使える場所</th><th>わかりやすい<ruby>例<rt>たと</rt></ruby>え</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>グローバル</strong></td><td>どこでもOK</td><td>公園にある時計（みんな見れる）</td></tr>
+<tr><td><strong>ローカル（<ruby>関数<rt>かんすう</rt></ruby>）</strong></td><td>その<ruby>関数<rt>かんすう</rt></ruby>の中だけ</td><td>あなたの部屋の電気（外からは消せない）</td></tr>
+<tr><td><strong>ブロック</strong></td><td><code>{ }</code> の中だけ</td><td>お弁当箱の中のおかず（外にはこぼれない）</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="なぜこれが大事なの"><a class="header" href="#なぜこれが大事なの">なぜこれが大事なの？</a></h3>
+<p>もし、すべての<ruby>変数<rt>へんすう</rt></ruby>を「グローバル（どこでも使える）」にすると、知らないうちに別の場所で**データが<ruby>上書<rt>うわが</rt></ruby>き（書きかえ）**されてしまい、バグの原因になります。</p>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p><strong>「できるだけ狭（せま）く」が基本！</strong>
+留学生には、「<ruby>変数<rt>へんすう</rt></ruby>はなるべく小さな箱（ブロックスコープ）に入れて、必要なときだけ外に出そうね」と教えてあげてください。</p>
+</blockquote>
+<p><strong>var は使わない、const を使おう</strong></p>
+<p>JavaScriptには<ruby>変数<rt>へんすう</rt></ruby>の作り方が3つありますが、安全性のために<ruby>使<rt>つか</rt></ruby>い<ruby>分<rt>わ</rt></ruby>けが重要です。</p>
+<p><code>var</code>・<code>let</code>・<code>const</code> の違いは、プログラミングの世界では <strong>「古いルール」と「新しいルール」の違い</strong> だと考えると分かりやすいです。</p>
+<p>むかしは <code>var</code> しかありませんでしたが、今はもっと安全な <code>let</code> と <code>const</code> を使うのが普通です。</p>
+<h3 id="違いをまとめた表"><a class="header" href="#違いをまとめた表">違いをまとめた表</a></h3>
+<p>まずは、この表で全体（ぜんたい）のルールを見てみましょう。</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>種類</th><th>スコープ（範囲）</th><th>値の<ruby>書<rt>か</rt></ruby>き<ruby>換<rt>かえ</rt></ruby>え</th><th>同じ名前で作り直し</th></tr>
+</thead>
+<tbody>
+<tr><td><strong><code>var</code></strong></td><td>**<ruby>関数<rt>かんすう</rt></ruby>**スコープ（広い）</td><td>OK</td><td>OK（危ない！）</td></tr>
+<tr><td><strong><code>let</code></strong></td><td><strong>ブロック</strong>スコープ（狭い）</td><td>OK</td><td>❌ だめ</td></tr>
+<tr><td><strong><code>const</code></strong></td><td><strong>ブロック</strong>スコープ（狭い）</td><td>❌ だめ</td><td>❌ だめ</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="なぜ-var-は使わないほうがいいの"><a class="header" href="#なぜ-var-は使わないほうがいいの">なぜ <code>var</code> は使わないほうがいいの？</a></h3>
+<p><code>var</code> は「ルールがゆるすぎる」ので、ミスが起きやすいんです。</p>
+<h4 id="①-ブロック---を無視して外に出てしまう"><a class="header" href="#①-ブロック---を無視して外に出てしまう">① ブロック <code>{ }</code> を無視して外に出てしまう</a></h4>
+<p><code>var</code> は <code>if</code> や <code>for</code> の外まで飛び出してしまいます。</p>
+<pre><code class="language-javascript">if (true) {
+  var leak = "外に出ちゃうよ！";
+}
+console.log(leak); // ⭕ 表示（ひょうじ）できてしまう（これがバグの原因になる）
+
+if (true) {
+  let safe = "外には出ないよ";
+}
+console.log(safe); // ❌ エラー（外からは見えないので安全！）
+
+</code></pre>
+<h4 id="②-同じ名前で何度でも作れてしまう"><a class="header" href="#②-同じ名前で何度でも作れてしまう">② 同じ名前で何度でも作れてしまう</a></h4>
+<p><code>var</code> は、同じ名前の<ruby>変数<rt>へんすう</rt></ruby>をうっかり2回作っても怒られません。</p>
+<pre><code class="language-javascript">var name = "田中";
+var name = "鈴木"; // ⭕ OK（前の「田中」が消えてしまう！）
+
+let age = 20;
+let age = 25; // ❌ エラー！「もうありますよ！」と教えてくれる
+
+</code></pre>
+<h3 id="let-と-const-はどう使つかい分わける"><a class="header" href="#let-と-const-はどう使つかい分わける"><code>let</code> と <code>const</code> はどう<ruby>使<rt>つか</rt></ruby>い<ruby>分<rt>わ</rt></ruby>ける？</a></h3>
+<p>今のプログラミングでは、この <strong>「<ruby>使<rt>つか</rt></ruby>い<ruby>分<rt>わ</rt></ruby>け」</strong> がとても大切です。<ruby>繰<rt>く</rt></ruby>り<ruby>返<rt>かえ</rt></ruby>しになりますが、ここでも確認しておきましょう。</p>
+<h4 id="const定数ていすう"><a class="header" href="#const定数ていすう"><code>const</code>（定数：ていすう）</a></h4>
+<ul>
+<li><strong>「カギをかけた箱」</strong> です。</li>
+<li>一度入れたら、中身を変えることはできません。</li>
+<li><strong>基本はこれを使います。</strong> 途中で値が変わらないほうが、読む人が安心できるからです。</li>
+</ul>
+<h4 id="let変数へんすうへんすう"><a class="header" href="#let変数へんすうへんすう"><code>let</code>（<ruby>変数<rt>へんすう</rt></ruby>：へんすう）</a></h4>
+<ul>
+<li><strong>「カギのない箱」</strong> です。</li>
+<li>中身を何度も<ruby>入<rt>い</rt></ruby>れ<ruby>替<rt>かえ</rt></ruby>ることができます。</li>
+<li><code>for</code> 文のカウンター（<code>i++</code> など）のように、<strong>数字が変わるものだけ</strong> に使います。</li>
+</ul>
+<h3 id="学生へのアドバイス"><a class="header" href="#学生へのアドバイス">学生へのアドバイス</a></h3>
+<ol>
+<li><strong>まずは <code>const</code> を使おう！</strong>（一番安全だから）</li>
+<li>もし、あとで値を<ruby>書<rt>か</rt></ruby>き<ruby>換<rt>かえ</rt></ruby>える必要があるなら <strong><code>let</code> に変えよう。</strong></li>
+<li><strong><code>var</code> はもう使わない！</strong>（古い本や古いサイトには書いてあるけど、今は使わないのがルールだよ）</li>
+</ol>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p><strong>「定数（const）」</strong> の <strong>「定」</strong> は「決定（けってい）」の「定」。
+つまり、「もう決まっていて動かない」という意味だと教えると分かりやすいですよ。</p>
+</blockquote>
+<hr>
+<h2 id="vii-無名関数かんすうむめいかんすう"><a class="header" href="#vii-無名関数かんすうむめいかんすう">VII. 無名<ruby>関数<rt>かんすう</rt></ruby>（むめいかんすう）</a></h2>
+<p>ここまで「<ruby>関数<rt>かんすう</rt></ruby>（マシン）」についてお<ruby>話<rt>はなし</rt></ruby>ししました。次は、そのマシンの <strong>「ちょっと特別な形」</strong> である、<strong>無名<ruby>関数<rt>かんすう</rt></ruby>（むめいかんすう）とアロー<ruby>関数<rt>かんすう</rt></ruby></strong> について説明します。</p>
+<p>どちらも、今のJavaScriptでは毎日使うとても大切な<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>です！</p>
+<hr>
+<h3 id="無名関数かんすうむめいかんすう"><a class="header" href="#無名関数かんすうむめいかんすう">無名<ruby>関数<rt>かんすう</rt></ruby>（むめいかんすう）</a></h3>
+<p><strong>→「名前のない マシン」のこと</strong></p>
+<p>普通の<ruby>関数<rt>かんすう</rt></ruby>は <code>function sayHello() ...</code> のように名前をつけますが、名前をつけないで作ることもできます。</p>
+<ul>
+<li>
+<p><strong>なぜ名前をつけないの？</strong>
+「その場ですぐに使うだけだから、名前をつけるのが面倒（めんどう）」という時に使います。</p>
+</li>
+<li>
+<p><strong><ruby>例<rt>たと</rt></ruby>え話：</strong>
+名前のある<ruby>関数<rt>かんすう</rt></ruby>が「名前を<ruby>登録<rt>とうろく</rt></ruby>（とうろく）した専属のシェフ」なら、無名<ruby>関数<rt>かんすう</rt></ruby>は「その時だけ手伝ってくれる助っ人（すけっと）」のようなイメージです。</p>
+</li>
+</ul>
+<pre><code class="language-javascript">// 普通の関数（かんすう）（名前がある）
+function sayHi() {
+  console.log("こんにちは！");
+}
+
+// 無名関数（かんすう）（名前がない）
+// 変数（へんすう）に入れて使うことが多いです
+const sayHi2 = function() {
+  console.log("こんにちは！");
+};
+
+</code></pre>
+<h3 id="アロー関数かんすう-arrow-function"><a class="header" href="#アロー関数かんすう-arrow-function">アロー<ruby>関数<rt>かんすう</rt></ruby> (Arrow Function)</a></h3>
+<p><strong>→「もっと短く書ける、<ruby>最新<rt>さいしん</rt></ruby>のショートカット」のこと</strong></p>
+<p>「無名<ruby>関数<rt>かんすう</rt></ruby>」をさらに短く、かっこよく書く方法です。 <strong><code>=&gt;</code>（矢印：アロー）</strong> を使うので「アロー<ruby>関数<rt>かんすう</rt></ruby>」と呼びます。</p>
+<h4 id="書かき方かたの変化を見てみよう"><a class="header" href="#書かき方かたの変化を見てみよう"><ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>の変化を見てみよう</a></h4>
+<p>どれも同じ<ruby>動<rt>うご</rt></ruby>きをしますが、下に行くほど短くなります。</p>
+<ol>
+<li><strong>普通の<ruby>関数<rt>かんすう</rt></ruby>：</strong>
+<code>function(a, b) { return a + b; }</code></li>
+<li><strong>アロー<ruby>関数<rt>かんすう</rt></ruby>：</strong>
+<code>(a, b) =&gt; { return a + b; }</code></li>
+<li><strong>もっと短く（1行のとき）：</strong>
+<code>(a, b) =&gt; a + b;</code></li>
+</ol>
+<hr>
+<h3 id="どうしてアロー関数かんすうを使うの"><a class="header" href="#どうしてアロー関数かんすうを使うの">どうしてアロー<ruby>関数<rt>かんすう</rt></ruby>を使うの？</a></h3>
+<p>留学生のみなさんには、この3つのメリットを覚えてほしいです。</p>
+<ul>
+<li><strong>タイピングが楽：</strong> <code>function</code> と書かなくていいので、指が疲れません。</li>
+<li><strong><ruby>見<rt>み</rt></ruby>た<ruby>目<rt>め</rt></ruby>がスッキリ：</strong> コードが短くなって、読みやすくなります。</li>
+<li><strong>「this」のルールがやさしい：</strong> （少し<ruby>難<rt>むずか</rt></ruby>しい話ですが）アロー<ruby>関数<rt>かんすう</rt></ruby>を使うと、プログラムが「自分（this）」を見失いにくくなり、エラーが減ります。</li>
+</ul>
+<hr>
+<h3 id="どんな時に使うの具体的な例れい"><a class="header" href="#どんな時に使うの具体的な例れい">どんな時に使うの？（具体的な<ruby>例<rt>れい</rt></ruby>）</a></h3>
+<p>一番よく使うのは、<strong>「他の<ruby>関数<rt>かんすう</rt></ruby>の中で、ちょっと手伝ってほしい時」</strong> です。</p>
+<pre><code class="language-javascript">// 3秒後に「時間ですよ！」と表示（ひょうじ）する
+setTimeout(() =&gt; {
+  console.log("時間ですよ！");
+}, 3000);
+
+</code></pre>
+<p>このように、<code>setTimeout</code> という<ruby>関数<rt>かんすう</rt></ruby>の中に、さらに小さな<ruby>関数<rt>かんすう</rt></ruby>（アロー<ruby>関数<rt>かんすう</rt></ruby>）を入れて使います。</p>
+<h3 id="学生へのアドバイス-1"><a class="header" href="#学生へのアドバイス-1">学生へのアドバイス</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>名前</th><th><ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>の特徴</th><th>ニュアンス</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>普通の<ruby>関数<rt>かんすう</rt></ruby></strong></td><td><code>function 名前() { ... }</code></td><td>どこでも使える、基本の形</td></tr>
+<tr><td><strong>無名<ruby>関数<rt>かんすう</rt></ruby></strong></td><td><code>function() { ... }</code></td><td>名前をつけるのが面倒なとき</td></tr>
+<tr><td><strong>アロー<ruby>関数<rt>かんすう</rt></ruby></strong></td><td><code>() =&gt; { ... }</code></td><td><strong>今、一番よく使う形！</strong> かっこよくて便利</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p><strong><ruby>初心者<rt>しょしんしゃ</rt></ruby>のうちは…</strong>
+自分で書くときは、まず <strong>「アロー<ruby>関数<rt>かんすう</rt></ruby>」</strong> を練習してみてください。今の現場では 90% くらいアロー<ruby>関数<rt>かんすう</rt></ruby>が使われています。もし古いコードを読んで <code>function</code> が出てきたら、「あ、これはお父さん世代の<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>だな」と思えばOKです！</p>
+</blockquote>
+<p>いかがでしょうか？「矢印（<code>=&gt;</code>）が出てきたら、短い<ruby>関数<rt>かんすう</rt></ruby>の合図だ！」と覚えると簡単ですよ。</p>
+<hr>
+<h2 id="viii-まとめ"><a class="header" href="#viii-まとめ">VIII. まとめ</a></h2>
+<p>JavaScriptの「<ruby>関数<rt>かんすう</rt></ruby>」をマスターするために、5つのポイントを<ruby>振<rt>ふ</rt></ruby>り<ruby>返<rt>かえ</rt></ruby>りましょう。</p>
+<ul>
+<li><ruby>定義<rt>ていぎ</rt></ruby>： function を使い、動詞から始まる名前をつけてセットにしましょう。</li>
+<li>呼び出し： <ruby>関数<rt>かんすう</rt></ruby>名のあとの () を忘れずにつけて実行しましょう。</li>
+<li>スコープ： <ruby>変数<rt>へんすう</rt></ruby>は const を使い、なるべく {} の中で安全に管理しましょう。</li>
+<li>無名<ruby>関数<rt>かんすう</rt></ruby>： 一度きりの処理は、名前をつけずにスマートに書きましょう。</li>
+</ul>
+<p>So What?（だから何？） <ruby>関数<rt>かんすう</rt></ruby>を学ぶことは、ただコードを書くことではありません。大きな問題（プログラム）を、小さくて扱いやすい「<ruby>関数<rt>かんすう</rt></ruby>のセット」に分けて考えることです。これが**「プログラマーのように考える」**ための第<ruby>一歩<rt>いっぽ</rt></ruby>です。</p>
+<h3 id="留学生向けの言葉のガイド"><a class="header" href="#留学生向けの言葉のガイド">留学生向けの言葉のガイド</a></h3>
+<p><ruby>難<rt>むずか</rt></ruby>しい専門用語を、もっと簡単な日本語に言いかえてみましょう。</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>専門用語</th><th>やさしい言いかえ</th><th>英語</th></tr>
+</thead>
+<tbody>
+<tr><td><strong><ruby>定義<rt>ていぎ</rt></ruby>（ていぎ）する</strong></td><td>マシンを<strong>作る</strong></td><td>Define</td></tr>
+<tr><td><strong>呼び出す / 実行する</strong></td><td>マシンを<strong>動かす</strong></td><td>Call / Execute</td></tr>
+<tr><td><strong><ruby>引数<rt>ひきすう</rt></ruby>（ひきすう）</strong></td><td><strong>入れるもの</strong> / 材料</td><td>Arguments / Parameters</td></tr>
+<tr><td><strong><ruby>戻<rt>もど</rt></ruby>り<ruby>値<rt>ち</rt></ruby>（もどりち）</strong></td><td><strong>返ってくるもの</strong> / 答え</td><td>Return value</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p><strong>「<ruby>引数<rt>ひきすう</rt></ruby>（ひきすう）」の覚え方</strong>
+「いんすう」と読みたくなりますが、プログラミングでは <strong>「ひきすう」</strong> と読みます。「（材料を）引き連れてくる数」だと覚えるといいですよ！</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="03_03_制御文.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="04_00_ブラウザのオブジェクト.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="03_03_制御文.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="04_00_ブラウザのオブジェクト.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="src/assets/fzf-17e59c4c.umd.js"></script>
+        <script src="src/assets/elasticlunr-04fe11a0.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>クラスはオブジェクトの設計図.md - 留学生のためのJavaScript学習ガイド</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-1bf24a4c.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-a10e83d1.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">留学生のためのJavaScript学習ガイド</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="クラスはオブジェクトの設計図"><a class="header" href="#クラスはオブジェクトの設計図">クラスはオブジェクトの設計図</a></h1>
+<h2 id="i-クラスとコンストラクタ"><a class="header" href="#i-クラスとコンストラクタ">I. クラスとコンストラクタ</a></h2>
+<p>「ユーザー<ruby>定義<rt>ていぎ</rt></ruby>オブジェクト」が作れるようになると、次にぶつかる壁が <strong>「同じ形のオブジェクトを100人分作りたいときはどうするの？」</strong> という問題です。</p>
+<p>一人ずつ<ruby>手書<rt>てが</rt></ruby>きでオブジェクトを作るのは大変ですよね。そこで登場するのが <strong>「クラス（Class）」</strong> と <strong>「コンストラクタ（Constructor）」</strong> です。</p>
+<p>これを <strong>「たい<ruby>焼<rt>や</rt></ruby>きの型」</strong> に<ruby>例<rt>たと</rt></ruby>えて説明します。</p>
+<h3 id="1-クラスclassとは"><a class="header" href="#1-クラスclassとは">1. クラス（Class）とは？</a></h3>
+<p>クラスは、オブジェクトを作るための <strong>「設計図（せっけいず）」</strong> または <strong>「型（かた）」</strong> のことです。</p>
+<ul>
+<li><strong>クラス：</strong> たい<ruby>焼<rt>や</rt></ruby>きの「型」。これ<ruby>自体<rt>じたい</rt></ruby>は食べられませんが、形を決めています。</li>
+</ul>
+<p><img src="img/taiyaki_yousyoku.jpg" alt="たい&lt;ruby&gt;焼&lt;rt&gt;や&lt;/rt&gt;&lt;/ruby&gt;きの型"></p>
+<ul>
+<li><strong>オブジェクト（インスタンス）：</strong> 型から焼かれた「たい<ruby>焼<rt>や</rt></ruby>き」。実際に食べられる実物です。</li>
+</ul>
+<p><img src="img/sweets_taiyaki1_tsubuan01.png" alt="たい&lt;ruby&gt;焼&lt;rt&gt;や&lt;/rt&gt;&lt;/ruby&gt;き"></p>
+<p>クラスを一度作っておけば、同じ特徴を持ったオブジェクトを何度でも、一瞬で作ることができます。</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>「インスタンス」という言葉は、「オブジェクト」とほぼ同じ意味ですが、より具体的なイメージです。<ruby>例<rt>たと</rt></ruby>えで言えば、「オブジェクト」が「たい<ruby>焼<rt>や</rt></ruby>き」全般を指すとすると、「インスタンス」は、今、あなた食べようとしている目の前の「たい<ruby>焼<rt>や</rt></ruby>き」という具体的な存在を指すイメージです。</p>
+</blockquote>
+<p><a href="./06_09_インスタンスとオブジェクト.html">詳しくはこちら</a></p>
+<h3 id="2-コンストラクタconstructorとは"><a class="header" href="#2-コンストラクタconstructorとは">2. コンストラクタ（Constructor）とは？</a></h3>
+<p>コンストラクタは、クラスの中に書く <strong>「<ruby>初期化<rt>しょきか</rt></ruby>（しょきか）のための<ruby>魔法<rt>まほう</rt></ruby>」</strong> です。</p>
+<p>たい<ruby>焼<rt>や</rt></ruby>きを焼くときに、「中身は何にする？」「あんこ？ クリーム？」と決める作業のことです。オブジェクトが誕生する瞬間に、名前や年齢などのデータをセットする役割を持っています。</p>
+<h3 id="3-コードで見てみよう"><a class="header" href="#3-コードで見てみよう">3. コードで見てみよう！</a></h3>
+<p>クラスという「型」を使って、2人の学生を作ってみましょう。</p>
+<pre><code class="language-javascript">// 1. クラス（設計図）を作る
+class Student {
+  // 2. コンストラクタ（中身をセットする役割）
+  constructor(name, age) {
+    this.name = name; // この人の名前は〜
+    this.age = age;   // この人の年齢は〜
+  }
+
+  // 3. メソッド（この型で作られた人ができる動（うご）き）
+  sayHello() {
+    console.log(`こんにちは、${this.name}です！`);
+  }
+}
+
+// 4. クラスを使って実物（インスタンス）を作る
+const studentA = new Student("アリ", 20);
+const studentB = new Student("リン", 22);
+
+studentA.sayHello(); // "こんにちは、アリです！"
+studentB.sayHello(); // "こんにちは、リンです！"
+
+</code></pre>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p><code>this.name = name;</code>の右の<code>name</code>は<ruby>引数<rt>ひきすう</rt></ruby>として渡された<code>name</code>で、左の<code>this.name</code>は、<code>student</code>というクラスのインスタンスが<ruby>内部<rt>ないぶ</rt></ruby>に持つデータ、つまりオブジェクトのプロパティです。</p>
+<p><code>studentA.name</code> や <code>studentA[name]</code>で“アリ“を取り出すことができます。</p>
+</blockquote>
+<h3 id="4-例たとえ話ハンコとスタンプ"><a class="header" href="#4-例たとえ話ハンコとスタンプ">4. <ruby>例<rt>たと</rt></ruby>え話：ハンコとスタンプ</a></h3>
+<blockquote>
+<p>クラスは <strong>『ハンコ』</strong> です。
+ハンコの形（名前や年齢の枠）は決まっているよね。
+実際に紙にポン！ と押して出てきた図形が <strong>『オブジェクト（インスタンス）』</strong>。
+押すたびにインクの色（データ）を変えれば、同じ形だけど少し違うスタンプがたくさん作れるでしょ？
+<strong><code>new</code></strong> という言葉を使ってハンコを押すイメージなんですよ！</p>
+</blockquote>
+<h3 id="5-大切なキーワードまとめ"><a class="header" href="#5-大切なキーワードまとめ">5. 大切なキーワードまとめ</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>言葉</th><th>意味</th><th><ruby>例<rt>たと</rt></ruby>え話</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Class（クラス）</strong></td><td>オブジェクトの設計図</td><td>たい<ruby>焼<rt>や</rt></ruby>きの型 / ハンコ</td></tr>
+<tr><td><strong>Constructor（コンストラクタ）</strong></td><td>最初にデータをセットする場所</td><td>中身を詰める作業</td></tr>
+<tr><td><strong>Instance（インスタンス）</strong></td><td>クラスから作られた実物</td><td>焼けたたい<ruby>焼<rt>や</rt></ruby>き / 押されたスタンプ</td></tr>
+<tr><td><strong><code>new</code></strong></td><td>新しいインスタンスを作る命令</td><td>「焼いて！」という注文</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="-留学生へのアドバイス"><a class="header" href="#-留学生へのアドバイス">📝 留学生へのアドバイス</a></h3>
+<blockquote>
+<p>最初は <code>this.name = name</code> のような<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>にびっくりするかもしれないけど、これは <strong>『新しく生まれる自分（this）のなまえを、もらった名前にセットしてね』</strong> という意味なんです。
+慣れてくると、100人でも1000人でも同じキャラクターを簡単に作れるようになるから、すごく便利ですよ！</p>
+</blockquote>
+<p>いかがでしょうか？「型（クラス）」を作って、「注文（new）」して、「実物（インスタンス）」を作る。この流れが分かれば、<ruby>大規模<rt>だいきぼ</rt></ruby>なプログラムも怖くありません！</p>
+<hr>
+<h2 id="ii-継承けいしょう効率こうりつ的に新しいものを作る"><a class="header" href="#ii-継承けいしょう効率こうりつ的に新しいものを作る">II. <ruby>継承<rt>けいしょう</rt></ruby>：<ruby>効率<rt>こうりつ</rt></ruby>的に新しいものを作る</a></h2>
+<p>「クラス」という設計図の作り方がわかったら、次はもっと便利な <strong>「<ruby>継承<rt>けいしょう</rt></ruby>（けいしょう / Inheritance）」</strong> という<ruby>仕組<rt>しく</rt></ruby>みを覚えましょう！</p>
+<p><ruby>継承<rt>けいしょう</rt></ruby>とは、<ruby>例<rt>たと</rt></ruby>えて言えば、 <strong>「親のいいところを<ruby>受<rt>う</rt></ruby>け<ruby>継<rt>つ</rt></ruby>いで、新しい独自の特徴をプラスすること」</strong> です。</p>
+<h3 id="1-継承けいしょうinheritanceとは"><a class="header" href="#1-継承けいしょうinheritanceとは">1. <ruby>継承<rt>けいしょう</rt></ruby>（Inheritance）とは？</a></h3>
+<p>「<ruby>継承<rt>けいしょう</rt></ruby>」とは、すでに作ってあるクラス（設計図）をベースにして、<strong>新しいクラスを作ること</strong> です。</p>
+<p>たとえば、「動物（Animal）」というクラスがあれば、それを<ruby>継承<rt>けいしょう</rt></ruby>して「イヌ（Dog）」や「ネコ（Cat）」を作ることができます。</p>
+<ul>
+<li>「動物」なら誰でも持っている特徴（名前、食べる<ruby>動<rt>うご</rt></ruby>き）は、<strong>そのままもらう</strong>。</li>
+<li>「イヌ」だけの特徴（吠える<ruby>動<rt>うご</rt></ruby>き）は、<strong>新しく書き足す</strong>。</li>
+</ul>
+<p>これが<ruby>継承<rt>けいしょう</rt></ruby>のすごいところです！</p>
+<h3 id="2-書かき方かたのキーワードextends-と-super"><a class="header" href="#2-書かき方かたのキーワードextends-と-super">2. <ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>のキーワード：<code>extends</code> と <code>super</code></a></h3>
+<p>JavaScriptで<ruby>継承<rt>けいしょう</rt></ruby>を使うときには、2つの大事な言葉を使います。</p>
+<ol>
+<li><strong><code>extends</code>（イクステンズ）：</strong> 「〜を広げる（<ruby>継承<rt>けいしょう</rt></ruby>する）」という意味。</li>
+<li><strong><code>super</code>（スーパー）：</strong> 「親（親クラス）」という意味。親のコンストラクタを呼び出すときに使います。</li>
+</ol>
+<pre><code class="language-javascript">// 1. 親クラス（ベース）：人間
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  sayHello() {
+    console.log(`こんにちは、${this.name}です。`);
+  }
+}
+
+// 2. 子クラス（継承（けいしょう））：留学生
+// 「Person（人間）」をベースに「InternationalStudent」を作る
+class InternationalStudent extends Person {
+  constructor(name, country) {
+    super(name); // 親クラスのコンストラクタに「名前」を渡す（重要！）
+    this.country = country; // 新しい特徴（国籍）をプラス
+  }
+
+  // 3. 新しい動（うご）きをプラス
+  introduce() {
+    console.log(`${this.country}から来ました。よろしくお願いします！`);
+  }
+}
+
+const user = new InternationalStudent("アハメド", "エジプト");
+user.sayHello();  // 親からもらった動（うご）き
+user.introduce(); // 自分だけの新しい動（うご）き
+
+</code></pre>
+<h3 id="3-留学生への例たとえ話スマホの進化"><a class="header" href="#3-留学生への例たとえ話スマホの進化">3. 留学生への<ruby>例<rt>たと</rt></ruby>え話：スマホの進化</a></h3>
+<blockquote>
+<p>最初の携帯電話（親クラス）は、『電話をする』『メールを送る』機能を持っていました。
+次に登場したスマートフォン（子クラス）は、携帯電話の機能を <strong><ruby>継承<rt>けいしょう</rt></ruby></strong> しているから、もちろん電話もメールもできます。
+でも、そこに『アプリを入れる』とか『顔認証（かおにんしょう）』という <strong>新しい機能を追加</strong> したんだ。これが『<ruby>継承<rt>けいしょう</rt></ruby>』のイメージです！</p>
+</blockquote>
+<h3 id="4-なぜ継承けいしょうを使うの"><a class="header" href="#4-なぜ継承けいしょうを使うの">4. なぜ<ruby>継承<rt>けいしょう</rt></ruby>を使うの？</a></h3>
+<p>留学生に、<ruby>継承<rt>けいしょう</rt></ruby>のメリットをこう伝えてあげてください。</p>
+<ul>
+<li><strong>楽ができる：</strong> 同じことを何度も書かなくていいから、コードが短くなるよ。</li>
+<li><strong>間違いが減る：</strong> 基本のルール（親）を直せば、全員（子）に反映されるから便利だよ。</li>
+</ul>
+<h3 id="まとめテーブル"><a class="header" href="#まとめテーブル">まとめテーブル</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>言葉</th><th>読み方</th><th>役割</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Parent Class</strong></td><td>親クラス</td><td>基本の設計図（ベース）</td></tr>
+<tr><td><strong>Child Class</strong></td><td>子クラス</td><td><ruby>継承<rt>けいしょう</rt></ruby>して新しく作る設計図</td></tr>
+<tr><td><strong><code>extends</code></strong></td><td>イクステンズ</td><td>「親から<ruby>受<rt>う</rt></ruby>け<ruby>継<rt>つ</rt></ruby>ぐよ！」という<ruby>宣言<rt>せんげん</rt></ruby></td></tr>
+<tr><td><strong><code>super()</code></strong></td><td>スーパー</td><td>「親のコンストラクタを動かして！」という合図</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p><strong>「オーバーライド」もできます！</strong>
+オブジェクトの「オーバーライド」と同様に、クラスでも、親からもらった<ruby>動<rt>うご</rt></ruby>きを、子クラスで<ruby>書<rt>か</rt></ruby>き<ruby>換<rt>かえ</rt></ruby>える「オーバーライド（<ruby>上書<rt>うわが</rt></ruby>き）」が使えます。「親のやり<ruby>方<rt>かた</rt></ruby>より、僕のやり<ruby>方<rt>かた</rt></ruby>のほうが得意だよ！」と<ruby>上書<rt>うわが</rt></ruby>きするイメージだと教えてあげると、より理解が深まります。</p>
+</blockquote>
+<p>いかがでしょうか？「基本の形をもらって、自分流にアレンジする」。これが<ruby>継承<rt>けいしょう</rt></ruby>のパワーです！</p>
+<h2 id="iv-まとめプログラマーのように考えよう"><a class="header" href="#iv-まとめプログラマーのように考えよう">IV. まとめ：プログラマーのように考えよう</a></h2>
+<p>オブジェクト<ruby>指向<rt>しこう</rt></ruby>（しこう）は、単なる<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>ではなく、**「複雑（ふくざつ）な現実（げんじつ）を整理（せいり）する方法」**です。</p>
+<p><strong>アクションプラン</strong></p>
+<p><a href="https://developer.mozilla.org/ja/docs/Learn_web_development/Core/Scripting/A_first_splash">MDNの数<ruby>当<rt>あ</rt></ruby>てゲーム</a></p>
+<p>上の「数<ruby>当<rt>あ</rt></ruby>てゲーム」を、オブジェクトを使って次のように改良（かいりょう）を考えてみてください。</p>
+<ul>
+<li>「ゲーム全体」をひとつの大きなオブジェクトにする。</li>
+<li>プレイヤーの「これまでの<ruby>予想<rt>よそう</rt></ruby>履歴（よそうりれき）」をプロパティに保存する。</li>
+<li>「当たり・ハズレの<ruby><rt>判定</rt>はんてい</ruby>」をメソッドにする。</li>
+</ul>
+<p><ruby>難<rt>むずか</rt></ruby>しい用語も、RPGや<ruby>自己<rt>じこ</rt></ruby>紹介カードのように<ruby>身近<rt>みじか</rt></ruby>なものに<ruby>例<rt>たと</rt></ruby>えれば、きっと理解（りかい）できるはずです。オブジェクトを使って、よりスマートでプロフェッショナルなプログラムを作っていきましょう。自信（じしん）を持って<ruby>挑戦<rt>ちょうせん</rt></ruby>（ちょうせん）してください！</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="06_02_オブジェクトを改造する.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="07_00_付録.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="06_02_オブジェクトを改造する.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="07_00_付録.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="src/assets/fzf-17e59c4c.umd.js"></script>
+        <script src="src/assets/elasticlunr-04fe11a0.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

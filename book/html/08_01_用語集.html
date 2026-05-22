@@ -1,0 +1,427 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>用語集 - 留学生のためのJavaScript学習ガイド</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-1bf24a4c.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-a10e83d1.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">留学生のためのJavaScript学習ガイド</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="留学生りゅうがくせいのためのjavascript学習がくしゅう必須ひっす用語ようご完全かんぜんガイド"><a class="header" href="#留学生りゅうがくせいのためのjavascript学習がくしゅう必須ひっす用語ようご完全かんぜんガイド"><ruby>留学生<rt>りゅうがくせい</rt></ruby>のためのJavaScript<ruby>学習<rt>がくしゅう</rt></ruby>：<ruby>必須<rt>ひっす</rt></ruby><ruby>用語<rt>ようご</rt></ruby><ruby>完全<rt>かんぜん</rt></ruby>ガイド</a></h1>
+<h2 id="1-はじめにweb開発かいはつの基礎きそを成すなす3つの技術ぎじゅつ"><a class="header" href="#1-はじめにweb開発かいはつの基礎きそを成すなす3つの技術ぎじゅつ">1. はじめに：Web<ruby>開発<rt>かいはつ</rt></ruby>の<ruby>基礎<rt>きそ</rt></ruby>を<ruby>成す<rt>なす</rt></ruby>3つの<ruby>技術<rt>ぎじゅつ</rt></ruby></a></h2>
+<p><ruby>Web開発<rt>うぇぶかいはつ</rt></ruby>を<ruby>学<rt>まな</rt></ruby>ぶみなさん、こんにちは。プロのエンジニアを<ruby>目指<rt>めざ</rt></ruby>すうえで、<ruby>用語<rt>ようご</rt></ruby>の<ruby>正確<rt>せいかく</rt></ruby>な<ruby>理解<rt>りかい</rt></ruby>は「<ruby>設計図<rt>せっけいず</rt></ruby>」を<ruby>読<rt>よ</rt></ruby>み<ruby>解<rt>と</rt></ruby>くための<ruby>最初<rt>さいしょ</rt></ruby>の<ruby>武器<rt>ぶき</rt></ruby>になります。</p>
+<p>Webサイトの<ruby>構造<rt>こうぞう</rt></ruby>は、よく「<ruby>家<rt>いえ</rt></ruby>」に<ruby>例<rt>たと</rt></ruby>えられます。HTMLは<ruby>家<rt>いえ</rt></ruby>の「<ruby>柱<rt>はしら</rt></ruby>」や「<ruby>壁<rt>かべ</rt></ruby>」といった<ruby>骨組<rt>ほねぐ</rt></ruby>み、CSSは「ペンキ」や「インテリア」などの<ruby>装飾<rt>そうしょく</rt></ruby>、そしてJavaScriptはボタンを<ruby>押<rt>お</rt></ruby>すとライトがつく「<ruby>電気設備<rt>でんきせつび</rt></ruby>」の<ruby>役割<rt>やくわり</rt></ruby>を<ruby>果<rt>は</rt></ruby>たします。</p>
+<p><ruby>基本<rt>きほん</rt></ruby><ruby>用語<rt>ようご</rt></ruby>まとめ</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th><ruby>用語<rt>ようご</rt></ruby></th><th>よみがな</th><th><ruby>意味<rt>いみ</rt></ruby></th></tr>
+</thead>
+<tbody>
+<tr><td>HTML</td><td>エイチティーエムエル</td><td><ruby>Webページ<rt>うぇぶぺーじ</rt></ruby>の<ruby>骨組<rt>ほねぐ</rt></ruby>みや<ruby>構造<rt>こうぞう</rt></ruby>を<ruby>作<rt>つく</rt></ruby>るための<ruby>言語<rt>げんご</rt></ruby>。</td></tr>
+<tr><td>CSS</td><td>シーエスエス</td><td><ruby>Webページ<rt>うぇぶぺーじ</rt></ruby>の<ruby>見<rt>み</rt></ruby>た<ruby>目<rt>め</rt></ruby>をきれいに<ruby>整<rt>ととの</rt></ruby>えるための<ruby>言語<rt>げんご</rt></ruby>。</td></tr>
+<tr><td>JavaScript</td><td>ジャバスクリプト</td><td><ruby>Webページ<rt>うぇぶぺーじ</rt></ruby>に<ruby>動<rt>うご</rt></ruby>きや<ruby>機能<rt>きのう</rt></ruby>を<ruby>追加<rt>ついか</rt></ruby>するための<ruby>言語<rt>げんご</rt></ruby>。</td></tr>
+<tr><td>メタ情報</td><td>メタじょうほう</td><td>ブラウザに<ruby>情報<rt>じょうほう</rt></ruby>を<ruby>伝<rt>つた</rt></ruby>える、<ruby>画面<rt>がめん</rt></ruby>には<ruby>表示<rt>ひょうじ</rt></ruby>されない<ruby>設定情報<rt>せっていじょうほう</rt></ruby>。</td></tr>
+</tbody>
+</table>
+</div>
+<p><ruby>戦略的<rt>せんりゃくてき</rt></ruby>インパクト：<ruby>土台<rt>どだい</rt></ruby>としてのHTML</p>
+<p>HTMLはすべての「<ruby>土台<rt>どだい</rt></ruby>」です。たとえばメタ<ruby>情報<rt>じょうほう</rt></ruby>で「<ruby>文字<rt>もじ</rt></ruby>コード」の<ruby>設定<rt>せってい</rt></ruby>を<ruby>間違<rt>まちが</rt></ruby>えると、日本語が「<ruby>文字化<rt>もじば</rt></ruby>け」を起こして読めなくなります。<ruby>土台<rt>どだい</rt></ruby>が<ruby>壊<rt>こわ</rt></ruby>れていると、そのうえでJavaScriptという「<ruby>電気<rt>でんき</rt></ruby>」を流そうとしても、<ruby>電線<rt>でんせん</rt></ruby>が<ruby>繋<rt>つな</rt></ruby>がらずに正しく動きません。<ruby>最初<rt>さいしょ</rt></ruby>の設定ミスは後の実装すべてに悪い影響を与えることを忘れないでください。</p>
+<p><ruby>次<rt>つぎ</rt></ruby>へ：<ruby>土台<rt>どだい</rt></ruby>となる<ruby>構造<rt>こうぞう</rt></ruby>を<ruby>理解<rt>りかい</rt></ruby>したところで、<ruby>次<rt>つぎ</rt></ruby>は<ruby>具体的<rt>ぐたいてき</rt></ruby>なページ<ruby>内<rt>ない</rt></ruby>の「<ruby>部品<rt>ぶひん</rt></ruby>」を<ruby>定義<rt>ていぎ</rt></ruby>する<ruby>用語<rt>ようご</rt></ruby>について<ruby>解説<rt>かいせつ</rt></ruby>します。</p>
+<hr>
+<h2 id="2-html要素ようそとwebページの構造化こうぞうか"><a class="header" href="#2-html要素ようそとwebページの構造化こうぞうか">2. HTML<ruby>要素<rt>ようそ</rt></ruby>とWebページの<ruby>構造化<rt>こうぞうか</rt></ruby></a></h2>
+<p>HTMLタグは単なる記号ではありません。情報の「<ruby>意味<rt>いみ</rt></ruby>」や「<ruby>役割<rt>やくわり</rt></ruby>」を決定する、Webページの<ruby>設計図<rt>せっけいず</rt></ruby>そのものです。留学生のみなさんにとって、この<ruby>構造<rt>こうぞう</rt></ruby>を<ruby>正確<rt>せいかく</rt></ruby>に<ruby>把握<rt>はあく</rt></ruby>することは、誰にでも使いやすいアクセシビリティの高いサイトを作るために不可欠です。</p>
+<p><ruby>構造<rt>こうぞう</rt></ruby>に<ruby>関する<rt>かんする</rt></ruby><ruby>用語<rt>ようご</rt></ruby>まとめ</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th><ruby>用語<rt>ようご</rt></ruby></th><th>よみがな</th><th><ruby>意味<rt>いみ</rt></ruby></th></tr>
+</thead>
+<tbody>
+<tr><td>タグ</td><td>たぐ</td><td><ruby>情報<rt>じょうほう</rt></ruby>の<ruby>意味<rt>いみ</rt></ruby>を<ruby>示<rt>しめ</rt></ruby>すための<ruby>印<rt>しるし</rt></ruby>（<ruby>例<rt>れい</rt></ruby>：<code>&lt;h1&gt;</code>や<code>&lt;p&gt;</code>）。</td></tr>
+<tr><td>見出し</td><td>みだし</td><td>ページの<ruby>題名<rt>だいめい</rt></ruby>や<ruby>内容<rt>ないよう</rt></ruby>の<ruby>区切<rt>くぎ</rt></ruby>りに<ruby>使<rt>つか</rt></ruby>う、<ruby>構造<rt>こうぞう</rt></ruby>を<ruby>示<rt>しめ</rt></ruby>す<ruby>文字<rt>もじ</rt></ruby>。</td></tr>
+<tr><td>属性</td><td>ぞくせい</td><td>タグに<ruby>付加<rt>ふか</rt></ruby>する<ruby>詳細<rt>しょうさい</rt></ruby>な<ruby>設定<rt>せってい</rt></ruby>（<ruby>例<rt>れい</rt></ruby>：リンク<ruby>先<rt>さき</rt></ruby>を<ruby>示<rt>しめ</rt></ruby>すhref）。</td></tr>
+<tr><td>特殊記号</td><td>とくしゅきごう</td><td>&lt; や &gt; など、<ruby>言語<rt>げんご</rt></ruby>の<ruby>命令<rt>めいれい</rt></ruby>として<ruby>特別<rt>とくべつ</rt></ruby>な<ruby>意味<rt>いみ</rt></ruby>を<ruby>持<rt>も</rt></ruby>つ<ruby>文字<rt>もじ</rt></ruby>。</td></tr>
+<tr><td>実体参照</td><td>じったいさんしょう</td><td><ruby>特殊<rt>とくしゅ</rt></ruby>な<ruby>記号<rt>きごう</rt></ruby>を<ruby>画面<rt>がめん</rt></ruby>に「<ruby>文字<rt>もじ</rt></ruby>」として<ruby>表示<rt>ひょうじ</rt></ruby>するための<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>。</td></tr>
+<tr><td>入れ子構造</td><td>いれここうぞう</td><td>タグの<ruby>内側<rt>うちがわ</rt></ruby>に、さらに<ruby>別<rt>べつ</rt></ruby>のタグを<ruby>入<rt>い</rt></ruby>れる<ruby>階層的<rt>かいそうてき</rt></ruby>な<ruby>形<rt>かたち</rt></ruby>。</td></tr>
+</tbody>
+</table>
+</div>
+<p>So What?：「id」と「class」がJavaScriptに<ruby>与える<rt>あたえる</rt></ruby><ruby>影響<rt>えいきょう</rt></ruby></p>
+<p>JavaScriptで<ruby>要素<rt>ようそ</rt></ruby>を<ruby>操作<rt>そうさ</rt></ruby>する<ruby>際<rt>さい</rt></ruby>、CSSセレクタの<ruby>知識<rt>ちしき</rt></ruby>を<ruby>応用<rt>おうよう</rt></ruby>して<ruby>要素<rt>ようそ</rt></ruby>を「<ruby>探し出す<rt>さがしだす</rt></ruby>」<ruby>必要<rt>ひつよう</rt></ruby>があります。</p>
+<ul>
+<li>id<ruby>属性<rt>ぞくせい</rt></ruby>： ページ<ruby>内<rt>ない</rt></ruby>で「たった<ruby>ひとつ<rt>ひとつ</rt></ruby>」の<ruby>固有<rt>こゆう</rt></ruby>の<ruby>住所<rt>じゅうしょ</rt></ruby>です。<ruby>特定<rt>とくてい</rt></ruby>の<ruby>部品<rt>ぶひん</rt></ruby>をピンポイントで<ruby>動かす<rt>うごかす</rt></ruby>ときに<ruby>使います<rt>つかいます</rt></ruby>。</li>
+<li>class<ruby>属性<rt>ぞくせい</rt></ruby>： <ruby>複数<rt>ふくすう</rt></ruby>の<ruby>要素<rt>ようそ</rt></ruby>を「グループ」にするための<ruby>名前<rt>なまえ</rt></ruby>です。<ruby>複数<rt>ふくすう</rt></ruby>のボタンを<ruby>一斉<rt>いっせい</rt></ruby>にデザイン<ruby>変更<rt>へんこう</rt></ruby>するときなどに<ruby>使います<rt>つかいます</rt></ruby>。 この<ruby>使い分け<rt>つかいわけ</rt></ruby>を<ruby>誤る<rt>あやまる</rt></ruby>と、JavaScriptで「<ruby>誰<rt>だれ</rt></ruby>に<ruby>命令<rt>めいれい</rt></ruby>を<ruby>出す<rt>だす</rt></ruby>か」を<ruby>正しく<rt>ただしく</rt></ruby><ruby>指定<rt>してい</rt></ruby>できず、<ruby>意図<rt>いと</rt></ruby>しない動きの<ruby>原因<rt>げんいん</rt></ruby>となります。</li>
+</ul>
+<p><ruby>次<rt>つぎ</rt></ruby>へ：ページの<ruby>骨組み<rt>ほねぐみ</rt></ruby>が<ruby>完成<rt>かんせい</rt></ruby>したら、<ruby>次<rt>つぎ</rt></ruby>はプログラムを<ruby>動かす<rt>うごかす</rt></ruby>ための「データ」の<ruby>扱い方<rt>あつかいかた</rt></ruby>に<ruby>焦点<rt>しょうてん</rt></ruby>を<ruby>当てる<rt>あてる</rt></ruby>。</p>
+<hr>
+<h2 id="3-javascriptの変数へんすうとデータ型かた情報じょうほうの入れ物いれもの"><a class="header" href="#3-javascriptの変数へんすうとデータ型かた情報じょうほうの入れ物いれもの">3. JavaScriptの<ruby>変数<rt>へんすう</rt></ruby>とデータ<ruby>型<rt>かた</rt></ruby>：<ruby>情報<rt>じょうほう</rt></ruby>の「<ruby>入れ物<rt>いれもの</rt></ruby>」</a></h2>
+<p>プログラミングにおける「<ruby>変数<rt>へんすう</rt></ruby>」とは、データを<ruby>保存<rt>ほぞん</rt></ruby>しておくための<ruby>名前付き<rt>なまえつき</rt></ruby>の<ruby>箱<rt>はこ</rt></ruby>です。<ruby>新しい<rt>あたらしい</rt></ruby><ruby>言語<rt>げんご</rt></ruby>の<ruby>単語<rt>たんご</rt></ruby>を<ruby>整理<rt>せいり</rt></ruby>して<ruby>覚える<rt>おぼえる</rt></ruby>ように、データを<ruby>整理<rt>せいり</rt></ruby>・<ruby>再利用<rt>さいりよう</rt></ruby>することは<ruby>論理的<rt>ろんりてき</rt></ruby><ruby>思考<rt>しこう</rt></ruby>を<ruby>組み立てる<rt>くみたてる</rt></ruby>うえで<ruby>非常に<rt>ひじょうに</rt></ruby><ruby>重要<rt>じゅうよう</rt></ruby>です。</p>
+<p><ruby>変数<rt>へんすう</rt></ruby>と<ruby>型<rt>かた</rt></ruby>に<ruby>関する<rt>かんする</rt></ruby><ruby>用語<rt>ようご</rt></ruby>まとめ</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th><ruby>用語<rt>ようご</rt></ruby></th><th>よみがな</th><th><ruby>意味<rt>いみ</rt></ruby></th></tr>
+</thead>
+<tbody>
+<tr><td>変数</td><td>へんすう</td><td><ruby>数値<rt>すうち</rt></ruby>や<ruby>文字<rt>もじ</rt></ruby>などのデータを<ruby>記憶<rt>きおく</rt></ruby>させておくための「<ruby>名前付<rt>なまえつ</rt></ruby>きの<ruby>箱<rt>はこ</rt></ruby>」。</td></tr>
+<tr><td>代入</td><td>だいにゅう</td><td><ruby>箱<rt>はこ</rt></ruby>（<ruby>変数<rt>へんすう</rt></ruby>）にデータを<ruby>入<rt>い</rt></ruby>れること。=を<ruby>使用<rt>しよう</rt></ruby>する。</td></tr>
+<tr><td>宣言</td><td>せんげん</td><td><ruby>新<rt>あたら</rt></ruby>しい<ruby>変数<rt>へんすう</rt></ruby>を<ruby>使<rt>つか</rt></ruby>うことをシステムに<ruby>通知<rt>つうち</rt></ruby>すること。</td></tr>
+<tr><td>初期化</td><td>しょきか</td><td><ruby>変数<rt>へんすう</rt></ruby>を<ruby>作<rt>つく</rt></ruby>ると<ruby>同時<rt>どうじ</rt></ruby>に、<ruby>最初<rt>さいしょ</rt></ruby>のデータを<ruby>入<rt>い</rt></ruby>れること。</td></tr>
+<tr><td>定数（const）</td><td>ていすう</td><td><ruby>一度<rt>いちど</rt></ruby>データを<ruby>入<rt>い</rt></ruby>れたら、<ruby>中身<rt>なかみ</rt></ruby>を<ruby>変更<rt>へんこう</rt></ruby>できない<ruby>箱<rt>はこ</rt></ruby>。</td></tr>
+<tr><td>文字列型</td><td>もじれつがた</td><td>テキストデータの<ruby>種類<rt>しゅるい</rt></ruby>。“などで<ruby>囲<rt>かこ</rt></ruby>んで<ruby>表現<rt>ひょうげん</rt></ruby>する。</td></tr>
+<tr><td>数値型</td><td>すうちがた</td><td><ruby>整数<rt>せいすう</rt></ruby>や<ruby>小数<rt>しょうすう</rt></ruby>などの<ruby>数字<rt>すうじ</rt></ruby>データの<ruby>種類<rt>しゅるい</rt></ruby>。</td></tr>
+<tr><td>論理型</td><td>ろんりがた</td><td>true（<ruby>真<rt>しん</rt></ruby>）か false（<ruby>偽<rt>ぎ</rt></ruby>）のみを<ruby>扱<rt>あつか</rt></ruby>うデータの<ruby>種類<rt>しゅるい</rt></ruby>。</td></tr>
+<tr><td>未定義型（undefined）</td><td>みていぎがた</td><td><ruby>変数<rt>へんすう</rt></ruby>は<ruby>存在<rt>そんざい</rt></ruby>するが、<ruby>中身<rt>なかみ</rt></ruby>が<ruby>何<rt>なに</rt></ruby>も<ruby>入<rt>い</rt></ruby>っていない<ruby>状態<rt>じょうたい</rt></ruby>。</td></tr>
+</tbody>
+</table>
+</div>
+<p>プロフェッショナルな<ruby>知見<rt>ちけん</rt></ruby>：<ruby>型変換<rt>かたへんかん</rt></ruby>の<ruby>戦略的<rt>せんりゃくてき</rt></ruby><ruby>必要性<rt>ひつようせい</rt></ruby></p>
+<p>Webサイトの<ruby>入力<rt>にゅうりょく</rt></ruby>フォームから<ruby>受け取る<rt>うけとる</rt></ruby>データは、たとえ<ruby>数字<rt>すうじ</rt></ruby>であっても<ruby>最初<rt>さいしょ</rt></ruby>はすべて「<ruby>文字列<rt>もじれつ</rt></ruby>」として<ruby>届きます<rt>とどきます</rt></ruby>。このまま<ruby>計算<rt>けいさん</rt></ruby>しようとするとバグが<ruby>発生<rt>はっせい</rt></ruby>するため、<ruby>必ず<rt>かならず</rt></ruby>Number()やparseInt()を<ruby>使って<rt>つかって</rt></ruby>「<ruby>数値型<rt>すうちがた</rt></ruby>」に<ruby>変換<rt>へんかん</rt></ruby>しなければなりません。</p>
+<p>また、<ruby>初心者<rt>しょしんしゃ</rt></ruby>が<ruby>最も<rt>もっとも</rt></ruby>間違いやすいのが「<ruby>全角<rt>ぜんかく</rt></ruby>スペース」の<ruby>使用<rt>しよう</rt></ruby>です。コード<ruby>内<rt>ない</rt></ruby>に<ruby>全角<rt>ぜんかく</rt></ruby><ruby>文字<rt>もじ</rt></ruby>が<ruby>ひとつ<rt>ひとつ</rt></ruby><ruby>混ざる<rt>まざる</rt></ruby>だけで、プログラムは<ruby>沈黙<rt>ちんもく</rt></ruby>します。<ruby>必ず<rt>かならず</rt></ruby><ruby>半角英数字<rt>はんかくえいすうじ</rt></ruby>で<ruby>記述<rt>きじゅつ</rt></ruby>することを<ruby>徹底<rt>てってい</rt></ruby>してください。</p>
+<p><ruby>次<rt>つぎ</rt></ruby>へ：データを<ruby>保持<rt>ほじ</rt></ruby>する<ruby>方法<rt>ほうほう</rt></ruby>を<ruby>学んだ<rt>まなんだ</rt></ruby><ruby>後<rt>あと</rt></ruby>は、それらのデータを<ruby>加工<rt>かこう</rt></ruby>し、<ruby>判断<rt>はんだん</rt></ruby>を<ruby>下す<rt>くだす</rt></ruby>ための「<ruby>道具<rt>どうぐ</rt></ruby>」について<ruby>学ぶ<rt>まなぶ</rt></ruby>。</p>
+<hr>
+<h2 id="4-演算子えんざんしと制御文せいぎょぶんプログラムの判断はんだんと流れながれ"><a class="header" href="#4-演算子えんざんしと制御文せいぎょぶんプログラムの判断はんだんと流れながれ">4. <ruby>演算子<rt>えんざんし</rt></ruby>と<ruby>制御文<rt>せいぎょぶん</rt></ruby>：プログラムの「<ruby>判断<rt>はんだん</rt></ruby>」と「<ruby>流れ<rt>ながれ</rt></ruby>」</a></h2>
+<p>「<ruby>演算子<rt>えんざんし</rt></ruby>」はデータを<ruby>加工<rt>かこう</rt></ruby>するための「<ruby>道具<rt>どうぐ</rt></ruby>」、「<ruby>制御文<rt>せいぎょぶん</rt></ruby>」はプログラムの「<ruby>脳<rt>のう</rt></ruby>」です。これらを<ruby>組み合わせる<rt>くみあわせる</rt></ruby>ことで、システムに<ruby>高度<rt>こうど</rt></ruby>な「<ruby>判断力<rt>はんだんりょく</rt></ruby>」が<ruby>備わります<rt>そなわります</rt></ruby>。</p>
+<p><ruby>演算<rt>えんざん</rt></ruby>と<ruby>制御<rt>せいぎょ</rt></ruby>に<ruby>関する<rt>かんする</rt></ruby><ruby>用語<rt>ようご</rt></ruby>まとめ</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th><ruby>用語<rt>ようご</rt></ruby></th><th>よみがな</th><th><ruby>意味<rt>いみ</rt></ruby></th></tr>
+</thead>
+<tbody>
+<tr><td>演算子</td><td>えんざんし</td><td><ruby>計算<rt>けいさん</rt></ruby>や<ruby>比較<rt>ひかく</rt></ruby>など、データに<ruby>対<rt>たい</rt></ruby>して<ruby>処理<rt>しょり</rt></ruby>を<ruby>行<rt>おこな</rt></ruby>うための<ruby>記号<rt>きごう</rt></ruby>。</td></tr>
+<tr><td>算術演算子</td><td>さんじゅつえんざんし</td><td><ruby>足<rt>た</rt></ruby>し<ruby>算<rt>ざん</rt></ruby>や<ruby>引<rt>ひ</rt></ruby>き<ruby>算<rt>ざん</rt></ruby>など、<ruby>数学的<rt>すうがくてき</rt></ruby>な<ruby>計算<rt>けいさん</rt></ruby>を<ruby>行<rt>おこな</rt></ruby>う<ruby>記号<rt>きごう</rt></ruby>。</td></tr>
+<tr><td>比較演算子</td><td>ひかくえんざんし</td><td>2つのデータを<ruby>比<rt>くら</rt></ruby>べて、その<ruby>大小<rt>だいしょう</rt></ruby>や<ruby>一致<rt>いっち</rt></ruby>を<ruby>判断<rt>はんだん</rt></ruby>する<ruby>記号<rt>きごう</rt></ruby>。</td></tr>
+<tr><td>論理演算子</td><td>ろんりえんざんし</td><td>「かつ」や「または」など、<ruby>複数<rt>ふくすう</rt></ruby>の<ruby>条件<rt>じょうけん</rt></ruby>を<ruby>組<rt>く</rt></ruby>み<ruby>合<rt>あ</rt></ruby>わせるための<ruby>記号<rt>きごう</rt></ruby>。</td></tr>
+<tr><td>条件分岐（if文）</td><td>じょうけんぶんき</td><td>「もし〜なら」という<ruby>条件<rt>じょうけん</rt></ruby>によって、<ruby>実行<rt>じっこう</rt></ruby>する<ruby>処理<rt>しょり</rt></ruby>を<ruby>分<rt>わ</rt></ruby>けること。</td></tr>
+<tr><td>ループ（繰り返し）</td><td>るーぷ</td><td><ruby>決<rt>き</rt></ruby>まった<ruby>回数<rt>かいすう</rt></ruby>や<ruby>条件<rt>じょうけん</rt></ruby>に<ruby>達<rt>たっ</rt></ruby>するまで、<ruby>同<rt>おな</rt></ruby>じ<ruby>処理<rt>しょり</rt></ruby>を<ruby>自動<rt>じどう</rt></ruby>で<ruby>繰<rt>く</rt></ruby>り<ruby>返<rt>かえ</rt></ruby>すこと。</td></tr>
+<tr><td>無限ループ</td><td>むげんるーぷ</td><td><ruby>終了条件<rt>しゅうりょうじょうけん</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れ、プログラムが<ruby>永久<rt>えいきゅう</rt></ruby>に<ruby>止<rt>と</rt></ruby>まらなくなる<ruby>危険<rt>きけん</rt></ruby>な<ruby>状態<rt>じょうたい</rt></ruby>。</td></tr>
+</tbody>
+</table>
+</div>
+<p><ruby>厳格<rt>げんかく</rt></ruby>な（とてもきびしい）<ruby>比較<rt>ひかく</rt></ruby>の<ruby>重要性<rt>じゅうようせい</rt></ruby></p>
+<p>JavaScriptには==（<ruby>等しい<rt>ひとしい</rt></ruby>）と===（<ruby>厳密<rt>げんみつ</rt></ruby>に<ruby>等しい<rt>ひとしい</rt></ruby>）がありますが、<ruby>私<rt>わたし</rt></ruby>のクラスでは<ruby>必ず<rt>かならず</rt></ruby>===を<ruby>使って<rt>つかって</rt></ruby>ください。==はデータの「<ruby>型<rt>かた</rt></ruby>」を<ruby>無視<rt>むし</rt></ruby>してあいまいに<ruby>比較<rt>ひかく</rt></ruby>するため、<ruby>予期<rt>よき</rt></ruby>せぬバグ（お<ruby>節介<rt>せっかい</rt></ruby>な<ruby>自動<rt>じどう</rt></ruby><ruby>変換<rt>へんかん</rt></ruby>）を<ruby>招きます<rt>まねきます</rt></ruby>。プロの<ruby>現場<rt>げんば</rt></ruby>で==を<ruby>使う<rt>つかう</rt></ruby>ことは、<ruby>論理的<rt>ろんりてき</rt></ruby>なミスと<ruby>見なされる<rt>みなされる</rt></ruby>こともあります。<ruby>常に<rt>つねに</rt></ruby><ruby>正確<rt>せいかく</rt></ruby>な<ruby>比較<rt>ひかく</rt></ruby>を<ruby>心がけて<rt>こころがけて</rt></ruby>ください。</p>
+<p><ruby>次<rt>つぎ</rt></ruby>へ：<ruby>複雑<rt>ふくざつ</rt></ruby>な<ruby>流れ<rt>ながれ</rt></ruby>を<ruby>制御<rt>せいぎょ</rt></ruby>できるようになったら、<ruby>次<rt>つぎ</rt></ruby>はそれらを<ruby>再利用<rt>さいりよう</rt></ruby><ruby>可能<rt>かのう</rt></ruby>な「セット」にする<ruby>技術<rt>ぎじゅつ</rt></ruby>へと<ruby>進む<rt>すすむ</rt></ruby>。</p>
+<hr>
+<h2 id="5-関数かんすうとスコープ処理しょりの共通化きょうつうかと有効範囲ゆうこうはんい"><a class="header" href="#5-関数かんすうとスコープ処理しょりの共通化きょうつうかと有効範囲ゆうこうはんい">5. <ruby>関数<rt>かんすう</rt></ruby>とスコープ：<ruby>処理<rt>しょり</rt></ruby>の「<ruby>共通化<rt>きょうつうか</rt></ruby>」と「<ruby>有効範囲<rt>ゆうこうはんい</rt></ruby>」</a></h2>
+<p>「<ruby>関数<rt>かんすう</rt></ruby>」は、<ruby>一連<rt>いちれん</rt></ruby>の<ruby>命令<rt>めいれい</rt></ruby>をひとつにまとめた「<ruby>自動販売機<rt>じどうはんばいき</rt></ruby>」のようなものです。<ruby>同じ<rt>おなじ</rt></ruby>コードを<ruby>何度<rt>なんど</rt></ruby>も<ruby>書く<rt>かく</rt></ruby><ruby>無駄<rt>むだ</rt></ruby>を<ruby>省き<rt>はぶき</rt></ruby>、<ruby>巨大<rt>きょだい</rt></ruby>なプログラムを<ruby>管理<rt>かんり</rt></ruby><ruby>可能<rt>かのう</rt></ruby>なサイズに<ruby>分割<rt>ぶんかつ</rt></ruby>する<ruby>戦略的<rt>せんりゃくてき</rt></ruby><ruby>意義<rt>いぎ</rt></ruby>があります。</p>
+<p><ruby>関数<rt>かんすう</rt></ruby>と<ruby>範囲<rt>はんい</rt></ruby>に<ruby>関する<rt>かんする</rt></ruby><ruby>用語<rt>ようご</rt></ruby>まとめ</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th><ruby>用語<rt>ようご</rt></ruby></th><th>よみがな</th><th><ruby>意味<rt>いみ</rt></ruby></th></tr>
+</thead>
+<tbody>
+<tr><td>関数</td><td>かんすう</td><td><ruby>一連<rt>いちれん</rt></ruby>の<ruby>処理<rt>しょり</rt></ruby>をひとつにまとめたもの。<ruby>名前<rt>なまえ</rt></ruby>で<ruby>呼<rt>よ</rt></ruby>び<ruby>出<rt>だ</rt></ruby>して<ruby>再利用<rt>さいりよう</rt></ruby>できる。</td></tr>
+<tr><td>引数</td><td>ひきすう</td><td><ruby>関数<rt>かんすう</rt></ruby>という「ミキサー」に<ruby>投入<rt>とうにゅう</rt></ruby>する、<ruby>外部<rt>がいぶ</rt></ruby>からの<ruby>材料<rt>ざいりょう</rt></ruby>（データ）。</td></tr>
+<tr><td>戻り値（return）</td><td>もどりち</td><td><ruby>関数<rt>かんすう</rt></ruby>が<ruby>仕事<rt>しごと</rt></ruby>を<ruby>終<rt>お</rt></ruby>えたあとに、<ruby>最後<rt>さいご</rt></ruby>に<ruby>返<rt>かえ</rt></ruby>してくれる<ruby>処理結果<rt>しょりけっか</rt></ruby>。</td></tr>
+<tr><td>定義</td><td>ていぎ</td><td><ruby>関数<rt>かんすう</rt></ruby>の「<ruby>名前<rt>なまえ</rt></ruby>」と「<ruby>中身<rt>なかみ</rt></ruby>（<ruby>処理<rt>しょり</rt></ruby>）」を<ruby>作<rt>つく</rt></ruby>ること。</td></tr>
+<tr><td>呼び出し</td><td>よびだし</td><td><ruby>定義<rt>ていぎ</rt></ruby>された<ruby>関数<rt>かんすう</rt></ruby>を、実際にプログラムの中で<ruby>実行<rt>じっこう</rt></ruby>させること。</td></tr>
+<tr><td>スコープ</td><td>すこーぷ</td><td><ruby>変数<rt>へんすう</rt></ruby>が<ruby>有効<rt>ゆうこう</rt></ruby>な<ruby>範囲<rt>はんい</rt></ruby>。データの<ruby>衝突<rt>しょうとつ</rt></ruby>を<ruby>防<rt>ふせ</rt></ruby>ぐための<ruby>重要<rt>じゅうよう</rt></ruby>なルール。</td></tr>
+<tr><td>アロー関数</td><td>あろーかんすう</td><td>=&gt;（<ruby>矢印<rt>やじるし</rt></ruby>）を<ruby>使<rt>つか</rt></ruby>って<ruby>簡潔<rt>かんけつ</rt></ruby>に<ruby>記述<rt>きじゅつ</rt></ruby>する、モダンな<ruby>関数<rt>かんすう</rt></ruby>の<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>。</td></tr>
+<tr><td>コールバック関数</td><td>こーるばっくかんすう</td><td>別の<ruby>関数<rt>かんすう</rt></ruby>に「あとで<ruby>実行<rt>じっこう</rt></ruby>してね」と<ruby>渡<rt>わた</rt></ruby>しておくための「<ruby>指示書<rt>しじしょ</rt></ruby>」としての<ruby>関数<rt>かんすう</rt></ruby>。</td></tr>
+</tbody>
+</table>
+</div>
+<p>プロフェッショナルな<ruby>知見<rt>ちけん</rt></ruby>：スコープ<ruby>管理<rt>かんり</rt></ruby>の<ruby>鉄則<rt>てっそく</rt></ruby></p>
+<p><ruby>変数<rt>へんすう</rt></ruby>の<ruby>有効範囲<rt>ゆうこうはんい</rt></ruby>（スコープ）は「できるだけ<ruby>狭く<rt>せまく</rt></ruby><ruby>保つ<rt>たもつ</rt></ruby>」のが<ruby>鉄則<rt>てっそく</rt></ruby>です。</p>
+<ul>
+<li>グローバル<ruby>変数<rt>へんすう</rt></ruby>： 「<ruby>公園<rt>こうえん</rt></ruby>の<ruby>時計<rt>とけい</rt></ruby>」のようにどこからでも<ruby>見えます<rt>みえます</rt></ruby>が、<ruby>誰<rt>だれ</rt></ruby>でも<ruby>書き換えられる<rt>かきかえられる</rt></ruby>ため<ruby>危険<rt>きけん</rt></ruby>です。</li>
+<li>ローカル<ruby>変数<rt>へんすう</rt></ruby>： 「<ruby>自分<rt>じぶん</rt></ruby>の<ruby>部屋<rt>へや</rt></ruby>の<ruby>電気<rt>でんき</rt></ruby>」のように<ruby>特定<rt>とくてい</rt></ruby>の<ruby>関数<rt>かんすう</rt></ruby><ruby>内<rt>ない</rt></ruby>だけで<ruby>有効<rt>ゆうこう</rt></ruby>です。varの<ruby>使用<rt>しよう</rt></ruby>は<ruby>避け<rt>さけ</rt></ruby>、constやletによる<ruby>適切<rt>てきせつ</rt></ruby>なスコープ<ruby>管理<rt>かんり</rt></ruby>を<ruby>行う<rt>おこなう</rt></ruby>ことが、<ruby>安全<rt>あんぜん</rt></ruby>なコードへの<ruby>第一歩<rt>だいいっぽ</rt></ruby>となります。</li>
+</ul>
+<p><ruby>次<rt>つぎ</rt></ruby>へ：プログラムの<ruby>内部構造<rt>ないぶこうぞう</rt></ruby>を<ruby>整理<rt>せいり</rt></ruby>する<ruby>方法<rt>ほうほう</rt></ruby>を<ruby>学んだ<rt>まなんだ</rt></ruby>ので、JavaScriptが<ruby>操作<rt>そうさ</rt></ruby>する<ruby>対象<rt>たいしょう</rt></ruby>である「ブラウザの<ruby>世界<rt>せかい</rt></ruby>」を見てみましょう。</p>
+<hr>
+<h2 id="6-ブラウザ-オブジェクトとdomwebページとの対話たいわ"><a class="header" href="#6-ブラウザ-オブジェクトとdomwebページとの対話たいわ">6. ブラウザ オブジェクトとDOM：Webページとの<ruby>対話<rt>たいわ</rt></ruby></a></h2>
+<p>JavaScriptがWebページを<ruby>操作<rt>そうさ</rt></ruby>する<ruby>際<rt>さい</rt></ruby>、ブラウザ<ruby>全体<rt>ぜんたい</rt></ruby>を<ruby>管理<rt>かんり</rt></ruby>する「Window」を「<ruby>社長<rt>しゃちょう</rt></ruby>」、その<ruby>中<rt>なか</rt></ruby>にあるページの<ruby>内容<rt>ないよう</rt></ruby>「Document」を「<ruby>現場監督<rt>げんばかんとく</rt></ruby>」として<ruby>捉える<rt>とらえる</rt></ruby>と<ruby>体系的<rt>たいけいてき</rt></ruby>に<ruby>理解<rt>りかい</rt></ruby>できます。</p>
+<p><ruby>ブラウザ<rt>ぶらうざ</rt></ruby>とDOMに<ruby>関する<rt>かんする</rt></ruby><ruby>用語<rt>ようご</rt></ruby>まとめ</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th><ruby>用語<rt>ようご</rt></ruby></th><th>よみがな</th><th><ruby>意味<rt>いみ</rt></ruby></th></tr>
+</thead>
+<tbody>
+<tr><td>オブジェクト</td><td>おぶじぇくと</td><td><ruby>関連<rt>かんれん</rt></ruby>する「データ」と「<ruby>動作<rt>どうさ</rt></ruby>」をひとつにまとめた便利な<ruby>道具箱<rt>どうぐばこ</rt></ruby>。</td></tr>
+<tr><td>プロパティ</td><td>ぷろぱてぃ</td><td><ruby>オブジェクト<rt>おぶじぇくと</rt></ruby>の「<ruby>特徴<rt>とくちょう</rt></ruby>」や「<ruby>状態<rt>じょうたい</rt></ruby>」を<ruby>表<rt>あらわ</rt></ruby>すデータの<ruby>断片<rt>だんぺん</rt></ruby>。</td></tr>
+<tr><td>メソッド</td><td>めそっど</td><td><ruby>オブジェクト<rt>おぶじぇくと</rt></ruby>が<ruby>持<rt>も</rt></ruby>っている「<ruby>自分自身<rt>じぶんじしん</rt></ruby>を<ruby>動<rt>うご</rt></ruby>かすための<ruby>機能<rt>きのう</rt></ruby>」。</td></tr>
+<tr><td>BOM</td><td>びーおーえむ</td><td>ブラウザそのものの<ruby>機能<rt>きのう</rt></ruby>（アラートやURLの<ruby>移動<rt>いどう</rt></ruby>など）を<ruby>操作<rt>そうさ</rt></ruby>する仕組み。</td></tr>
+<tr><td>DOM</td><td>どむ</td><td>HTMLをプログラムから<ruby>操作<rt>そうさ</rt></ruby>し、<ruby>中身<rt>なかみ</rt></ruby>を<ruby>書<rt>か</rt></ruby>き<ruby>換<rt>か</rt></ruby>えるための仕組み。</td></tr>
+<tr><td>DOMツリー</td><td>どむつりー</td><td>HTMLの<ruby>階層構造<rt>かいそうこうぞう</rt></ruby>を「<ruby>木<rt>き</rt></ruby>」のような<ruby>親子関係<rt>おやこかんけい</rt></ruby>として<ruby>表現<rt>ひょうげん</rt></ruby>したもの。</td></tr>
+<tr><td>ノード</td><td>のーど</td><td>DOMツリーの<ruby>中<rt>なか</rt></ruby>にあるタグやテキストのひとつひとつの「<ruby>節<rt>ふし</rt></ruby>」。</td></tr>
+<tr><td>要素の取得</td><td>ようそのしゅとく</td><td>getElementById などを<ruby>使<rt>つか</rt></ruby>い、<ruby>木<rt>き</rt></ruby>の中から<ruby>標的<rt>ひょうてき</rt></ruby>となるパーツを<ruby>特定<rt>とくてい</rt></ruby>すること。</td></tr>
+</tbody>
+</table>
+</div>
+<p>プロの<ruby>視点<rt>してん</rt></ruby>：constとオブジェクトの<ruby>意外<rt>いがい</rt></ruby>な<ruby>関係<rt>かんけい</rt></ruby></p>
+<p>ここで<ruby>ひとつ<rt>ひとつ</rt></ruby>、<ruby>皆さん<rt>みなさん</rt></ruby>が<ruby>混乱<rt>こんらん</rt></ruby>しやすいところを<ruby>教えましょう<rt>おしえましょう</rt></ruby>。constで<ruby>宣言<rt>せんげん</rt></ruby>した「<ruby>箱<rt>はこ</rt></ruby>」そのものは<ruby>別<rt>べつ</rt></ruby>の<ruby>箱<rt>はこ</rt></ruby>に<ruby>取り替える<rt>とりかえる</rt></ruby>（<ruby>再代入<rt>さいだいにゅう</rt></ruby>する）ことはできません。しかし、<ruby>中身<rt>なかみ</rt></ruby>がオブジェクトであれば、<ruby>箱<rt>はこ</rt></ruby>の<ruby>蓋<rt>ふた</rt></ruby>を<ruby>開けて<rt>あけて</rt></ruby>「<ruby>中<rt>なか</rt></ruby>のデータ（プロパティ）」を<ruby>書き換える<rt>かきかえる</rt></ruby>ことは<ruby>可能<rt>かのう</rt></ruby>です。この「<ruby>名札<rt>なふだ</rt></ruby>は<ruby>固定<rt>こてい</rt></ruby>されているが、<ruby>中身<rt>なかみ</rt></ruby>は<ruby>変えられる<rt>かえられる</rt></ruby>」という<ruby>性質<rt>せいしつ</rt></ruby>は、<ruby>大規模<rt>だいきぼ</rt></ruby>な<ruby>開発<rt>かいはつ</rt></ruby>で<ruby>非常に<rt>ひじょうに</rt></ruby>よく<ruby>使われます<rt>つかわれます</rt></ruby>。</p>
+<p><ruby>次<rt>つぎ</rt></ruby>へ：<ruby>操作対象<rt>そうさたいしょう</rt></ruby>が<ruby>見つかったら<rt>みつかったら</rt></ruby>、<ruby>次<rt>つぎ</rt></ruby>はユーザーの<ruby>動き<rt>うごき</rt></ruby>に<ruby>反応<rt>はんのう</rt></ruby>するための「<ruby>仕掛け<rt>しかけ</rt></ruby>」について<ruby>理解<rt>りかい</rt></ruby>を<ruby>深める<rt>ふかめる</rt></ruby>。</p>
+<hr>
+<h2 id="7-イベントいべんとと非同期処理ひどうきしょりユーザー操作そうさへの反応はんのう"><a class="header" href="#7-イベントいべんとと非同期処理ひどうきしょりユーザー操作そうさへの反応はんのう">7. <ruby>イベント<rt>いべんと</rt></ruby>と<ruby>非同期処理<rt>ひどうきしょり</rt></ruby>：ユーザー<ruby>操作<rt>そうさ</rt></ruby>への<ruby>反応<rt>はんのう</rt></ruby></a></h2>
+<p>Webページ<ruby>上<rt>じょう</rt></ruby>で<ruby>起こる<rt>おこる</rt></ruby>「クリック」や「<ruby>入力<rt>にゅうりょく</rt></ruby>」などの<ruby>出来事<rt>できごと</rt></ruby>はすべて「<ruby>事件<rt>じけん</rt></ruby>（イベント）」です。これに<ruby>対して<rt>たいして</rt></ruby>「<ruby>予約<rt>よやく</rt></ruby>（リスナー）」をしておくことで、ユーザー<ruby>体験<rt>たいけん</rt></ruby>（UX）を<ruby>劇的<rt>げきてき</rt></ruby>に<ruby>向上<rt>こうじょう</rt></ruby>させることができます。</p>
+<p><ruby>イベント<rt>いべんと</rt></ruby>と<ruby>対話<rt>たいわ</rt></ruby>に<ruby>関する<rt>かんする</rt></ruby><ruby>用語<rt>ようご</rt></ruby>まとめ</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th><ruby>用語<rt>ようご</rt></ruby></th><th>よみがな</th><th><ruby>意味<rt>いみ</rt></ruby></th></tr>
+</thead>
+<tbody>
+<tr><td>イベント</td><td>いべんと</td><td>クリックや<ruby>画面<rt>がめん</rt></ruby>の<ruby>読<rt>よ</rt></ruby>み<ruby>込<rt>こ</rt></ruby>みなど、<ruby>発生<rt>はっせい</rt></ruby>した「<ruby>出来事<rt>できごと</rt></ruby>」そのもの。</td></tr>
+<tr><td>イベントリスナー</td><td>いべんとりすなー</td><td>特定のイベントが<ruby>起<rt>お</rt></ruby>きるのを「<ruby>耳<rt>みみ</rt></ruby>をすませて<ruby>待<rt>ま</rt></ruby>つ」ための<ruby>監視予約<rt>かんしよやく</rt></ruby>。</td></tr>
+<tr><td>イベントオブジェクト</td><td>いべんとおぶじぇくと</td><td>「いつ・どこで・誰が」その<ruby>事件<rt>じけん</rt></ruby>を<ruby>起<rt>お</rt></ruby>こしたかの<ruby>詳細<rt>しょうさい</rt></ruby>が<ruby>詰<rt>つ</rt></ruby>まった<ruby>報告書<rt>報告書</rt></ruby>。</td></tr>
+<tr><td>タイマー</td><td>たいまー</td><td>「○<ruby>秒後<rt>びょうご</rt></ruby>に<ruby>実行<rt>じっこう</rt></ruby>」など、プログラムの<ruby>動<rt>うご</rt></ruby>く「<ruby>時間<rt>じかん</rt></ruby>」を<ruby>操<rt>あやつ</rt></ruby>るための<ruby>道具<rt>どうぐ</rt></ruby>。</td></tr>
+<tr><td>クッキー（Cookie）</td><td>くっきー</td><td>ユーザーがページを<ruby>離<rt>はな</rt></ruby>れても<ruby>情報<rt>じょうほう</rt></ruby>を<ruby>維持<rt>いじ</rt></ruby>するための、ブラウザの「<ruby>覚<rt>おぼ</rt></ruby>え<ruby>書<rt>が</rt></ruby>き」。</td></tr>
+</tbody>
+</table>
+</div>
+<p>addEventListener の<ruby>戦略的<rt>せんりゃくてき</rt></ruby><ruby>優位性<rt>ゆういせい</rt></ruby></p>
+<p>かつての<ruby>古い<rt>ふるい</rt></ruby><ruby>手法<rt>しゅほう</rt></ruby>（onclick<ruby>属性<rt>ぞくせい</rt></ruby>など）は、<ruby>ひとつ<rt>ひとつ</rt></ruby>の<ruby>要素<rt>ようそ</rt></ruby>に<ruby>ひとつ<rt>ひとつ</rt></ruby>の<ruby>役割<rt>やくわり</rt></ruby>しか<ruby>持たせられません<rt>もたせられません</rt></ruby>でした。しかし<ruby>現代<rt>げんだい</rt></ruby>のaddEventListenerは、<ruby>ひとつ<rt>ひとつ</rt></ruby>のボタンに「<ruby>色<rt>いろ</rt></ruby>を<ruby>変える<rt>かえる</rt></ruby>」「データを<ruby>送る<rt>おくる</rt></ruby>」といった「<ruby>複数<rt>ふくすう</rt></ruby>の<ruby>予約<rt>よやく</rt></ruby>」を<ruby>重ねる<rt>かさねる</rt></ruby>ことができます。この<ruby>柔軟<rt>じゅうなん</rt></ruby>な<ruby>設計<rt>せっけい</rt></ruby>こそが、<ruby>複雑<rt>ふくざつ</rt></ruby>なWebアプリを<ruby>支えています<rt>ささえています</rt></ruby>。</p>
+<p><ruby>次<rt>つぎ</rt></ruby>へ：<ruby>最後<rt>さいご</rt></ruby>に、これまで<ruby>学んだ<rt>まなんだ</rt></ruby><ruby>概念<rt>がいねん</rt></ruby>をより<ruby>高度<rt>こうど</rt></ruby>に<ruby>扱う<rt>あつかう</rt></ruby>ための<ruby>応用<rt>おうよう</rt></ruby><ruby>用語<rt>ようご</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>する。</p>
+<hr>
+<h2 id="8-応用おうよう概念がいねんデータの高度こうどな加工かこうと正規表現せいきひょうげん"><a class="header" href="#8-応用おうよう概念がいねんデータの高度こうどな加工かこうと正規表現せいきひょうげん">8. <ruby>応用<rt>おうよう</rt></ruby><ruby>概念<rt>がいねん</rt></ruby>：データの<ruby>高度<rt>こうど</rt></ruby>な<ruby>加工<rt>かこう</rt></ruby>と<ruby>正規表現<rt>せいきひょうげん</rt></ruby></a></h2>
+<p>データを<ruby>思<rt>おも</rt></ruby>った<ruby>通<rt>とお</rt></ruby>りに<ruby>操る<rt>あやつる</rt></ruby>ためには、<ruby>複数<rt>ふくすう</rt></ruby>の<ruby>情報<rt>じょうほう</rt></ruby>を<ruby>並べる<rt>ならべる</rt></ruby>「<ruby>配列<rt>はいれつ</rt></ruby>」や、<ruby>情報<rt>じょうほう</rt></ruby>の<ruby>パターン<rt>ぱたーん</rt></ruby>を<ruby>瞬時<rt>しゅんじ</rt></ruby>に<ruby>見つける<rt>みつける</rt></ruby>「<ruby>正規表現<rt>せいきひょうげん</rt></ruby>」の<ruby>習得<rt>しゅうとく</rt></ruby>が<ruby>不可欠<rt>ふかけつ</rt></ruby>です。</p>
+<p><ruby>応用<rt>おうよう</rt></ruby><ruby>用語<rt>ようご</rt></ruby>まとめ</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th><ruby>用語<rt>ようご</rt></ruby></th><th>よみがな</th><th><ruby>意味<rt>いみ</rt></ruby></th></tr>
+</thead>
+<tbody>
+<tr><td>配列</td><td>はいれつ</td><td>複数のデータを<ruby>順番<rt>じゅんばん</rt></ruby>に<ruby>並<rt>なら</rt></ruby>べて<ruby>一括管理<rt>いっかつかんり</rt></ruby>するための「リスト」。</td></tr>
+<tr><td>インデックス</td><td>いんでっくす</td><td><ruby>配列<rt>はいれつ</rt></ruby>のデータの<ruby>位置<rt>いち</rt></ruby>を<ruby>示<rt>しめ</rt></ruby>す<ruby>番号<rt>ばんごう</rt></ruby>。プロの世界では必ず「0」から<ruby>始<rt>はじ</rt></ruby>まる。</td></tr>
+<tr><td>連想配列</td><td>れんそうはいれつ</td><td><ruby>番号<rt>ばんごう</rt></ruby>ではなく「<ruby>名前<rt>なまえ</rt></ruby>」でデータを<ruby>管理<rt>かんり</rt></ruby>するオブジェクトの<ruby>形態<rt>けいたい</rt></ruby>。</td></tr>
+<tr><td>正規表現（RegExp）</td><td>せいきひょうげん</td><td><ruby>特定<rt>とくてい</rt></ruby>の<ruby>文字<rt>もじ</rt></ruby>ではなく「<ruby>文字<rt>もじ</rt></ruby>の<ruby>並<rt>なら</rt></ruby>びのルール」を<ruby>指定<rt>してい</rt></ruby>する<ruby>高度<rt>こうど</rt></ruby>な<ruby>検索法<rt>けんさくほう</rt></ruby>。</td></tr>
+<tr><td>インスタンス</td><td>いんすたんす</td><td><ruby>設計図<rt>せっけいず</rt></ruby>から<ruby>生成<rt>せいせい</rt></ruby>された、<ruby>実際<rt>じっさい</rt></ruby>にメモリの<ruby>上<rt>うえ</rt></ruby>に<ruby>存在<rt>そんざい</rt></ruby>する「<ruby>実物<rt>じつぶつ</rt></ruby>」。</td></tr>
+</tbody>
+</table>
+</div>
+<p><ruby>総括<rt>そうかつ</rt></ruby>：<ruby>正規表現<rt>せいきひょうげん</rt></ruby>という「ガードマン」</p>
+<p><ruby>入力<rt>にゅうりょく</rt></ruby>チェック（バリデーション）において、<ruby>正規表現<rt>せいきひょうげん</rt></ruby>は<ruby>強力<rt>きょうりょく</rt></ruby>な「ガードマン」として<ruby>機能<rt>きのう</rt></ruby>します。<ruby>特に<rt>とくに</rt></ruby><ruby>留学生<rt>りゅうがくせい</rt></ruby>の<ruby>皆さん<rt>みなさん</rt></ruby>が<ruby>開発<rt>かいはつ</rt></ruby>する<ruby>多言語対応<rt>たげんごたいおう</rt></ruby>アプリでは、<ruby>全角<rt>ぜんかく</rt></ruby>・<ruby>半角<rt>はんかく</rt></ruby>の<ruby>混在<rt>こんざい</rt></ruby>やメールアドレスの<ruby>形式<rt>けいしき</rt></ruby>チェックなど、<ruby>人間<rt>にんげん</rt></ruby>では<ruby>見落としがち<rt>みおとしがち</rt></ruby>なミスを<ruby>瞬時<rt>しゅんじ</rt></ruby>に<ruby>排除<rt>はいじょ</rt></ruby>します。これがシステムの<ruby>信頼性<rt>しんらいせい</rt></ruby>を<ruby>守る<rt>まもる</rt></ruby><ruby>最後<rt>さいご</rt></ruby>の<ruby>砦<rt>とりで</rt></ruby>となるのです。</p>
+<p><ruby>結び<rt>むすび</rt></ruby>の<ruby>言葉<rt>ことば</rt></ruby></p>
+<p><ruby>本<rt>ほん</rt></ruby>ガイドで<ruby>紹介<rt>しょうかい</rt></ruby>した<ruby>用語<rt>ようご</rt></ruby>は、<ruby>世界中<rt>せかいじゅう</rt></ruby>のエンジニアが<ruby>会話<rt>かいわ</rt></ruby>で<ruby>使う<rt>つかう</rt></ruby>「<ruby>共通言語<rt>きょうつうげんご</rt></ruby>」です。<ruby>ひとつ<rt>ひとつ</rt></ruby><ruby>ひとつ<rt>ひとつ</rt></ruby>の<ruby>言葉<rt>ことば</rt></ruby>を<ruby>自分<rt>じぶん</rt></ruby>の<ruby>血肉<rt>けつにく</rt></ruby>とすることで、<ruby>初めて<rt>はじめて</rt></ruby>プロの<ruby>入り口<rt>いりぐち</rt></ruby>に<ruby>立つ<rt>たつ</rt></ruby>ことができます。<ruby>学び<rt>まなび</rt></ruby>の<ruby>途中<rt>とちゅう</rt></ruby>でエラーに<ruby>遭遇<rt>そうぐう</rt></ruby>しても<ruby>恐れないで<rt>おそれないで</rt></ruby>ください。それはあなたが<ruby>成長<rt>せいちょう</rt></ruby>している<ruby>証拠<rt>しょうこ</rt></ruby>です。<ruby>皆さん<rt>みなさん</rt></ruby>のエンジニアとしての<ruby>輝かしい<rt>かがやかしい</rt></ruby><ruby>未来<rt>みらい</rt></ruby>を、<ruby>心から<rt>こころから</rt></ruby><ruby>応援<rt>おうえん</rt></ruby>しています！</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="08_00_補足資料.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="08_02_日本語キーボードの記号.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="08_00_補足資料.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="08_02_日本語キーボードの記号.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="src/assets/fzf-17e59c4c.umd.js"></script>
+        <script src="src/assets/elasticlunr-04fe11a0.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

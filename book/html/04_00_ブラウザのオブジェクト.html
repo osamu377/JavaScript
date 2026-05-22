@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>ブラウザのオブジェクト - 留学生のためのJavaScript学習ガイド</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-1bf24a4c.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-a10e83d1.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">留学生のためのJavaScript学習ガイド</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="ブラウザのオブジェクト"><a class="header" href="#ブラウザのオブジェクト">ブラウザのオブジェクト</a></h1>
+<p><strong><ruby>初心者<rt>しょしんしゃ</rt></ruby>のためのJavaScript：ブラウザを動かす「オブジェクト」の<ruby>仕組<rt>しく</rt></ruby>み</strong></p>
+<p>みなさん、こんにちは！IT専門学校（せんもんがっこう）でプログラミングを教えているシニア講師（こうし）です。<ruby>留学生<rt>りゅうがくせい</rt></ruby>のみなさんも、これからJavaScriptを使ってウェブサイトに「<ruby>動<rt>うご</rt></ruby>き」をつける方法を楽しく学んでいきましょう。</p>
+<p>プログラミングは難（むずか）しく見えますが、実は <strong>「ブラウザという家」の中にある「道具（どうぐ）」の使い方</strong>を覚（おぼ）えるだけなんです。今日は、その道具である「オブジェクト」について、プロの<ruby>視点<rt>してん</rt></ruby>（してん）からやさしく<ruby>解説<rt>かいせつ</rt></ruby>します。</p>
+<h2 id="i-javascriptは誰が何をするかを指示するマニュアル"><a class="header" href="#i-javascriptは誰が何をするかを指示するマニュアル">I. JavaScriptは「誰が」「何をするか」を指示するマニュアル</a></h2>
+<p>ここでもう一度、最初に説明したイメージを思い出してください。</p>
+<ul>
+<li><strong>ウェブページの中には、たくさんのオブジェクトと呼ばれるものがいて、JavaScriptを使って、彼らに命令すれば、仕事をしてくれるらしい</strong></li>
+</ul>
+<p>JavaScriptは「誰が」「何をするか」を指示するマニュアルです。</p>
+<p>マニュアルですから、「みんなで協力して、これをやりなさい」とぼんやりした命令をするのではなく、「Aさんはこれをして」「Bさんはあれをして」と一人ひとりの作業を正確に、細かく書く必要があります。そうしないと、みんなが同じ仕事をしようとしたり、大事な仕事を誰もしなかったり、ということが起こります。</p>
+<p>ここでは、 <strong>「誰が」（つまり、どのオブジェクトが）その作業をするのか</strong> を、間違いなく伝えるために、 <strong>JavaScriptがどのようにそのオブジェクトを見つけるのか</strong> 、その方法を説明します。</p>
+<h3 id="1-bomdomツリーはブラウザが作った地図"><a class="header" href="#1-bomdomツリーはブラウザが作った地図">1. BOM/DOMツリーは「ブラウザが作った地図」</a></h3>
+<p>われわれが「これをしなさい」と命令する相手は、オブジェクトと呼ばれる、ウェブページのいろいろな部品です。その部品とは、たとえば、ひとまとまりの文である『<ruby>段落<rt>だんらく</rt></ruby><code>&lt;p&gt;</code>』であり、『見出し<code>&lt;h1&gt;</code>』であり、あなたが文字を<ruby>入力<rt>にゅうりょく</rt></ruby>する『<ruby>入力<rt>にゅうりょく</rt></ruby>ボックス<code>&lt;input&gt;</code>』であり、あなたがクリックする『ボタン』です。これらは <strong>「ツリー構造（木の枝のような形）」</strong> で整理されています。</p>
+<p>ブラウザは、HTMLファイルを受け取ると、中身を読み取って、その指示に従って <strong>オブジェクト</strong> たちを作り、それらをコンピュータが扱いやすい <strong>「木（Tree）」</strong> の形に並べ替えます。これを <strong>DOM（Document Object Model）ツリー</strong> と呼びます。</p>
+<p>またブラウザ自身も自分の持っている機能をツリーの形で整理しています。これを <strong>BOM（Browser Object Model）</strong> と呼びます。</p>
+<p><strong>ブラウザ世界の構造</strong></p>
+<p>一番上のボスは window オブジェクト です。</p>
+<ul>
+<li>window (ブラウザ全体)
+<ul>
+<li>location (URLの情報)</li>
+<li>document (ウェブページの内容)
+<ul>
+<li>html
+<ul>
+<li>body (ページの<ruby>本文<rt>ほんぶん</rt></ruby>)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-ツリーの家族かぞく関係"><a class="header" href="#2-ツリーの家族かぞく関係">2. ツリーの「家族（かぞく）」関係</a></h3>
+<p>DOMツリーの中では、それぞれの要素（Element）を <strong>「ノード（Node）」</strong> と呼び、家族のような名前で関係を表します。</p>
+<ul>
+<li><strong>Document（ルート）：</strong> 木の「一番下の<ruby>根<rt>ね</rt></ruby>っこ」または「一番上の先祖」。すべての始まりです。</li>
+<li><strong>Parent（親）：</strong> ある要素を包んでいる<ruby>外側<rt>そとがわ</rt></ruby>のタグ。</li>
+<li><strong>Child（子）：</strong> タグの中に入っている<ruby>内側<rt>うちがわ</rt></ruby>のタグ。</li>
+<li><strong>Sibling（兄弟）：</strong> 同じ親の中に並んでいるタグ<ruby>同士<rt>どうし</rt></ruby>。</li>
+</ul>
+<h3 id="3-javascriptの仕事地図をたどって操作する"><a class="header" href="#3-javascriptの仕事地図をたどって操作する">3. JavaScriptの仕事：地図をたどって操作する</a></h3>
+<p>JavaScriptはこの「地図」を使って、オブジェクトの場所を探し出し、<ruby>命令<rt>めいれい</rt></ruby>を出します。</p>
+<ol>
+<li><strong>見つける（Select）</strong>
+「IDが ‘btn’ のボタン（子）を探して！」</li>
+<li><strong>変える（Change）</strong>
+「そのボタンの色を赤くして！」</li>
+<li><strong>作る・消す（Create / Delete）</strong>
+「新しいリストを1つ増やして、古いのは消して！」</li>
+</ol>
+<h3 id="4-留学生へのアドバイスなぜツリーと呼ぶの"><a class="header" href="#4-留学生へのアドバイスなぜツリーと呼ぶの">4. 留学生へのアドバイス：なぜ「ツリー」と呼ぶの？</a></h3>
+<blockquote>
+<p>「HTMLのコードはただのテキストだけど、ブラウザの中では <strong>『生きている木』</strong> のように<ruby>枝分<rt>えだわ</rt></ruby>かれしているんだ。
+枝（えだ）の先にある<ruby>葉<rt>は</rt></ruby>っぱ（文字や<ruby>画像<rt>がぞう</rt></ruby>）を動かしたいときは、<ruby>幹<rt>かみき</rt></ruby>から順番にたどっていくイメージを持つと、プログラミングがすごく分かりやすくなるよ！」</p>
+</blockquote>
+<h3 id="まとめテーブル"><a class="header" href="#まとめテーブル">まとめテーブル</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>言葉</th><th>意味</th><th>役割</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Document</strong></td><td>木の全体</td><td>JavaScriptが操作する入り口</td></tr>
+<tr><td><strong>Node（ノード）</strong></td><td>木の節（ふし）</td><td>タグやテキストのひとつひとつ</td></tr>
+<tr><td><strong>Element（要素）</strong></td><td>タグそのもの</td><td>具体的なパーツ（<code>&lt;div&gt;</code>, <code>&lt;h1&gt;</code>など）</td></tr>
+</tbody>
+</table>
+</div>
+<p>まずは、この家の「家主（やぬし）」であり、すべてを管理（かんり）している「Windowオブジェクト」から見ていきましょう。</p>
+<hr>
+<h2 id="ii-すべての基点きてんwindowオブジェクト"><a class="header" href="#ii-すべての基点きてんwindowオブジェクト">II. すべての<ruby>基点<rt>きてん</rt></ruby>：Windowオブジェクト</a></h2>
+<p>ブラウザのタブを開（ひら）いたとき、その<ruby>画面<rt>がめん</rt></ruby>全体（がめんぜんたい）を管理しているのがWindow（ウィンドウ）オブジェクトです。これはJavaScriptの世界（せかい）の「王様（おうさま）」です。</p>
+<ul>
+<li><ruby>階層<rt>かいそう</rt></ruby>（かいそう：重なりの順番）のイメージ： Windowオブジェクトはすべての「ルート（<ruby>根<rt>ね</rt></ruby>っこ）」です。Windowという大きな箱（はこ）の中に、この後説明するDocument（書類）やLocation（場所）など、すべての道具が入っています。</li>
+<li>王様のインパクト： もし王様（Window）がいなくなると、その国（タブ）にあるすべてのデータや書類（Document）も消えてしまいます。タブを閉じるとページの情報が消えるのはそのためです。</li>
+<li>Windowの便利な機能（きのう）： alert() や prompt() などがあります。
+<ul>
+<li>alert(“こんにちは！”)：<ruby>画面<rt>がめん</rt></ruby>にメッセージを出す「<ruby>拡声器<rt>かくせいき</rt></ruby>（かくせいき：大きな声を出す機械）」のようなものです。</li>
+<li>prompt(“お名前は？”)：ユーザーに文字を<ruby>入力<rt>にゅうりょく</rt></ruby>してもらう「アンケート用紙」のような役割（やくわり）です。</li>
+</ul>
+</li>
+</ul>
+<p>次は、王様が持っている大切な「書類」、つまりページの中身を指す「Document」についてお<ruby>話<rt>はなし</rt></ruby>しします。</p>
+<hr>
+<h2 id="iii-ウェブページを操あやつるdomとdocumentオブジェクト"><a class="header" href="#iii-ウェブページを操あやつるdomとdocumentオブジェクト">III. ウェブページを<ruby>操<rt>あやつ</rt></ruby>る：DOMとDocumentオブジェクト</a></h2>
+<p>ウェブページに<ruby>表示<rt>ひょうじ</rt></ruby>されている文字や<ruby>画像<rt>がぞう</rt></ruby>そのものを操作（そうさ）するのがDocument（ドキュメント）オブジェクトです。</p>
+<p>ここで大切なのが <strong>DOM（Document Object Model）です。HTMLの<ruby>構造<rt>こうぞう</rt></ruby>は、<ruby>枝分<rt>えだわ</rt></ruby>かれした「木（ツリー）」</strong> のような<ruby>親子<rt>おやこ</rt></ruby>関係（おやこかんけい）になっています。これを「DOMツリー」と呼びます。</p>
+<p>DOMツリーの中から、操作したい「特定のパーツ」を見つけることを、プログラミングでは <strong>「要素の<ruby>取得<rt>しゅとく</rt></ruby>（しゅとく）」</strong> や <strong>「セレクタ」</strong> と呼びます。</p>
+<p>留学生の方には、<strong>「たくさんの家が並んでいる街の中から、特定の家を<ruby>探<rt>さが</rt></ruby>し<ruby>出<rt>だ</rt></ruby>す方法」</strong> だと教えてあげてください。住所（ID）で探す方法もあれば、家の色（クラス）で探す方法もあります。</p>
+<hr>
+<h3 id="1-よく使う4つの探し方"><a class="header" href="#1-よく使う4つの探し方">1. よく使う4つの「探し方」</a></h3>
+<p>JavaScriptには、目的のオブジェクトを見つけるための代表的な命令が4つあります。</p>
+<h4 id="①-getelementbyid一番確実な住所"><a class="header" href="#①-getelementbyid一番確実な住所"><strong>① <code>getElementById</code>（一番確実な「住所」）</strong></a></h4>
+<p>世界にひとつしかない「ID（アイディー）」を使って探します。</p>
+<ul>
+<li><strong>イメージ：</strong> 「東京都○○区…」という<strong>絶対的な住所</strong>で家を特定する。</li>
+<li><strong>特徴：</strong> 一番スピードが速くて正確です。</li>
+</ul>
+<h4 id="②-getelementsbyclassname同じグループ"><a class="header" href="#②-getelementsbyclassname同じグループ"><strong>② <code>getElementsByClassName</code>（同じ「グループ」）</strong></a></h4>
+<p>同じ「クラス名」がついているものを、<strong>まとめて全部</strong>探します。</p>
+<ul>
+<li><strong>イメージ：</strong> 「赤い屋根の家を全部集めて！」とお願いする。</li>
+<li><strong>特徴：</strong> 複数の要素が「リスト（<ruby>配列<rt>はいれつ</rt></ruby>のような形）」で返ってきます。</li>
+</ul>
+<h4 id="③-getelementsbytagname種類で探す"><a class="header" href="#③-getelementsbytagname種類で探す"><strong>③ <code>getElementsByTagName</code>（「種類」で探す）</strong></a></h4>
+<p><code>&lt;div&gt;</code> や <code>&lt;li&gt;</code> など、タグの種類で探します。</p>
+<ul>
+<li><strong>イメージ：</strong> 「この街にある『コンビニ』を全部探して！」</li>
+</ul>
+<h4 id="④-queryselector--queryselectorall最強さいきょうの万能ばんのうメガネ"><a class="header" href="#④-queryselector--queryselectorall最強さいきょうの万能ばんのうメガネ"><strong>④ <code>querySelector</code> / <code>querySelectorAll</code>（<ruby>最強<rt>さいきょう</rt></ruby>の「<ruby>万能<rt>ばんのう</rt></ruby>メガネ」）</strong></a></h4>
+<p>CSSのセレクタ（<code>.class</code> や <code>#id</code>）を使って探します。最近のプログラミングで最もよく使われます。</p>
+<ul>
+<li><strong>イメージ：</strong> 「2番目の角にある、青いドアの家を探して」という複雑な指定ができます。</li>
+</ul>
+<hr>
+<h3 id="2-実際に動かしてみよう"><a class="header" href="#2-実際に動かしてみよう">2. 実際に動かしてみよう！</a></h3>
+<p>留学生に、コードの<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>の違いを見せてあげましょう。</p>
+<pre><code class="language-javascript">// 1. IDで探す（1つだけ見つかる）
+const title = document.getElementById("main-title");
+title.style.color = "red";
+
+// 2. クラスで探す（たくさん見つかるので、[0]のように番号を指定する）
+const items = document.getElementsByClassName("menu-item");
+items[0].textContent = "最初のメニュー";
+
+// 3. 万能（ばんのう）な探し方（CSSと同じ書（か）き方（かた））
+const firstLink = document.querySelector("nav a"); // navの中の最初のaタグ
+
+</code></pre>
+<hr>
+<h3 id="3-留学生へのアドバイスhtmlcollection-に注意"><a class="header" href="#3-留学生へのアドバイスhtmlcollection-に注意">3. 留学生へのアドバイス：HTMLCollection に注意！</a></h3>
+<p><ruby>初心者<rt>しょしんしゃ</rt></ruby>がよくハマるポイントを、優しく教えてあげてください。</p>
+<blockquote>
+<p>「<code>getElementsByClassName</code> や <code>querySelectorAll</code> を使ったときは、**『1人』ではなく『グループ（リスト）』**が返ってくるんだ。
+だから、1人だけに命令したいときは、<code>items[0]</code> のように <strong>『0番目の人！』</strong> と番号で呼んであげてね。これを忘れると、命令が届かないから気をつけて！」</p>
+</blockquote>
+<hr>
+<h3 id="まとめテーブル-1"><a class="header" href="#まとめテーブル-1">まとめテーブル</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>命令（メソッド）</th><th>探し方</th><th>見つかる数</th><th>おすすめ度</th></tr>
+</thead>
+<tbody>
+<tr><td><strong><code>getElementById</code></strong></td><td>ID名</td><td>1つ</td><td>⭐⭐⭐</td></tr>
+<tr><td><strong><code>querySelector</code></strong></td><td>CSS形式</td><td>1つ（最初）</td><td>⭐⭐⭐</td></tr>
+<tr><td><strong><code>querySelectorAll</code></strong></td><td>CSS形式</td><td>全部</td><td>⭐⭐</td></tr>
+<tr><td><strong><code>getElementsByClassName</code></strong></td><td>クラス名</td><td>全部</td><td>⭐</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="iv-まとめオブジェクトを自由に操あやつるために"><a class="header" href="#iv-まとめオブジェクトを自由に操あやつるために">IV. まとめ：オブジェクトを自由に<ruby>操<rt>あやつ</rt></ruby>るために</a></h2>
+<p>お疲れ様（おつかれさま）でした！今回学んだオブジェクトたちは、バラバラではなく、みんなで協力（きょうりょく）してひとつのページを動かしています。</p>
+<p>いかがでしょうか？「どうやって特定のパーツを指名するか」が分かれば、DOM操作の半分はマスターしたも同然です！</p>
+<p>ターゲットが見つかったら、次は具体的にその「部品」をどう動かすかを見ていきましょう。</p>
+<p><strong>学習（がくしゅう）のアドバイス：</strong></p>
+<ol>
+<li>まずは「Window」の alert で遊ぶ。</li>
+<li>次に「Document」で文字を<ruby>書<rt>か</rt></ruby>き<ruby>換<rt>かえ</rt></ruby>える。</li>
+<li>そして「Event」でユーザーの<ruby>動<rt>うご</rt></ruby>きに<ruby>反応<rt>はんのう</rt></ruby>させる。</li>
+</ol>
+<p>このステップで進めば、きっと上達（じょうたつ）します。エラーが出ても大丈夫、それは成長（せいちょう）のチャンスです。</p>
+<p>みなさんのプログラミング学習を、心（こころ）から応援（おうえん）しています！</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="03_04_関数.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="04_01_オブジェクトの中を見てみよう.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="03_04_関数.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="04_01_オブジェクトの中を見てみよう.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="src/assets/fzf-17e59c4c.umd.js"></script>
+        <script src="src/assets/elasticlunr-04fe11a0.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>れんしゅうフォーム</title>
+    <style>
+        /* 少し見やすくするためのデザイン */
+        body { font-family: sans-serif; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+    <h2>📝 プロフィール登録（とうろく）</h2>
+
+    <form action="#" method="post">
+
+        <div class="form-group">
+            <label>お名前（おなまえ）：</label>
+            <input type="text" name="username" placeholder="例：Yamada Taro">
+        </div>
+
+        <div class="form-group">
+            <label>パスワード：</label>
+            <input type="password" name="userpass">
+        </div>
+
+        <div class="form-group">
+            <label>性別（せいべつ）：</label>
+            <input type="radio" name="gender" value="male" id="m"> <label for="m" style="display:inline;">男</label>
+            <input type="radio" name="gender" value="female" id="f"> <label for="f" style="display:inline;">女</label>
+        </div>
+
+        <div class="form-group">
+            <label>好きな日本料理（にほんりょうり）：</label>
+            <input type="checkbox" name="food" value="sushi"> 寿司 🍣
+            <input type="checkbox" name="food" value="ramen"> ラーメン 🍜
+            <input type="checkbox" name="food" value="curry"> カレー 🍛
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="データを送る（おくる）">
+        </div>
+
+    </form>
+
+    <a href="javascript:history.back();">戻る</a>
+</body>
+</html>
